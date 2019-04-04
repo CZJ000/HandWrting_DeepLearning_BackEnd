@@ -189,7 +189,7 @@ for ( i = 0; i <=K-4; i+=4) {
 
    cout<<"c1 temp:"<<endl;
      float temp[4];
-   vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta));
+   vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
     for(i=0;i<4;i++)
     {
       cout<<temp[i]<<" ";
