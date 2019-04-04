@@ -171,9 +171,9 @@ for ( i = 0; i <=K-4; i+=4) {
     //   cout<<temp[i]<<" ";
     // }
     // cout<<endl;
-    // vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
-    // vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
-    // vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
+     vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
+     vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
+     vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
 
     // }  
    
