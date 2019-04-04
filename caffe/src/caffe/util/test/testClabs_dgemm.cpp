@@ -76,16 +76,16 @@ int main(const int argc, const char* argv[]) {
   // timing
   int i;
   _TIMING_START_
-  for (i = 0; i < TEST_NTIMES; ++i) {
+  for (i = 0; i < 100; ++i) {
     matrix_mul_vector_neon(M, N, matrix_data, vector_data, result_data_1);
   }
-  _TIMING_STOP_(TEST_NTIMES)
+  _TIMING_STOP_(100)
  
 
   
    _TIMING_START_
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, A, K, B, N, 0, C, N);
-   _TIMING_STOP_(TEST_NTIMES)
+   _TIMING_STOP_(100)
     // for(int i=0;i<M;i++)
     // {
     //    for(int j=0;j<N;j++)
