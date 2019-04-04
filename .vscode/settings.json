@@ -2,6 +2,8 @@
     "files.associations": {
         "xiosbase": "cpp",
         "xlocale": "cpp",
-        "xmemory0": "cpp"
+        "xmemory0": "cpp",
+        "vector": "cpp",
+        "ostream": "cpp"
     }
 }

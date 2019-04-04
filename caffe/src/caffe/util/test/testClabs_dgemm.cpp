@@ -15,7 +15,7 @@ using namespace std;
 
 #define TEST_NTIMES 100;
 
-
+void matrix_mul_vector_neon();
 
 // int main() {
 //     const int M=4;
@@ -105,7 +105,7 @@ void matrix_mul_vector_neon(
      const float *A, 
      const float *B, 
      const float beta,    
-     float *C) {
+      float *C) {
   int i, j;
 //  for (i = 0; i < m; ++i) {
 //    float32x4_t v0 = vdupq_n_f32(0.f);
@@ -141,10 +141,17 @@ for ( i = 0; i < K-4; i+=4) {
 
     }  
      // C M*N
-    vst1q_f32(C+j*N+i,vaddq_f32(vmulq_f32(vc0, alpha), vmulq_f32(vld1q_f32(C+j*N+i), beta)));
-    vst1q_f32(C+(j+1)*N+i,vaddq_f32(vmulq_f32(vc1, alpha), vmulq_f32(vld1q_f32(C+(j+1)*N+i), beta)));
-    vst1q_f32(C+(j+2)*N+i,vaddq_f32(vmulq_f32(vc2, alpha), vmulq_f32(vld1q_f32(C+(j+2)*N+i), beta)));
-    vst1q_f32(C+(j+3)*N+i,vaddq_f32(vmulq_f32(vc3, alpha), vmulq_f32(vld1q_f32(C+(j+3)*N+i), beta)));
+    float32x4_t c0 =vld1q_f32(C+j*N+i);
+    float32x4_t c1 = vld1q_f32(C+(j+1)*N+i);
+    float32x4_t c2 = vld1q_f32(C+(j+2)*N+i);
+    float32x4_t c3 =vld1q_f32(C+(j+3)*N+i);
+
+
+
+    vst1q_f32(C+j*N+i,vaddq_f32(vmulq_f32(vc0, alpha), vmulq_f32(c0, beta)));
+    vst1q_f32(C+(j+1)*N+i,vaddq_f32(vmulq_f32(vc1, alpha), vmulq_f32(c1, beta)));
+    vst1q_f32(C+(j+2)*N+i,vaddq_f32(vmulq_f32(vc2, alpha), vmulq_f32(c2, beta)));
+    vst1q_f32(C+(j+3)*N+i,vaddq_f32(vmulq_f32(vc3, alpha), vmulq_f32(c3, beta)));
   
 }
 
