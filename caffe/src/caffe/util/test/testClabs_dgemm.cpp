@@ -66,7 +66,7 @@ int main(const int argc, const char* argv[]) {
   random_init_data(M * N, matrix_C_data);
 
 float* c= (float*)malloc(M * N * sizeof(float));
-
+  int i,j;
 for (i = 0; i < M * N; ++i) {
    c[i]=matrix_C_data[i];
   }
@@ -81,7 +81,7 @@ for (i = 0; i < M * N; ++i) {
 //   constant_init_data(M, result_data_5);
 
   // timing
-  int i;
+
   _TIMING_START_
   for (i = 0; i < 100; ++i) {
     matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,c);
@@ -89,9 +89,9 @@ for (i = 0; i < M * N; ++i) {
   _TIMING_STOP_(100)
  
 
-  for(int i=0;i<M;i++)
+  for( i=0;i<M;i++)
     {
-       for(int j=0;j<N;j++)
+       for( j=0;j<N;j++)
        {
            cout<<c[i*N+j]<<" ";
        }   
@@ -104,9 +104,9 @@ for (i = 0; i < M * N; ++i) {
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
    }
    _TIMING_STOP_(100)
-    for(int i=0;i<M;i++)
+    for( i=0;i<M;i++)
     {
-       for(int j=0;j<N;j++)
+       for( j=0;j<N;j++)
        {
            cout<<matrix_C_data[i*N+j]<<" ";
        }   
