@@ -88,7 +88,7 @@ int main(const int argc, const char* argv[]) {
     {
        for(int j=0;j<N;j++)
        {
-           cout<<C[i*N+j]<<" ";
+           cout<<matrix_C_data[i*N+j]<<" ";
        }   
        cout<<endl;
     }  
@@ -103,7 +103,7 @@ int main(const int argc, const char* argv[]) {
     {
        for(int j=0;j<N;j++)
        {
-           cout<<C[i*N+j]<<" ";
+           cout<<matrix_C_data[i*N+j]<<" ";
        }   
        cout<<endl;
     }  
