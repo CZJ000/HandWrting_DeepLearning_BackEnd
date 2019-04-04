@@ -90,7 +90,7 @@ for (i = 0; i < M * N; ++i) {
   _TIMING_START_
   for (i = 0; i < 1; ++i) {
    
-    matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,c);
+    matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
      
   }
   _TIMING_STOP_(1)
@@ -150,7 +150,7 @@ void matrix_mul_vector_neon(
 //    }
     
  float32x4_t valpha = vdupq_n_f32(alpha);
- float32x4_t vbeta  = vdupq_n_f32(alpha);
+ float32x4_t vbeta  = vdupq_n_f32(beta);
 float32x4_t vc0 = vdupq_n_f32(0.0f);
 float32x4_t vc1 = vdupq_n_f32(0.0f);
 float32x4_t vc2 = vdupq_n_f32(0.0f);
