@@ -25,7 +25,7 @@ static double _time_sum=0;
   double _time_used_ =                                           \
       1000.0 * (_timing_stop_.tv_sec - _timing_start_.tv_sec) +  \
       (_timing_stop_.tv_usec - _timing_start_.tv_usec) / 1000.0; \
-      _time_sum+=_time_used_   \
+      _time_sum+=_time_used_;   \
   //printf("Time Used: %f ms\n", _time_used_ / (ntimes));          
   }
   
