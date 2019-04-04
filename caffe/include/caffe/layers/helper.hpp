@@ -10,7 +10,7 @@
 
 namespace caffe {
 
-static double _time_sum=0;
+static double _time_sum;
 
 
 /// define start timing macro.
@@ -31,11 +31,7 @@ static double _time_sum=0;
   
   
 
-double get_helper_time_sum()
-{
-  return _time_sum;
-
-}
+double get_helper_time_sum();
 
 
 
