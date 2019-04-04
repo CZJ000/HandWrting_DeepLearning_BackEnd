@@ -121,8 +121,8 @@ void matrix_mul_vector_neon(
 //      result[i] += matrix[i * n + j] * vector[j];
 //    }
 
-// float32x4_t valpha = vdup(alpha);
-// float32x4_t vbeta  = vdup(beta);
+ float32x4_t valpha = vdupq_n_f32(0.0f);
+ float32x4_t vbeta  = vdupq_n_f32(0.0f);
 float32x4_t vc0 = vdupq_n_f32(0.0f);
 float32x4_t vc1 = vdupq_n_f32(0.0f);
 float32x4_t vc2 = vdupq_n_f32(0.0f);
@@ -148,10 +148,10 @@ for ( i = 0; i < K-4; i+=4) {
 
 
 
-    vst1q_f32(C+j*N+i,vaddq_f32(vmulq_f32(vc0, alpha), vmulq_f32(c0, beta)));
-    vst1q_f32(C+(j+1)*N+i,vaddq_f32(vmulq_f32(vc1, alpha), vmulq_f32(c1, beta)));
-    vst1q_f32(C+(j+2)*N+i,vaddq_f32(vmulq_f32(vc2, alpha), vmulq_f32(c2, beta)));
-    vst1q_f32(C+(j+3)*N+i,vaddq_f32(vmulq_f32(vc3, alpha), vmulq_f32(c3, beta)));
+    vst1q_f32(C+j*N+i,vaddq_f32(vmulq_f32(vc0, valpha), vmulq_f32(c0, vbeta)));
+    vst1q_f32(C+(j+1)*N+i,vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
+    vst1q_f32(C+(j+2)*N+i,vaddq_f32(vmulq_f32(vc2, valpha), vmulq_f32(c2, vbeta)));
+    vst1q_f32(C+(j+3)*N+i,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
   
 }
 
