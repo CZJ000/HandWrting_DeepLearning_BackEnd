@@ -91,7 +91,9 @@ int main(const int argc, const char* argv[]) {
 
   
    _TIMING_START_
+   for (i = 0; i < 100; ++i) {
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
+   }
    _TIMING_STOP_(100)
     // for(int i=0;i<M;i++)
     // {
