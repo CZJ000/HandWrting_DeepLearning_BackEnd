@@ -89,7 +89,9 @@ for (i = 0; i < M * N; ++i) {
 
   _TIMING_START_
   for (i = 0; i < 1; ++i) {
+    cout<<"before";
     matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,c);
+     cout<<"end";
   }
   _TIMING_STOP_(1)
  
@@ -146,7 +148,7 @@ void matrix_mul_vector_neon(
 //    for (; j < n; ++j) {
 //      result[i] += matrix[i * n + j] * vector[j];
 //    }
-
+     cout<<"enter";
  float32x4_t valpha = vdupq_n_f32(0.0f);
  float32x4_t vbeta  = vdupq_n_f32(0.0f);
 float32x4_t vc0 = vdupq_n_f32(0.0f);
