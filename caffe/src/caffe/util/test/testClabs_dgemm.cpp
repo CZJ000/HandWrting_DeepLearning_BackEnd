@@ -54,11 +54,6 @@ int main(const int argc, const char* argv[]) {
   float* matrix_B_data = (float*)malloc(K * N * sizeof(float));
 
   float* matrix_C_data = (float*)malloc(M * N * sizeof(float));
-
-
-
-
-
   //float* vector_data = (float*)malloc(N * sizeof(float));
 //   float* result_data_1 = (float*)malloc(M * sizeof(float));
 //   float* result_data_2 = (float*)malloc(M * sizeof(float));
@@ -89,20 +84,29 @@ int main(const int argc, const char* argv[]) {
   _TIMING_STOP_(100)
  
 
-  
+  for(int i=0;i<M;i++)
+    {
+       for(int j=0;j<N;j++)
+       {
+           cout<<C[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
+
+
    _TIMING_START_
    for (i = 0; i < 100; ++i) {
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
    }
    _TIMING_STOP_(100)
-    // for(int i=0;i<M;i++)
-    // {
-    //    for(int j=0;j<N;j++)
-    //    {
-    //        cout<<C[i*N+j]<<" ";
-    //    }   
-    //    cout<<endl;
-    // }  
+    for(int i=0;i<M;i++)
+    {
+       for(int j=0;j<N;j++)
+       {
+           cout<<C[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
 
 }
 
