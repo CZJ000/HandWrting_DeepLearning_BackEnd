@@ -162,7 +162,7 @@ for ( i = 0; i <=K-4; i+=4) {
               //B K*N bb 
     float32x4_t vb =vld1q_f32(B+j*N+i); // vget(&B[k][4]);   
     //vfmaq_f32 混合   c=a*b+c  
-    vc0=vfmaq_f32(vdupq_n_f32(A[i*K+j]), vb, vc0);  
+    vc0=vmlaq_f32( vc0,vdupq_n_f32(A[i*K+j]), vb);  
      cout<<"vc0 temp:"<<endl;
      float temp[4];
     vst1q_f32(temp, vc0);
@@ -171,9 +171,9 @@ for ( i = 0; i <=K-4; i+=4) {
       cout<<temp[i]<<" ";
     }
     cout<<endl;
-    vc1=vfmaq_f32(vdupq_n_f32(A[(i+1)*K+j]), vb, vc1);
-    vc2=vfmaq_f32(vdupq_n_f32(A[(i+2)*K+j]), vb, vc2);
-    vc3=vfmaq_f32(vdupq_n_f32(A[(i+3)*K+j]), vb, vc3);
+    vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
+    vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb );
+    vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
 
     }  
    
