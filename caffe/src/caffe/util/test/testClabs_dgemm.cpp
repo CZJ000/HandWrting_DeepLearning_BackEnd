@@ -82,14 +82,7 @@ for (i = 0; i < M * N; ++i) {
 
   // timing
 
-  _TIMING_START_
-  for (i = 0; i < 1; ++i) {
-    matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,c);
-  }
-  _TIMING_STOP_(1)
- 
-
-  for( i=0;i<M;i++)
+ for( i=0;i<M;i++)
     {
        for( j=0;j<N;j++)
        {
@@ -98,13 +91,7 @@ for (i = 0; i < M * N; ++i) {
        cout<<endl;
     }  
 
-
-   _TIMING_START_
-   for (i = 0; i < 1; ++i) {
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
-   }
-   _TIMING_STOP_(1)
-    for( i=0;i<M;i++)
+   for( i=0;i<M;i++)
     {
        for( j=0;j<N;j++)
        {
@@ -112,6 +99,22 @@ for (i = 0; i < M * N; ++i) {
        }   
        cout<<endl;
     }  
+
+  _TIMING_START_
+  for (i = 0; i < 1; ++i) {
+    matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,c);
+  }
+  _TIMING_STOP_(1)
+ 
+
+ 
+
+   _TIMING_START_
+   for (i = 0; i < 1; ++i) {
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
+   }
+   _TIMING_STOP_(1)
+ 
 
 }
 
