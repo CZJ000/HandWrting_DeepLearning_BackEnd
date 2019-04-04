@@ -52,9 +52,9 @@ int main(const int argc, const char* argv[]) {
   // malloc matrix and vector
   //float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
 
-  float matrix_A_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4}
-float matrix_B_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4}
-float matrix_C_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4}
+  float matrix_A_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
+float matrix_B_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
+float matrix_C_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
  // float* matrix_B_data = (float*)malloc(K * N * sizeof(float));
 
  // float* matrix_C_data = (float*)malloc(M * N * sizeof(float));
