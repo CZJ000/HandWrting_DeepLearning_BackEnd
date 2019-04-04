@@ -165,7 +165,7 @@ for ( i = 0; i <=K-4; i+=4) {
     vc0=vmlaq_f32( vc0,vdupq_n_f32(A[i*K+j]), vb);  
     //  cout<<"vc0 temp:"<<endl;
     //  float temp[4];
-    vst1q_f32(temp, vc0);
+   // vst1q_f32(temp, vc0);
     // for(i=0;i<4;i++)
     // {
     //   cout<<temp[i]<<" ";
