@@ -175,7 +175,7 @@ for ( i = 0; i <=K-4; i+=4) {
      vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
      vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
 
-    // }  
+     }  
    
      // C M*N
     float32x4_t c0 =vld1q_f32(C+j*N+i);
