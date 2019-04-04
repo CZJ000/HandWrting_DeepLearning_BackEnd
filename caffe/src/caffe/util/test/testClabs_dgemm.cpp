@@ -156,11 +156,10 @@ float32x4_t vc1 = vdupq_n_f32(0.0f);
 float32x4_t vc2 = vdupq_n_f32(0.0f);
 float32x4_t vc3 = vdupq_n_f32(0.0f);
  
-for ( i = 0; i < K-4; i+=4) {
-  cout<<"1111"<<endl;
+for ( i = 0; i <=K-4; i+=4) {
+ 
     for ( j= 0; j < K; j++) {
-       cout<<"22222"<<endl;
-        //B K*N
+              //B K*N
     float32x4_t vb =vld1q_f32(B+j*N+i); // vget(&B[k][4]);   
     //vfmaq_f32 混合   c=a*b+c  
     vc0=vfmaq_f32(vld1q_f32(A+i*K+j), vb, vc0);  
