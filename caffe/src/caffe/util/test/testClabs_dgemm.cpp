@@ -77,14 +77,14 @@ int main(const int argc, const char* argv[]) {
   int i;
   _TIMING_START_
   for (i = 0; i < 100; ++i) {
-    matrix_mul_vector_neon( M, N, K, 1, A,B,0,C);
+    matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,matrix_C_data);
   }
   _TIMING_STOP_(100)
  
 
   
    _TIMING_START_
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, A, K, B, N, 0, C, N);
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
    _TIMING_STOP_(100)
     // for(int i=0;i<M;i++)
     // {
