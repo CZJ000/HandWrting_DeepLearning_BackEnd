@@ -65,6 +65,11 @@ int main(const int argc, const char* argv[]) {
   random_init_data(K * N, matrix_B_data);
   random_init_data(M * N, matrix_C_data);
 
+float* c= (float*)malloc(M * N * sizeof(float));
+
+for (i = 0; i < M * N; ++i) {
+   c[i]=matrix_C_data[i];
+  }
 
 
   //random_init_data(N, vector_data);
@@ -79,7 +84,7 @@ int main(const int argc, const char* argv[]) {
   int i;
   _TIMING_START_
   for (i = 0; i < 100; ++i) {
-    matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,matrix_C_data);
+    matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,c);
   }
   _TIMING_STOP_(100)
  
@@ -88,7 +93,7 @@ int main(const int argc, const char* argv[]) {
     {
        for(int j=0;j<N;j++)
        {
-           cout<<matrix_C_data[i*N+j]<<" ";
+           cout<<c[i*N+j]<<" ";
        }   
        cout<<endl;
     }  
