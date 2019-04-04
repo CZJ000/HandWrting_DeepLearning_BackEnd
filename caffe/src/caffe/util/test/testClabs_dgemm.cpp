@@ -15,7 +15,14 @@ using namespace std;
 
 #define TEST_NTIMES 100;
 
-void matrix_mul_vector_neon();
+void matrix_mul_vector_neon(onst int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
+      float *C);
 
 // int main() {
 //     const int M=4;
