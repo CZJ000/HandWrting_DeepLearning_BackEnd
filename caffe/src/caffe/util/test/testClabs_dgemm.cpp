@@ -77,7 +77,7 @@ int main(const int argc, const char* argv[]) {
   int i;
   _TIMING_START_
   for (i = 0; i < 100; ++i) {
-    matrix_mul_vector_neon(M, N, matrix_data, vector_data, result_data_1);
+    matrix_mul_vector_neon( M, N, K, 1, A,B,0,C);
   }
   _TIMING_STOP_(100)
  
@@ -97,8 +97,7 @@ int main(const int argc, const char* argv[]) {
 
 }
 
-void matrix_mul_vector_neon(const CBLAS_TRANSPOSE TransA, 
-     const CBLAS_TRANSPOSE TransB, 
+void matrix_mul_vector_neon( 
      const int M, 
      const int N,
      const int K,   
