@@ -9,7 +9,7 @@
 #include "caffe/util/hdf5.hpp"
 #include "caffe/util/io.hpp"
 #include "caffe/util/upgrade_proto.hpp"
-
+#include "caffe/layers/helper.hpp"
 namespace caffe {
 
 template<typename Dtype>
@@ -281,6 +281,8 @@ void Solver<Dtype>::Step(int iters) {
       break;
     }
   }
+
+
 }
 
 template <typename Dtype>

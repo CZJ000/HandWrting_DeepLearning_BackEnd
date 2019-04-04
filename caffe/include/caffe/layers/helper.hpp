@@ -8,6 +8,11 @@
 #include <sys/time.h>
 #include <time.h>
 
+
+
+static double _time_sum=0;
+
+
 /// define start timing macro.
 #define _TIMING_START_                            \
   {                                               \
@@ -20,8 +25,18 @@
   double _time_used_ =                                           \
       1000.0 * (_timing_stop_.tv_sec - _timing_start_.tv_sec) +  \
       (_timing_stop_.tv_usec - _timing_start_.tv_usec) / 1000.0; \
-  printf("Time Used: %f ms\n", _time_used_ / (ntimes));          \
+      _time_sum+=_time_used_   \
+  //printf("Time Used: %f ms\n", _time_used_ / (ntimes));          \
   }
+
+
+double get_time_sum()
+{
+  return _time_sum;
+
+}
+
+
 
 /// random init data
 template <typename T>

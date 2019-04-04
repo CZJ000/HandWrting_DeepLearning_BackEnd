@@ -10,6 +10,7 @@
 #include "caffe/layer_factory.hpp"
 #include "caffe/proto/caffe.pb.h"
 #include "caffe/util/math_functions.hpp"
+#include "caffe/layers/helper.hpp"
 
 /**
  Forward declare boost::thread instead of including boost/thread.hpp
@@ -416,7 +417,13 @@ inline Dtype Layer<Dtype>::Forward(const vector<Blob<Dtype>*>& bottom,
   Reshape(bottom, top);
   switch (Caffe::mode()) {
   case Caffe::CPU:
+  
+   if(type()=="Convolution")
+   _TIMING_START_
     Forward_cpu(bottom, top);
+      if(type()=="Convolution")
+   _TIMING_STOP_(1)
+
     for (int top_id = 0; top_id < top.size(); ++top_id) {
       if (!this->loss(top_id)) { continue; }
       const int count = top[top_id]->count();
