@@ -8,7 +8,7 @@
 #include <sys/time.h>
 #include <time.h>
 
-
+namespace caffe {
 
 static double _time_sum=0;
 
@@ -31,7 +31,7 @@ static double _time_sum=0;
   
   
 
-double get_time_sum()
+double get_helper_time_sum()
 {
   return _time_sum;
 
@@ -94,4 +94,5 @@ void check_result(const int num, const T *data1, const T *data2) {
       min_diff, max_diff, ave_diff, max_loss);
 }
 
+}
 #endif  // HELPER_HPP_

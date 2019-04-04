@@ -281,7 +281,7 @@ void Solver<Dtype>::Step(int iters) {
       break;
     }
   }
-  get_time_sum();
+  caffe::get_helper_time_sum();
 
 
 }
