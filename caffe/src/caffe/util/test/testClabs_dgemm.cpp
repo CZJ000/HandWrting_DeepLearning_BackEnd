@@ -178,24 +178,27 @@ for ( i = 0; i <=K-4; i+=4) {
      }  
    
      // C M*N
-    float32x4_t c0 =vld1q_f32(C+j*N+i);
-    float32x4_t c1 = vld1q_f32(C+(j+1)*N+i);
-    float32x4_t c2 = vld1q_f32(C+(j+2)*N+i);
-    float32x4_t c3 =vld1q_f32(C+(j+3)*N+i);
+    float32x4_t c0 =vld1q_f32(C+i*N);
+    float32x4_t c1 = vld1q_f32(C+(i+1)*N);
+    float32x4_t c2 = vld1q_f32(C+(i+2)*N);
+    float32x4_t c3 =vld1q_f32(C+(i+3)*N);
 
-     cout<<"c0 temp:"<<endl;
-     float temp[4];
-   vst1q_f32(temp, vaddq_f32(vmulq_f32(vc0, valpha), vmulq_f32(c0, vbeta)));
+  
+
+    vst1q_f32(C+i*N,vaddq_f32(vmulq_f32(vc0, valpha), vmulq_f32(c0, vbeta)));
+
+   cout<<"c0 temp:"<<endl;
+    // float temp[4];
+  // vst1q_f32(temp, vaddq_f32(vmulq_f32(vc0, valpha), vmulq_f32(c0, vbeta)));
     for(i=0;i<4;i++)
     {
-      cout<<temp[i]<<" ";
+      cout<<C[i]<<" ";
     }
     cout<<endl;
 
-    vst1q_f32(C+j*N+i,vaddq_f32(vmulq_f32(vc0, valpha), vmulq_f32(c0, vbeta)));
-    vst1q_f32(C+(j+1)*N+i,vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-    vst1q_f32(C+(j+2)*N+i,vaddq_f32(vmulq_f32(vc2, valpha), vmulq_f32(c2, vbeta)));
-    vst1q_f32(C+(j+3)*N+i,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
+    vst1q_f32(C+(i+1)*N,vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
+    vst1q_f32(C+(i+2)*N,vaddq_f32(vmulq_f32(vc2, valpha), vmulq_f32(c2, vbeta)));
+    vst1q_f32(C+(i+3)*N,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
   
 }
 
