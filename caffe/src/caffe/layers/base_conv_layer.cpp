@@ -275,16 +275,16 @@ void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
   }
   for (int g = 0; g < group_; ++g) {
 
-	 LOG_IF(INFO, Caffe::root_solver()) <<"group "<<g<<"begin forward gemm";
-      _TIMING_START_
+	//  LOG_IF(INFO, Caffe::root_solver()) <<"group "<<g<<"begin forward gemm";
+  //     _TIMING_START_
 
     caffe_cpu_gemm<Dtype>(CblasNoTrans, CblasNoTrans, conv_out_channels_ /
         group_, conv_out_spatial_dim_, kernel_dim_,
         (Dtype)1., weights + weight_offset_ * g, col_buff + col_offset_ * g,
         (Dtype)0., output + output_offset_ * g);
 	
-	 LOG_IF(INFO, Caffe::root_solver())<<"end forward gemm";
-        _TIMING_STOP_(1)
+	//  LOG_IF(INFO, Caffe::root_solver())<<"end forward gemm";
+  //       _TIMING_STOP_(1)
   }
 }
 
