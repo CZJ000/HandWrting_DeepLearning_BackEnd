@@ -134,17 +134,17 @@ for ( i = 0; i < K-4; i+=4) {
         //B K*N
     float32x4_t vb =vld1q_f32(B+j*N+i); // vget(&B[k][4]);   
     //vfmaq_f32 混合   c=a*b+c  
-    vfmaq_f32(vc0, vld1q_f32(A+i*K+j), vb, vc0);  
-    vfmaq_f32(vc1, vld1q_f32(A+(i+1)*K+j), vb, vc1);
-    vfmaq_f32(vc2, vld1q_f32(A+(i+2)*K+j), vb, vc2);
-    vfmaq_f32(vc3, vld1q_f32(A+(i+3)*K+j), vb, vc3);
+    vc0=vfmaq_f32(vld1q_f32(A+i*K+j), vb, vc0);  
+    vc1=vfmaq_f32(vld1q_f32(A+(i+1)*K+j), vb, vc1);
+    vc2=vfmaq_f32(vld1q_f32(A+(i+2)*K+j), vb, vc2);
+    vc3=vfmaq_f32(vld1q_f32(A+(i+3)*K+j), vb, vc3);
 
     }  
      // C M*N
-    vst1q_f32(C+j*N+i,vaddq_f32(vmul(vc0, alpha), vmulq_f32(vld1q_f32(C+j*N+i), beta)));
-    vst1q_f32(C+(j+1)*N+i,vaddq_f32(vmul(vc1, alpha), vmulq_f32(vld1q_f32(C+(j+1)*N+i), beta)));
-    vst1q_f32(C+(j+2)*N+i,vaddq_f32(vmul(vc2, alpha), vmulq_f32(vld1q_f32(C+(j+2)*N+i), beta)));
-    vst1q_f32(C+(j+3)*N+i,vaddq_f32(vmul(vc3, alpha), vmulq_f32(vld1q_f32(C+(j+3)*N+i), beta)));
+    vst1q_f32(C+j*N+i,vaddq_f32(vmulq_f32(vc0, alpha), vmulq_f32(vld1q_f32(C+j*N+i), beta)));
+    vst1q_f32(C+(j+1)*N+i,vaddq_f32(vmulq_f32(vc1, alpha), vmulq_f32(vld1q_f32(C+(j+1)*N+i), beta)));
+    vst1q_f32(C+(j+2)*N+i,vaddq_f32(vmulq_f32(vc2, alpha), vmulq_f32(vld1q_f32(C+(j+2)*N+i), beta)));
+    vst1q_f32(C+(j+3)*N+i,vaddq_f32(vmulq_f32(vc3, alpha), vmulq_f32(vld1q_f32(C+(j+3)*N+i), beta)));
   
 }
 
