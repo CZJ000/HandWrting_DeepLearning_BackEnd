@@ -10,7 +10,7 @@
 #include <string.h>
 #include <arm_neon.h>	
 #include "helper.hpp"
-
+#include  <cblas.h>
 using namespace std;
 
 #define TEST_NTIMES 100;
