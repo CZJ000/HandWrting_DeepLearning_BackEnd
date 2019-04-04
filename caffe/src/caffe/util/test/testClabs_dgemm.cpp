@@ -172,7 +172,7 @@ for ( i = 0; i < K-4; i+=4) {
     float32x4_t c2 = vld1q_f32(C+(j+2)*N+i);
     float32x4_t c3 =vld1q_f32(C+(j+3)*N+i);
 
-    float* temp[4];
+    float temp[4];
     vst1q_f32(temp, vc0);
     cout<<"temp:"<<endl;
     for(i=0;i<4;i++)
