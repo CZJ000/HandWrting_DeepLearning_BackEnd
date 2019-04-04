@@ -89,9 +89,9 @@ for (i = 0; i < M * N; ++i) {
 
   _TIMING_START_
   for (i = 0; i < 1; ++i) {
-    cout<<"before";
+   
     matrix_mul_vector_neon( M, N, K, 1, matrix_A_data,matrix_B_data,0,c);
-     cout<<"end";
+     
   }
   _TIMING_STOP_(1)
  
@@ -148,7 +148,7 @@ void matrix_mul_vector_neon(
 //    for (; j < n; ++j) {
 //      result[i] += matrix[i * n + j] * vector[j];
 //    }
-     cout<<"enter";
+    
  float32x4_t valpha = vdupq_n_f32(0.0f);
  float32x4_t vbeta  = vdupq_n_f32(0.0f);
 float32x4_t vc0 = vdupq_n_f32(0.0f);
@@ -157,8 +157,9 @@ float32x4_t vc2 = vdupq_n_f32(0.0f);
 float32x4_t vc3 = vdupq_n_f32(0.0f);
  
 for ( i = 0; i < K-4; i+=4) {
-  
+  cout<<"1111"<<endl;
     for ( j= 0; j < K; j++) {
+       cout<<"22222"<<endl;
         //B K*N
     float32x4_t vb =vld1q_f32(B+j*N+i); // vget(&B[k][4]);   
     //vfmaq_f32 混合   c=a*b+c  
@@ -168,6 +169,7 @@ for ( i = 0; i < K-4; i+=4) {
     vc3=vfmaq_f32(vld1q_f32(A+(i+3)*K+j), vb, vc3);
 
     }  
+    cout<<"temp:"<<endl;
      // C M*N
     float32x4_t c0 =vld1q_f32(C+j*N+i);
     float32x4_t c1 = vld1q_f32(C+(j+1)*N+i);
@@ -176,7 +178,10 @@ for ( i = 0; i < K-4; i+=4) {
 
     float temp[4];
     vst1q_f32(temp, vc0);
-    cout<<"temp:"<<endl;
+
+    
+
+
     for(i=0;i<4;i++)
     {
       cout<<temp[i]<<" ";
