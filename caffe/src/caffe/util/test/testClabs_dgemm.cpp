@@ -82,9 +82,9 @@ int main(const int argc, const char* argv[]) {
   _TIMING_STOP_(TEST_NTIMES)
  
 
-
+  
    _TIMING_START_
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, alpha, A, lda, B, ldb, beta, C, ldc);
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, A, K, B, N, 0, C, N);
    _TIMING_STOP_(TEST_NTIMES)
     // for(int i=0;i<M;i++)
     // {
