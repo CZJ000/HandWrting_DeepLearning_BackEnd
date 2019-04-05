@@ -31,8 +31,8 @@ void random_init_data(const int num, T *data, const int min = -0,
   srand((unsigned int)ct);
   int i_part, f_part;
   for (int i = 0; i < num; ++i) {
-    i_part = (int)(rand() % (max - min) + min);
-    f_part = (int)rand() / RAND_MAX;
+    i_part = (T)(rand() % (max - min) + min);
+    f_part = (T)rand() / RAND_MAX;
     data[i] = i_part + f_part;
   }
 }
