@@ -4,6 +4,13 @@
         "xlocale": "cpp",
         "xmemory0": "cpp",
         "vector": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "queue": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp"
     }
 }
