@@ -156,12 +156,14 @@ float32x4_t vc1 = vdupq_n_f32(0.0f);
 float32x4_t vc2 = vdupq_n_f32(0.0f);
 float32x4_t vc3 = vdupq_n_f32(0.0f);
  
-for ( i = 0; i <=M-4; i+=4) {
+for ( i = 0; i <=M-4; i+=4) 
+  {
 
 
    for(e=0;e<=N-4;e+=4)
   {
-    for ( j= 0; j < K; j++) {
+    for ( j= 0; j < K; j++) 
+    {
                   //B K*N bb 
         float32x4_t vb =vld1q_f32(B+j*N+e); // vget(&B[k][4]);   
         //vfmaq_f32 混合   c=a*b+c  
@@ -177,7 +179,7 @@ for ( i = 0; i <=M-4; i+=4) {
         vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
         vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
         vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
-        }  
+    }  
         // C M*N
         float32x4_t c0 =vld1q_f32(C+i*N+e);
         float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
@@ -196,10 +198,10 @@ for ( i = 0; i <=M-4; i+=4) {
         vst1q_f32(C+(i+2)*N+e,vaddq_f32(vmulq_f32(vc2, valpha), vmulq_f32(c2, vbeta)));
         vst1q_f32(C+(i+3)*N+e,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
       
-    }
+  }
     if(e<N)
     {
-            int p=0,l,q;
+        int p=0,l,q;
         for(l=0;l<4;l++)
         {
           for(q=e;q<N;q++)
@@ -213,8 +215,6 @@ for ( i = 0; i <=M-4; i+=4) {
           }     
         } 
     }
-    
-
   }
 
  int p=0;
