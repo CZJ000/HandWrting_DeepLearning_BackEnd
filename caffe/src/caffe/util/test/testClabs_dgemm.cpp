@@ -197,17 +197,17 @@ for ( i = 0; i <=M-4; i+=4) {
         vst1q_f32(C+(i+3)*N+e,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
       
     }
-    int p=0,l;
+    int p=0,l,q;
     for(l=0;l<4;l++)
     {
-      for(;e<N;e++)
+      for(q=e;q<N;q++)
       {
         float sum=0;
         for(p=0;p<K;p++)
         {
-            sum+=A[(i+l)*K+p]*B[p*N+e];
+            sum+=A[(i+l)*K+p]*B[p*N+q];
         }
-        C[(i+l)*N+e]=sum;
+        C[(i+l)*N+q]=sum;
       }     
     } 
 
