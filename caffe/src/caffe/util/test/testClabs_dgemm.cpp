@@ -50,14 +50,14 @@ int main(const int argc, const char* argv[]) {
   const int N = atoi(argv[2]);
 
   // malloc matrix and vector
-  //float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
+  float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
 
-  float matrix_A_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
-float matrix_B_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
-float matrix_C_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
- // float* matrix_B_data = (float*)malloc(K * N * sizeof(float));
+//   float matrix_A_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
+// float matrix_B_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
+// float matrix_C_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
+  float* matrix_B_data = (float*)malloc(K * N * sizeof(float));
 
- // float* matrix_C_data = (float*)malloc(M * N * sizeof(float));
+  float* matrix_C_data = (float*)malloc(M * N * sizeof(float));
   //float* vector_data = (float*)malloc(N * sizeof(float));
 //   float* result_data_1 = (float*)malloc(M * sizeof(float));
 //   float* result_data_2 = (float*)malloc(M * sizeof(float));
@@ -65,9 +65,9 @@ float matrix_C_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
 //   float* result_data_4 = (float*)malloc(M * sizeof(float));
 //   float* result_data_5 = (float*)malloc(M * sizeof(float));
   // init matrix and vector data
- // random_init_data(M * K, matrix_A_data);
- // random_init_data(K * N, matrix_B_data);
-  //random_init_data(M * N, matrix_C_data);
+  random_init_data(M * K, matrix_A_data);
+  random_init_data(K * N, matrix_B_data);
+  random_init_data(M * N, matrix_C_data);
 
 float* c= (float*)malloc(M * N * sizeof(float));
   int i,j;
@@ -134,7 +134,7 @@ void matrix_mul_vector_neon(
      const float *B, 
      const float beta,    
       float *C) {
-  int i, j;
+  int i, j,e;
 //  for (i = 0; i < m; ++i) {
 //    float32x4_t v0 = vdupq_n_f32(0.f);
 //    for (j = 0; j < n - 4; j += 4) {
@@ -156,56 +156,77 @@ float32x4_t vc1 = vdupq_n_f32(0.0f);
 float32x4_t vc2 = vdupq_n_f32(0.0f);
 float32x4_t vc3 = vdupq_n_f32(0.0f);
  
-for ( i = 0; i <=K-4; i+=4) {
- 
+for ( i = 0; i <=M-4; i+=4) {
+
+
+   for(e=0;e<=N-4;e+=4)
+  {
     for ( j= 0; j < K; j++) {
-              //B K*N bb 
-    float32x4_t vb =vld1q_f32(B+j*N+i); // vget(&B[k][4]);   
-    //vfmaq_f32 混合   c=a*b+c  
-    vc0=vmlaq_f32( vc0,vdupq_n_f32(A[i*K+j]), vb);  
-    //  cout<<"vc0 temp:"<<endl;
-    //  float temp[4];
-   // vst1q_f32(temp, vc0);
-    // for(i=0;i<4;i++)
-    // {
-    //   cout<<temp[i]<<" ";
-    // }
-    // cout<<endl;
-     vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
-     vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
-     vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
+                  //B K*N bb 
+        float32x4_t vb =vld1q_f32(B+j*N+e); // vget(&B[k][4]);   
+        //vfmaq_f32 混合   c=a*b+c  
+        vc0=vmlaq_f32( vc0,vdupq_n_f32(A[i*K+j]), vb);  
+        //  cout<<"vc0 temp:"<<endl;
+        //  float temp[4];
+      // vst1q_f32(temp, vc0);
+        // for(i=0;i<4;i++)
+        // {
+        //   cout<<temp[i]<<" ";
+        // }
+        // cout<<endl;
+        vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
+        vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
+        vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
+        }  
+        // C M*N
+        float32x4_t c0 =vld1q_f32(C+i*N+e);
+        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
+        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
+        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
+        vst1q_f32(C+i*N+e,vaddq_f32(vmulq_f32(vc0, valpha), vmulq_f32(c0, vbeta)));
+      // cout<<"c1 temp:"<<endl;
+      //  float temp[4];
+      //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
+        vst1q_f32(C+(i+1)*N+e,vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
+      // for(i=0;i<4;i++)
+      //   {
+      //     cout<<C[i]<<" ";
+      //   }
+      //   cout<<endl;
+        vst1q_f32(C+(i+2)*N+e,vaddq_f32(vmulq_f32(vc2, valpha), vmulq_f32(c2, vbeta)));
+        vst1q_f32(C+(i+3)*N+e,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
+      
+    }
+    int p=0,l;
+    for(l=0;l<4;l++)
+    {
+      for(;e<N;e++)
+      {
+        float sum=0;
+        for(p=0;p<K;p++)
+        {
+            sum+=A[(i+l)*K+p]*B[p*N+e];
+        }
+        C[(i+l)*N+e]=sum;
+      }     
+    } 
 
-     }  
-   
-     // C M*N
-    float32x4_t c0 =vld1q_f32(C+i*N);
-    float32x4_t c1 = vld1q_f32(C+(i+1)*N);
-    float32x4_t c2 = vld1q_f32(C+(i+2)*N);
-    float32x4_t c3 =vld1q_f32(C+(i+3)*N);
+  }
 
-  
+ int p=0;
+  for(;i<M;i++)
+  {
+    for(e=0;e<N;e++)
+    {
+      float sum=0;
+        for(p=0;p<K;p++)
+        {
+          sum+=A[i*K+p]*B[p*N+e];
 
-    vst1q_f32(C+i*N,vaddq_f32(vmulq_f32(vc0, valpha), vmulq_f32(c0, vbeta)));
-
-  // cout<<"c1 temp:"<<endl;
-   //  float temp[4];
-   //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-   
-
-    vst1q_f32(C+(i+1)*N,vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-
-  // for(i=0;i<4;i++)
-  //   {
-  //     cout<<C[i]<<" ";
-  //   }
-  //   cout<<endl;
-
-    vst1q_f32(C+(i+2)*N,vaddq_f32(vmulq_f32(vc2, valpha), vmulq_f32(c2, vbeta)));
-    vst1q_f32(C+(i+3)*N,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
-  
-}
-
-
+        }
+        C[i*N+e]=sum;
+    }
+  }
 }
 
 
