@@ -75,7 +75,7 @@ for (i = 0; i < M * N; ++i) {
    c[i]=matrix_C_data[i];
   }
 
-
+//
   //random_init_data(N, vector_data);
 
 //   constant_init_data(M, result_data_1);
