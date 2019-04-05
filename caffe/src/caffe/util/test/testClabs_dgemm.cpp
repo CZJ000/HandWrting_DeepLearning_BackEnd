@@ -85,37 +85,37 @@ for (i = 0; i < M * N; ++i) {
 //   constant_init_data(M, result_data_5);
 
   // timing
-cout<<"before A"<<endl;
+// cout<<"before A"<<endl;
 
- for( i=0;i<M;i++)
-    {
-       for( j=0;j<N;j++)
-       {
-           cout<<matrix_A_data[i*N+j]<<" ";
-       }   
-       cout<<endl;
-    }  
+//  for( i=0;i<M;i++)
+//     {
+//        for( j=0;j<N;j++)
+//        {
+//            cout<<matrix_A_data[i*N+j]<<" ";
+//        }   
+//        cout<<endl;
+//     }  
  
-cout<<"before B"<<endl;
+// cout<<"before B"<<endl;
 
- for( i=0;i<M;i++)
-    {
-       for( j=0;j<N;j++)
-       {
-           cout<<matrix_B_data[i*N+j]<<" ";
-       }   
-       cout<<endl;
-    }  
+//  for( i=0;i<M;i++)
+//     {
+//        for( j=0;j<N;j++)
+//        {
+//            cout<<matrix_B_data[i*N+j]<<" ";
+//        }   
+//        cout<<endl;
+//     }  
  
 
 
   _TIMING_START_
-  for (i = 0; i < 1; ++i) {
+  for (i = 0; i < 20; ++i) {
    
     matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
      
   }
-  _TIMING_STOP_(1)
+  _TIMING_STOP_(20)
  
 
  for( i=0;i<M;i++)
@@ -129,19 +129,19 @@ cout<<"before B"<<endl;
  
 
    _TIMING_START_
-   for (i = 0; i < 1; ++i) {
+   for (i = 0; i < 20; ++i) {
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
    }
-   _TIMING_STOP_(1)
+   _TIMING_STOP_(20)
    
-   for( i=0;i<M;i++)
-    {
-       for( j=0;j<N;j++)
-       {
-           cout<<matrix_C_data[i*N+j]<<" ";
-       }   
-       cout<<endl;
-    }  
+  //  for( i=0;i<M;i++)
+  //   {
+  //      for( j=0;j<N;j++)
+  //      {
+  //          cout<<matrix_C_data[i*N+j]<<" ";
+  //      }   
+  //      cout<<endl;
+  //   }  
 
  
 
