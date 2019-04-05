@@ -156,10 +156,10 @@ float32x4_t vc1 = vdupq_n_f32(0.0f);
 float32x4_t vc2 = vdupq_n_f32(0.0f);
 float32x4_t vc3 = vdupq_n_f32(0.0f);
  
-for ( i = 0; i <M-4; i+=4) {
+for ( i = 0; i <=M-4; i+=4) {
 
 
-   for(e=0;e<N-4;e+=4)
+   for(e=0;e<=N-4;e+=4)
   {
     for ( j= 0; j < K; j++) {
                   //B K*N bb 
@@ -197,19 +197,23 @@ for ( i = 0; i <M-4; i+=4) {
         vst1q_f32(C+(i+3)*N+e,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
       
     }
-    int p=0,l,q;
-    for(l=0;l<4;l++)
+    if(e<N)
     {
-      for(q=e;q<N;q++)
-      {
-        float sum=0;
-        for(p=0;p<K;p++)
+            int p=0,l,q;
+        for(l=0;l<4;l++)
         {
-            sum+=A[(i+l)*K+p]*B[p*N+q];
-        }
-        C[(i+l)*N+q]=sum;
-      }     
-    } 
+          for(q=e;q<N;q++)
+          {
+            float sum=0;
+            for(p=0;p<K;p++)
+            {
+                sum+=A[(i+l)*K+p]*B[p*N+q];
+            }
+            C[(i+l)*N+q]=sum;
+          }     
+        } 
+    }
+    
 
   }
 
