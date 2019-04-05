@@ -144,14 +144,14 @@ for (i = 0; i < M * N; ++i) {
 
  
 
- for( i=0;i<M;i++)
-    {
-       for( j=0;j<N;j++)
-       {
-           cout<<c[i*N+j]<<" ";
-       }   
-       cout<<endl;
-    }  
+//  for( i=0;i<M;i++)
+//     {
+//        for( j=0;j<N;j++)
+//        {
+//            cout<<c[i*N+j]<<" ";
+//        }   
+//        cout<<endl;
+//     }  
  
 
    _TIMING_START_
@@ -181,14 +181,14 @@ for (i = 0; i < M * N; ++i) {
    _TIMING_STOP_(1)
    
    
-   for( i=0;i<M;i++)
-    {
-       for( j=0;j<N;j++)
-       {
-           cout<<matrix_C_data[i*N+j]<<" ";
-       }   
-       cout<<endl;
-    }  
+  //  for( i=0;i<M;i++)
+  //   {
+  //      for( j=0;j<N;j++)
+  //      {
+  //          cout<<matrix_C_data[i*N+j]<<" ";
+  //      }   
+  //      cout<<endl;
+  //   }  
 
  
 
