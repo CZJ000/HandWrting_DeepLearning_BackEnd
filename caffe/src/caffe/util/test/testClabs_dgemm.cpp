@@ -41,7 +41,7 @@ void matrix_mul_vector_neon(const int M,
 
 int main(const int argc, const char* argv[]) {
   if (argc != 4) {
-    printf("Usage: %s M K N\n", argv[0]);
+    printf("Usage: %s M  N K\n", argv[0]);
     printf( "M*K,   K* N  ,  M* N\n");
     return 0;
   }
