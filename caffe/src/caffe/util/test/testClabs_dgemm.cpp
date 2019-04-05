@@ -24,6 +24,15 @@ void matrix_mul_vector_neon(const int M,
      const float beta,    
       float *C);
 
+void matrix_normal(const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
+      float *C);
+
 // int main() {
 //     const int M=4;
 //     const int N=2;
@@ -70,9 +79,15 @@ int main(const int argc, const char* argv[]) {
   random_init_data(M * N, matrix_C_data);
 
 float* c= (float*)malloc(M * N * sizeof(float));
+
+float* c1= (float*)malloc(M * N * sizeof(float));
   int i,j;
 for (i = 0; i < M * N; ++i) {
    c[i]=matrix_C_data[i];
+  }
+
+  for (i = 0; i < M * N; ++i) {
+   c1[i]=matrix_C_data[i];
   }
 
 //
@@ -118,40 +133,24 @@ for (i = 0; i < M * N; ++i) {
   _TIMING_STOP_(1)
 
 
+
+
   _TIMING_START_
   for (i = 0; i < 1; ++i) {
    
-    matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
+    matrix_normal( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c1);
      
   }
-  _TIMING_STOP_(1)
+   _TIMING_STOP_(1)
 
-    _TIMING_START_
-  for (i = 0; i < 1; ++i) {
-   
-    matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
-     
-  }
-  _TIMING_STOP_(1)
-
-    _TIMING_START_
-  for (i = 0; i < 1; ++i) {
-   
-    matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
-     
-  }
-  _TIMING_STOP_(1)
-
- 
-
-//  for( i=0;i<M;i++)
-//     {
-//        for( j=0;j<N;j++)
-//        {
-//            cout<<c[i*N+j]<<" ";
-//        }   
-//        cout<<endl;
-//     }  
+ for( i=0;i<M;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<c1[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
  
 
    _TIMING_START_
@@ -159,40 +158,48 @@ for (i = 0; i < M * N; ++i) {
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
    }
    _TIMING_STOP_(1)
-
-      _TIMING_START_
-   for (i = 0; i < 1; ++i) {
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
-   }
-   _TIMING_STOP_(1)
    
-
-      _TIMING_START_
-   for (i = 0; i < 1; ++i) {
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
-   }
-   _TIMING_STOP_(1)
-   
-
-      _TIMING_START_
-   for (i = 0; i < 1; ++i) {
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
-   }
-   _TIMING_STOP_(1)
-   
-   
-  //  for( i=0;i<M;i++)
-  //   {
-  //      for( j=0;j<N;j++)
-  //      {
-  //          cout<<matrix_C_data[i*N+j]<<" ";
-  //      }   
-  //      cout<<endl;
-  //   }  
+   for( i=0;i<M;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<matrix_C_data[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
 
  
 
 }
+
+
+void matrix_normal(const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
+      float *C)
+{
+    int i,j,k;
+
+    for(i=0;i<M;i++)
+    {
+        for(j=0;j<N;j++)
+        {   
+          float sum=0;
+            for(k=0;k<K;k++)
+            {
+              sum+=A[i*K+k]*B[j*N+k]*alpha;
+            }
+            C[i*N+j]=sum+C[i*N+j]*beta;
+        }
+    }
+
+
+}
+
 
 void matrix_mul_vector_neon( 
      const int M, 
@@ -255,18 +262,36 @@ for ( i = 0; i <=M-4; i+=4)
         float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
         float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
         float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
-        vst1q_f32(C+i*N+e,vaddq_f32(vmulq_f32(vc0, valpha), vmulq_f32(c0, vbeta)));
+
+
+        float32x4_t c0_b =vmulq_f32(c0, vbeta);
+        
+        float32x4_t c1_b = vmulq_f32(c1, vbeta);
+      
+        float32x4_t c2_b = vmulq_f32(c2, vbeta));
+      
+        float32x4_t c3_b =vmulq_f32(c3, vbeta);
+    
+
+
+      float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
+      float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
+      float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
+      float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+
+
+        vst1q_f32(C+i*N+e,c0_r));
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-        vst1q_f32(C+(i+1)*N+e,vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
+        vst1q_f32(C+(i+1)*N+e,c1_r));
       // for(i=0;i<4;i++)
       //   {
       //     cout<<C[i]<<" ";
       //   }
       //   cout<<endl;
-        vst1q_f32(C+(i+2)*N+e,vaddq_f32(vmulq_f32(vc2, valpha), vmulq_f32(c2, vbeta)));
-        vst1q_f32(C+(i+3)*N+e,vaddq_f32(vmulq_f32(vc3, valpha), vmulq_f32(c3, vbeta)));
+        vst1q_f32(C+(i+2)*N+e,c2_r);
+        vst1q_f32(C+(i+3)*N+e,c3_r));
       
   }
     if(e<N)
