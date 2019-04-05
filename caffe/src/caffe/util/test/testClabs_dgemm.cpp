@@ -156,10 +156,10 @@ float32x4_t vc1 = vdupq_n_f32(0.0f);
 float32x4_t vc2 = vdupq_n_f32(0.0f);
 float32x4_t vc3 = vdupq_n_f32(0.0f);
  
-for ( i = 0; i <=M-4; i+=4) {
+for ( i = 0; i <M-4; i+=4) {
 
 
-   for(e=0;e<=N-4;e+=4)
+   for(e=0;e<N-4;e+=4)
   {
     for ( j= 0; j < K; j++) {
                   //B K*N bb 
