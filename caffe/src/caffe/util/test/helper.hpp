@@ -26,7 +26,7 @@
 /// random init data
 template <typename T>
 void random_init_data(const int num, T *data, const int min = -0,
-                      const int max = 5) {
+                      const int max = 3) {
   clock_t ct = clock();
   srand((unsigned int)ct);
   int i_part, f_part;

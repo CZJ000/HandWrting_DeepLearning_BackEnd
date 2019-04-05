@@ -85,6 +85,18 @@ for (i = 0; i < M * N; ++i) {
 //   constant_init_data(M, result_data_5);
 
   // timing
+cout<<"before"<<endl;
+
+ for( i=0;i<M;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<c[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
+ 
+
 
 
   _TIMING_START_
