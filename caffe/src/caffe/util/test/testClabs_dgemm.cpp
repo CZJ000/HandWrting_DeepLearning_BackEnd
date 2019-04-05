@@ -268,7 +268,7 @@ for ( i = 0; i <=M-4; i+=4)
         
         float32x4_t c1_b = vmulq_f32(c1, vbeta);
       
-        float32x4_t c2_b = vmulq_f32(c2, vbeta));
+        float32x4_t c2_b = vmulq_f32(c2, vbeta);
       
         float32x4_t c3_b =vmulq_f32(c3, vbeta);
     
@@ -280,18 +280,18 @@ for ( i = 0; i <=M-4; i+=4)
       float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
 
 
-        vst1q_f32(C+i*N+e,c0_r));
+        vst1q_f32(C+i*N+e,c0_r);
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-        vst1q_f32(C+(i+1)*N+e,c1_r));
+        vst1q_f32(C+(i+1)*N+e,c1_r);
       // for(i=0;i<4;i++)
       //   {
       //     cout<<C[i]<<" ";
       //   }
       //   cout<<endl;
         vst1q_f32(C+(i+2)*N+e,c2_r);
-        vst1q_f32(C+(i+3)*N+e,c3_r));
+        vst1q_f32(C+(i+3)*N+e,c3_r);
       
   }
     if(e<N)
