@@ -173,10 +173,7 @@ void matrix_mul_vector_neon(
     
  float32x4_t valpha = vdupq_n_f32(alpha);
  float32x4_t vbeta  = vdupq_n_f32(beta);
-float32x4_t vc0 = vdupq_n_f32(0.0f);
-float32x4_t vc1 = vdupq_n_f32(0.0f);
-float32x4_t vc2 = vdupq_n_f32(0.0f);
-float32x4_t vc3 = vdupq_n_f32(0.0f);
+
  
 for ( i = 0; i <=M-4; i+=4) 
   {
@@ -184,6 +181,10 @@ for ( i = 0; i <=M-4; i+=4)
 
    for(e=0;e<=N-4;e+=4)
   {
+    float32x4_t vc0 = vdupq_n_f32(0.0f);
+    float32x4_t vc1 = vdupq_n_f32(0.0f);
+    float32x4_t vc2 = vdupq_n_f32(0.0f);
+    float32x4_t vc3 = vdupq_n_f32(0.0f);
     for ( j= 0; j < K; j++) 
     {
                   //B K*N bb 
