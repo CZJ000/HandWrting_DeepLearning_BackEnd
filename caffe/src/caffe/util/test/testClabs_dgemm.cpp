@@ -102,7 +102,7 @@ cout<<"before B"<<endl;
     {
        for( j=0;j<N;j++)
        {
-           cout<<matrix_A_data[i*N+j]<<" ";
+           cout<<matrix_B_data[i*N+j]<<" ";
        }   
        cout<<endl;
     }  
