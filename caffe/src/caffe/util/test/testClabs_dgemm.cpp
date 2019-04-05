@@ -41,13 +41,13 @@ void matrix_mul_vector_neon(const int M,
 
 int main(const int argc, const char* argv[]) {
   if (argc != 4) {
-    printf("Usage: %s M  N K\n", argv[0]);
+    printf("Usage: %s M   N  K\n", argv[0]);
     printf( "M*K,   K* N  ,  M* N\n");
     return 0;
   }
-  const int M = atoi(argv[1]);
-  const int N = atoi(argv[1]);
-  const int K = atoi(argv[2]);
+  const int M = atoi(argv[1]); 
+  const int N = atoi(argv[2]); 
+  const int K = atoi(argv[3]); 
 
   // malloc matrix and vector
   float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
