@@ -46,8 +46,8 @@ int main(const int argc, const char* argv[]) {
     return 0;
   }
   const int M = atoi(argv[1]);
-  const int K = atoi(argv[1]);
-  const int N = atoi(argv[2]);
+  const int N = atoi(argv[1]);
+  const int K = atoi(argv[2]);
 
   // malloc matrix and vector
   float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
