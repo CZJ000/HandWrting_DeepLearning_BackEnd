@@ -439,7 +439,7 @@ for ( i = 0; i <=M-4; i+=4)
           pstru->C=C;
           pstru->i=i;
           pstru->e=e;
-          pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,&(pstru));
+          pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,(pstru));
           pthread_join(t[a],NULL);
           a++;
       }
@@ -455,7 +455,7 @@ for ( i = 0; i <=M-4; i+=4)
           pstru->C=C;
           pstru->i=i;
           pstru->e=e;
-          pthread_create(&t[a], NULL, matrix_mul_vector_neon_colnot4_thread,&(pstru));
+          pthread_create(&t[a], NULL, matrix_mul_vector_neon_colnot4_thread,(pstru));
           pthread_join(t[a],NULL);
           a++;
     }
@@ -471,7 +471,7 @@ for ( i = 0; i <=M-4; i+=4)
           pstru->C=C;
           pstru->i=i;
           pstru->e=e;
-          pthread_create(&t[a], NULL, matrix_mul_vector_neon_rownot4_thread,&(pstru));
+          pthread_create(&t[a], NULL, matrix_mul_vector_neon_rownot4_thread,(pstru));
           pthread_join(t[a],NULL);
           a++;
 }
