@@ -11,6 +11,7 @@
 #include <arm_neon.h>	
 #include "helper.hpp"
 #include  <cblas.h>
+#include<pthread.h>
 using namespace std;
 
 #define TEST_NTIMES 100;
