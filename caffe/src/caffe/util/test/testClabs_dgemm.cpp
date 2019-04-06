@@ -436,17 +436,28 @@ for ( i = 0; i <=M-4; i+=4)
       {
         
         cout<<"pstru  ini"<<endl;
+   
           struct mypara* pstru;
+          cout<<"pstru  1"<<endl;
           pstru->M=M;
+           cout<<"pstru  2"<<endl;
           pstru->N=N;
+           cout<<"pstru  3"<<endl;
           pstru->K=K;
+           cout<<"pstru  4"<<endl;
           pstru->alpha=alpha;
+           cout<<"pstru  5"<<endl;
           pstru->A=A;
+           cout<<"pstru  6"<<endl;
           pstru->B=B;
+           cout<<"pstru  7"<<endl;
           pstru->C=C;
+           cout<<"pstru  8"<<endl;
           pstru->i=i;
+           cout<<"pstru  9"<<endl;
           pstru->e=e;
-           cout<<"pstru  finis"<<endl;
+           cout<<"pstru  10"<<endl;
+          
           int re =pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,(pstru));
           if(re!=0) cout<<"error"<<endl;
           pthread_join(t[a],NULL);
