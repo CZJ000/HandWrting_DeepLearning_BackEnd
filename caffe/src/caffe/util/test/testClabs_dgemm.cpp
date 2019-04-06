@@ -184,9 +184,9 @@ for (i = 0; i < M * N; ++i) {
 
   _TIMING_START_
    for (i = 0; i < 1; ++i) {
-      cout<<"before"<<endl;
+    
      matrix_mul_vector_neon_thread( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c1);
-      cout<<"end"<<endl;
+      
    }
    _TIMING_STOP_(1)
 
@@ -244,7 +244,7 @@ void matrix_normal(const int M,
 
 void* matrix_mul_vector_neon_4by4_thread(void *arg)
 {
-  cout<<"matrix_mul_vector_neon_4by4_thread"<<endl;
+ 
       struct  mypara *pstru;
        pstru = (struct mypara*) arg;
       //  pstru->;//参数1
@@ -326,7 +326,7 @@ void* matrix_mul_vector_neon_4by4_thread(void *arg)
         vst1q_f32(C+(i+2)*N+e,c2_r);
         vst1q_f32(C+(i+3)*N+e,c3_r);
 
-cout<<"matrix_mul_vector_neon_4by4_thread  end"<<endl;
+
 
 }
 
