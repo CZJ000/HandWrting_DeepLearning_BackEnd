@@ -33,13 +33,13 @@ struct mypara
 pthread_t t[100];  
 
 
-void matrix_mul_vector_neon_thread( const int M, 
-     const int N,
-     const int K,   
-     const float alpha, 
-     const float *A, 
-     const float *B, 
-     const float beta,    
+void matrix_mul_vector_neon_thread(  int M, 
+      int N,
+      int K,   
+      float alpha, 
+      float *A, 
+      float *B, 
+      float beta,    
       float *C);
 void* matrix_mul_vector_neon_rownot4_thread(void *arg);
 void*  matrix_mul_vector_neon_colnot4_thread(void *arg);
@@ -414,13 +414,13 @@ void* matrix_mul_vector_neon_rownot4_thread(void *arg)
 
 
 
-void matrix_mul_vector_neon_thread( const int M, 
-     const int N,
-     const int K,   
-     const float alpha, 
-     const float *A, 
-     const float *B, 
-     const float beta,    
+void matrix_mul_vector_neon_thread(  int M, 
+      int N,
+      int K,   
+      float alpha, 
+      float *A, 
+      float *B, 
+      float beta,    
       float *C)
 {
   int a=0;
