@@ -261,7 +261,6 @@ void matrix_mul_vector_neon_4by4_thread(void *arg)
     int i, j,e;
 
     i=pstru->i;
-    j=pstru->j;
     e=pstru->e;
 
     float32x4_t vc0 = vdupq_n_f32(0.0f);
