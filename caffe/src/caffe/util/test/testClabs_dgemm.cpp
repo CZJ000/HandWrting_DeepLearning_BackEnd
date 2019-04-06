@@ -409,6 +409,7 @@ matrix_mul_vector_neon_thread( const int M,
       float *C)
 {
   int a=0;
+  int i, j,e;
 for ( i = 0; i <=M-4; i+=4) 
   {
        for(e=0;e<=N-4;e+=4)
