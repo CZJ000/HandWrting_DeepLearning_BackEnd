@@ -184,7 +184,9 @@ for (i = 0; i < M * N; ++i) {
 
   _TIMING_START_
    for (i = 0; i < 1; ++i) {
+      cout<<"before"<<endl;
      matrix_mul_vector_neon_thread( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c1);
+      cout<<"end"<<endl;
    }
    _TIMING_STOP_(1)
 
@@ -432,6 +434,8 @@ for ( i = 0; i <=M-4; i+=4)
   {
        for(e=0;e<=N-4;e+=4)
       {
+        
+        cout<<"pstru  ini"<<endl;
           struct mypara* pstru;
           pstru->M=M;
           pstru->N=N;
