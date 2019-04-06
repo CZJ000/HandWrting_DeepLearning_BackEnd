@@ -378,7 +378,7 @@ void* matrix_mul_vector_neon_rownot4_thread(void *arg)
 {
 
        struct  mypara  *pstru;
-       pstru = (struct mypara *) arg;
+       pstru = (struct mypara ) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
       int M,N,K;
@@ -437,28 +437,28 @@ for ( i = 0; i <=M-4; i+=4)
         
         cout<<"pstru  ini"<<endl;
    
-          struct mypara* pstru;
+          struct mypara pstru;
           cout<<"pstru  1"<<endl;
-          pstru->M=M;
+          pstru.M=M;
            cout<<"pstru  2"<<endl;
-          pstru->N=N;
+          pstru.N=N;
            cout<<"pstru  3"<<endl;
-          pstru->K=K;
+          pstru.K=K;
            cout<<"pstru  4"<<endl;
-          pstru->alpha=alpha;
+          pstru.alpha=alpha;
            cout<<"pstru  5"<<endl;
-          pstru->A=A;
+          pstru.A=A;
            cout<<"pstru  6"<<endl;
-          pstru->B=B;
+          pstru.B=B;
            cout<<"pstru  7"<<endl;
-          pstru->C=C;
+          pstru.C=C;
            cout<<"pstru  8"<<endl;
-          pstru->i=i;
+          pstru.i=i;
            cout<<"pstru  9"<<endl;
-          pstru->e=e;
+          pstru.e=e;
            cout<<"pstru  10"<<endl;
           
-          int re =pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,(pstru));
+          int re =pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,&(pstru));
           if(re!=0) cout<<"error"<<endl;
           pthread_join(t[a],NULL);
           a++;
@@ -466,33 +466,33 @@ for ( i = 0; i <=M-4; i+=4)
       }
       if(e<N)
     {
-         struct mypara* pstru;
-          pstru->M=M;
-          pstru->N=N;
-          pstru->K=K;
-          pstru->alpha=alpha;
-          pstru->A=A;
-          pstru->B=B;
-          pstru->C=C;
-          pstru->i=i;
-          pstru->e=e;
-          pthread_create(&t[a], NULL, matrix_mul_vector_neon_colnot4_thread,(pstru));
+         struct mypara pstru;
+          pstru.M=M;
+          pstru.N=N;
+          pstru.K=K;
+          pstru.alpha=alpha;
+          pstru.A=A;
+          pstru.B=B;
+          pstru.C=C;
+          pstru.i=i;
+          pstru.e=e;
+          pthread_create(&t[a], NULL, matrix_mul_vector_neon_colnot4_thread,&(pstru));
           pthread_join(t[a],NULL);
           a++;
     }
 }
 
-          struct mypara* pstru;
-          pstru->M=M;
-          pstru->N=N;
-          pstru->K=K;
-          pstru->alpha=alpha;
-          pstru->A=A;
-          pstru->B=B;
-          pstru->C=C;
-          pstru->i=i;
-          pstru->e=e;
-          pthread_create(&t[a], NULL, matrix_mul_vector_neon_rownot4_thread,(pstru));
+          struct mypara pstru;
+          pstru.M=M;
+          pstru.N=N;
+          pstru.K=K;
+          pstru.alpha=alpha;
+          pstru.A=A;
+          pstru.B=B;
+          pstru.C=C;
+          pstru.i=i;
+          pstru.e=e;
+          pthread_create(&t[a], NULL, matrix_mul_vector_neon_rownot4_thread,&(pstru));
           pthread_join(t[a],NULL);
           a++;
 }
