@@ -244,7 +244,7 @@ void matrix_mul_vector_neon_4by4_thread(void *arg)
 {
 
       struct  mypara *pstru;
-       pstru = (* struct mypara) arg;
+       pstru = (struct mypara*) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
       int M,N,K;
@@ -328,7 +328,7 @@ void  matrix_mul_vector_neon_colnot4_thread(void *arg)
 {
 
      struct  mypara   *pstru;
-       pstru = (* struct mypara) arg;
+       pstru = ( struct mypara *) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
       int M,N,K;
@@ -371,7 +371,7 @@ void matrix_mul_vector_neon_rownot4_thread(void *arg)
 {
 
        struct  mypara  *pstru;
-       pstru = (* struct mypara) arg;
+       pstru = (struct mypara *) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
       int M,N,K;
