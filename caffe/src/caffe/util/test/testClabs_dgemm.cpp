@@ -33,13 +33,13 @@ struct mypara
 pthread_t t[100];  
 
 
-void matrix_mul_vector_neon_thread( const int M, 
-     const int N,
-     const int K,   
-     const float alpha, 
-     const float *A, 
-     const float *B, 
-     const float beta,    
+void matrix_mul_vector_neon_thread(  int M, 
+      int N,
+      int K,   
+      float alpha, 
+      float *A, 
+      float *B, 
+      float beta,    
       float *C);
 void matrix_mul_vector_neon_rownot4_thread(void *arg);
 void  matrix_mul_vector_neon_colnot4_thread(void *arg);
@@ -247,14 +247,14 @@ void matrix_mul_vector_neon_4by4_thread(void *arg)
        pstru = (struct mypara*) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
-    const  int M,N,K;
+      int M,N,K;
       M=pstru->M;
       N=pstru->N;
       K=pstru->K;
-    const  float alpha=pstru->alpha;
-    const   float beta=pstru->beta;
-    const  float* A=pstru->A;
-    const  float* B=pstru->B;
+      float alpha=pstru->alpha;
+       float beta=pstru->beta;
+      float* A=pstru->A;
+      float* B=pstru->B;
       float* C=pstru->C;
 
 
@@ -331,14 +331,14 @@ void  matrix_mul_vector_neon_colnot4_thread(void *arg)
        pstru = ( struct mypara *) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
-    const  int M,N,K;
+      int M,N,K;
       M=pstru->M;
       N=pstru->N;
       K=pstru->K;
-   const   float alpha=pstru->alpha;
-   const    float beta=pstru->beta;
-    const  float* A=pstru->A;
-   const   float* B=pstru->B;
+      float alpha=pstru->alpha;
+       float beta=pstru->beta;
+      float* A=pstru->A;
+      float* B=pstru->B;
       float* C=pstru->C;
 
 
@@ -374,14 +374,14 @@ void matrix_mul_vector_neon_rownot4_thread(void *arg)
        pstru = (struct mypara *) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
-   const   int M,N,K;
+      int M,N,K;
       M=pstru->M;
       N=pstru->N;
       K=pstru->K;
-  const    float alpha=pstru->alpha;
-  const     float beta=pstru->beta;
-  const   float* A=pstru->A;
-  const   float* B=pstru->B;
+    float alpha=pstru->alpha;
+    float beta=pstru->beta;
+     float* A=pstru->A;
+     float* B=pstru->B;
       float* C=pstru->C;
 
 
@@ -412,13 +412,13 @@ void matrix_mul_vector_neon_rownot4_thread(void *arg)
 
 
 
-void matrix_mul_vector_neon_thread( const int M, 
-     const int N,
-     const int K,   
-     const float alpha, 
-     const float *A, 
-     const float *B, 
-     const float beta,    
+void matrix_mul_vector_neon_thread(  int M, 
+      int N,
+      int K,   
+      float alpha, 
+      float *A, 
+      float *B, 
+      float beta,    
       float *C)
 {
   int a=0;
