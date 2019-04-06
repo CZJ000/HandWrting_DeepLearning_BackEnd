@@ -446,7 +446,8 @@ for ( i = 0; i <=M-4; i+=4)
           pstru->C=C;
           pstru->i=i;
           pstru->e=e;
-          pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,(pstru));
+          int re =pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,(pstru));
+          if(re!=0) cout<<"error"<<endl;
           pthread_join(t[a],NULL);
           a++;
           cout<<"111111"<<endl;
