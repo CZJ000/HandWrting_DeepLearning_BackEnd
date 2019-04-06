@@ -242,7 +242,7 @@ void matrix_normal(const int M,
 
 void* matrix_mul_vector_neon_4by4_thread(void *arg)
 {
-
+  cout<<"matrix_mul_vector_neon_4by4_thread"<<endl;
       struct  mypara *pstru;
        pstru = (struct mypara*) arg;
       //  pstru->;//参数1
@@ -323,6 +323,9 @@ void* matrix_mul_vector_neon_4by4_thread(void *arg)
       //   cout<<endl;
         vst1q_f32(C+(i+2)*N+e,c2_r);
         vst1q_f32(C+(i+3)*N+e,c3_r);
+
+cout<<"matrix_mul_vector_neon_4by4_thread  end"<<endl;
+
 }
 
 
@@ -442,6 +445,7 @@ for ( i = 0; i <=M-4; i+=4)
           pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,(pstru));
           pthread_join(t[a],NULL);
           a++;
+          cout<<"111111"<<endl;
       }
       if(e<N)
     {
