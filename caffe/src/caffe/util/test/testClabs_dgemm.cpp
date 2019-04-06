@@ -29,7 +29,7 @@ struct mypara
        int i;
        int e;
        int k;
-}
+};
 pthread_t t[100];  
 
 
