@@ -41,9 +41,9 @@ void matrix_mul_vector_neon_thread( const int M,
      const float *B, 
      const float beta,    
       float *C);
-void matrix_mul_vector_neon_rownot4_thread(void *arg);
-void  matrix_mul_vector_neon_colnot4_thread(void *arg);
-void matrix_mul_vector_neon_4by4_thread(void *arg);
+void* matrix_mul_vector_neon_rownot4_thread(void *arg);
+void*  matrix_mul_vector_neon_colnot4_thread(void *arg);
+void* matrix_mul_vector_neon_4by4_thread(void *arg);
 void matrix_mul_vector_neon(const int M, 
      const int N,
      const int K,   
@@ -240,7 +240,7 @@ void matrix_normal(const int M,
 
 
 
-void matrix_mul_vector_neon_4by4_thread(void *arg)
+void* matrix_mul_vector_neon_4by4_thread(void *arg)
 {
 
       struct  mypara *pstru;
@@ -326,7 +326,7 @@ void matrix_mul_vector_neon_4by4_thread(void *arg)
 }
 
 
-void  matrix_mul_vector_neon_colnot4_thread(void *arg)
+void*  matrix_mul_vector_neon_colnot4_thread(void *arg)
 {
 
      struct  mypara   *pstru;
@@ -344,10 +344,10 @@ void  matrix_mul_vector_neon_colnot4_thread(void *arg)
       float* C=pstru->C;
 
 
-    int i, j,e;
+    int i,e;
 
     i=pstru->i;
-    j=pstru->j;
+    
     e=pstru->e;
 
     int p=0,l,q;
@@ -369,7 +369,7 @@ void  matrix_mul_vector_neon_colnot4_thread(void *arg)
 
 
 
-void matrix_mul_vector_neon_rownot4_thread(void *arg)
+void* matrix_mul_vector_neon_rownot4_thread(void *arg)
 {
 
        struct  mypara  *pstru;
@@ -387,10 +387,10 @@ void matrix_mul_vector_neon_rownot4_thread(void *arg)
       float* C=pstru->C;
 
 
-    int i, j,e;
+    int i,e;
 
     i=pstru->i;
-    j=pstru->j;
+  
     e=pstru->e;
 
   int p=0;
@@ -429,7 +429,7 @@ for ( i = 0; i <=M-4; i+=4)
   {
        for(e=0;e<=N-4;e+=4)
       {
-          struct mypara pstru;
+          struct mypara* pstru;
           pstru->M=M;
           pstru->N=N;
           pstru->K=K;
@@ -445,7 +445,7 @@ for ( i = 0; i <=M-4; i+=4)
       }
       if(e<N)
     {
-         struct mypara pstru;
+         struct mypara* pstru;
           pstru->M=M;
           pstru->N=N;
           pstru->K=K;
@@ -461,7 +461,7 @@ for ( i = 0; i <=M-4; i+=4)
     }
 }
 
-          struct mypara pstru;
+          struct mypara* pstru;
           pstru->M=M;
           pstru->N=N;
           pstru->K=K;
