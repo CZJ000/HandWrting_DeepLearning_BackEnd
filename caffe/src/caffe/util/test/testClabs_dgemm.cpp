@@ -32,6 +32,18 @@ struct mypara
 }
 pthread_t t[100];  
 
+
+void matrix_mul_vector_neon_thread( const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
+      float *C);
+void matrix_mul_vector_neon_rownot4_thread(void *arg);
+void  matrix_mul_vector_neon_colnot4_thread(void *arg);
+void matrix_mul_vector_neon_4by4_thread(void *arg);
 void matrix_mul_vector_neon(const int M, 
      const int N,
      const int K,   
@@ -228,7 +240,7 @@ void matrix_normal(const int M,
 
 
 
-matrix_mul_vector_neon_4by4_thread(void *arg)
+void matrix_mul_vector_neon_4by4_thread(void *arg)
 {
 
        mypara *pstru;
@@ -312,7 +324,7 @@ matrix_mul_vector_neon_4by4_thread(void *arg)
 }
 
 
-matrix_mul_vector_neon_colnot4_thread(void *arg)
+void  matrix_mul_vector_neon_colnot4_thread(void *arg)
 {
 
        mypara *pstru;
@@ -355,7 +367,7 @@ matrix_mul_vector_neon_colnot4_thread(void *arg)
 
 
 
-matrix_mul_vector_neon_rownot4_thread(void *arg)
+void matrix_mul_vector_neon_rownot4_thread(void *arg)
 {
 
        mypara *pstru;
@@ -400,7 +412,7 @@ matrix_mul_vector_neon_rownot4_thread(void *arg)
 
 
 
-matrix_mul_vector_neon_thread( const int M, 
+void matrix_mul_vector_neon_thread( const int M, 
      const int N,
      const int K,   
      const float alpha, 
