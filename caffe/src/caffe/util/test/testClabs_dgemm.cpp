@@ -243,7 +243,7 @@ void matrix_normal(const int M,
 void matrix_mul_vector_neon_4by4_thread(void *arg)
 {
 
-       mypara *pstru;
+      struct  mypara *pstru;
        pstru = (* struct mypara) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
@@ -327,7 +327,7 @@ void matrix_mul_vector_neon_4by4_thread(void *arg)
 void  matrix_mul_vector_neon_colnot4_thread(void *arg)
 {
 
-       mypara *pstru;
+     struct  mypara   *pstru;
        pstru = (* struct mypara) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
@@ -370,7 +370,7 @@ void  matrix_mul_vector_neon_colnot4_thread(void *arg)
 void matrix_mul_vector_neon_rownot4_thread(void *arg)
 {
 
-       mypara *pstru;
+       struct  mypara  *pstru;
        pstru = (* struct mypara) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
