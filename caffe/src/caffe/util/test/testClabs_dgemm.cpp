@@ -18,13 +18,13 @@ using namespace std;
 
 struct mypara
 {
-       const int M;//参数1
-       const int N;//参数2
-       const int K;
-       const float alpha;
-       const float *A;
-       const float *B;
-       const float beta;
+        int M;//参数1
+        int N;//参数2
+        int K;
+        float alpha;
+        float *A;
+        float *B;
+        float beta;
        float *C;
        int i;
        int e;
@@ -33,13 +33,13 @@ struct mypara
 pthread_t t[100];  
 
 
-void matrix_mul_vector_neon_thread(  int M, 
-      int N,
-      int K,   
-      float alpha, 
-      float *A, 
-      float *B, 
-      float beta,    
+void matrix_mul_vector_neon_thread( const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
       float *C);
 void matrix_mul_vector_neon_rownot4_thread(void *arg);
 void  matrix_mul_vector_neon_colnot4_thread(void *arg);
@@ -412,13 +412,13 @@ void matrix_mul_vector_neon_rownot4_thread(void *arg)
 
 
 
-void matrix_mul_vector_neon_thread(  int M, 
-      int N,
-      int K,   
-      float alpha, 
-      float *A, 
-      float *B, 
-      float beta,    
+void matrix_mul_vector_neon_thread( const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
       float *C)
 {
   int a=0;
