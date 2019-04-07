@@ -23,7 +23,7 @@ int result[1000][1000];
 int result1[1000][1000];
 
 
-void* Thread1()
+void* Thread1(void *arg)
 {
 
 int i,j,m;
@@ -42,7 +42,7 @@ result[i][j]+=a[i][m]*b[m][j];
 }
 
 }
-void* Thread2()
+void* Thread2(void *arg)
 
 {
 
