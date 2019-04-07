@@ -6,7 +6,7 @@
 
 #include<pthread.h>
 
-//定义全局变量，防止越界将数组最大定为200
+
 
 pthread_t thid[1000][1000];//n*n线程线程id
 
@@ -22,17 +22,14 @@ int result[1000][1000];
 
 int result1[1000][1000];
 
-//-----------------双线程操作函数-------------------
 
- void Thread1()
-
+void Thread1()
 {
 
-   int i,j,m;
+int i,j,m;
+for(i=0;(i<n);i++)
 
-   for(i=0;(i<n);i++)
-
-    for(j=0;j<n;j++)
+for(j=0;j<n;j++)
 
 for(m=0;m<n;m++)
 
@@ -44,91 +41,85 @@ result[i][j]+=a[i][m]*b[m][j];
 
 }
 
- }
+}
+void Thread2()
 
- void Thread2()
+{
 
- {
-
-   int i,j,m;
-
-   for(i=0;(i<n);i++)
+int i,j,m;
+for(i=0;(i<n);i++)
 
 for(j=0;j<n;j++)
 
-  for(m=0;m<n;m++)
+for(m=0;m<n;m++)
 
-  {
+{
 
-  if(i%2!=0)
+if(i%2!=0)
 
-  result[i][j]+=a[i][m]*b[m][j];
+result[i][j]+=a[i][m]*b[m][j];
 
-  }
+}
 
 }
 
 //---------------多线程操作函数----------------------
-
 void Thread(int *p)
 
 {
 
-  int row=p[0];
+int row=p[0];
 
-  int col=p[1];
+int col=p[1];
 
-  int res=0;
+int res=0;
 
-  int l;
+int l;
 
-  for(l=0;l<n;l++)
+for(l=0;l<n;l++)
+res+=a[row][l]*b[l][col];
 
-    res+=a[row][l]*b[l][col];
-
-  result[row][col]=res;
+result[row][col]=res;
 
 }
 
 //---------------------主函数------------------------
-
 int main()
 
 {
 
-  int t;
+int t;
 
-  for(t=1;t<200;t++)
+for(t=1;t<200;t++)
 
-  {
+{
 
-  int i,j,m;//循环变量
+int i,j,m;//循环变量
 
-  double start1,finish1;//时间变量
+double start1,finish1;//时间变量
 
-  double start2,finish2;
+double start2,finish2;
 
-  double start3,finish3;
+double start3,finish3;
 
-  int r;
+int r;
 
-  n=t;
+n=t;
 
-  //生成随机数组、输出矩阵a，b
+//生成随机数组、输出矩阵a，b
 
-  srand((unsigned) time(NULL));//生成时间种子
+srand((unsigned) time(NULL));//生成时间种子
 
-  for(i=0;i<n;i++)
+for(i=0;i<n;i++)
 
-   for(j=0;j<n;j++)
+for(j=0;j<n;j++)
 
-   {
+{
 
-      a[i][j]=rand()%11;
+a[i][j]=rand()%11;
 
-  b[i][j]=rand()%11;
-
-   }
+b[i][j]=rand()%11;
+}
 
 //--------------------------n*n多线程运算-------------------
 
@@ -137,18 +128,14 @@ start1=clock();//获得开始时间
 for(i=0;i<n;i++)
 
 for(j=0;j<n;j++)
+{
 
-  {
+pass[i][j][0]=i;
 
-  pass[i][j][0]=i;
-
-  pass[i][j][1]=j;
-
-  r=pthread_create(&thid[i][j],NULL,(void*)Thread,pass[i][j]);
-
-       pthread_join(thid[i][j],NULL);//!!!!!!!!!!!!
-
-  }
+pass[i][j][1]=j;
+r=pthread_create(&thid[i][j],NULL,(void*)Thread,pass[i][j]);
+pthread_join(thid[i][j],NULL);//!!!!!!!!!!!!
+}
 
 finish1=clock();//获得结束时间
 
@@ -173,18 +160,16 @@ start2=clock();
 for(i=0;i<n;i++)
 
 for(j=0;j<n;j++)
+for(m=0;m<n;m++)
 
-  for(m=0;m<n;m++)
-
-  result[i][j]+=a[i][m]*b[m][j];
+result[i][j]+=a[i][m]*b[m][j];
 
 finish2=clock();
 
 printf("矩阵阶数: %3d |  Single: %10g  | Doube: %10g | n*n: %10g\n",t,(finish2-start2),(finish3-start3),(finish1-start1));
 
- }
+}
 
- return 0;
-
+return 0;
 }
 
