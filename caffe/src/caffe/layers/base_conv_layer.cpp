@@ -276,7 +276,7 @@ void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
   for (int g = 0; g < group_; ++g) {
 
 	 LOG_IF(INFO, Caffe::root_solver()) <<"M "<<conv_out_channels_ /
-        group_<<"N "<<conv_out_spatial_dim_<<"K "<<kernel_dim_<<endl;
+        group_<<"N "<<conv_out_spatial_dim_<<"K "<<kernel_dim_;
       // _TIMING_START_
 
     caffe_cpu_gemm<Dtype>(CblasNoTrans, CblasNoTrans, conv_out_channels_ /
