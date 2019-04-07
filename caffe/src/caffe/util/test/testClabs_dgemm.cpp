@@ -569,9 +569,11 @@ for ( i = 0; i <=M-4; i+=4)
                   //B K*N bb 
         float32x4_t vb =vld1q_f32(B+j*N+e); // vget(&B[k][4]);   
 
-       float32x4_t va vdupq_n_f32(A[j*K+i])
+       float32x4_t va =vld1q_f32(A[j*K+i])
         //vfmaq_f32 混合   c=a*b+c     A[i*K+j]
-        vc0=vmlaq_f32( vc0,vdupq_n_f32(A[j*K+i]), vb);  
+
+        vc0=vmlaq_f32( vc0,va, vb);  
+     //   vc0=vmlaq_f32( vc0,vdupq_n_f32(A[j*K+i]), vb);  
         //  cout<<"vc0 temp:"<<endl;
         //  float temp[4];
       // vst1q_f32(temp, vc0);
