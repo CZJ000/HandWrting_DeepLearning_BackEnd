@@ -23,7 +23,7 @@ int result[1000][1000];
 int result1[1000][1000];
 
 
-void Thread1()
+void* Thread1()
 {
 
 int i,j,m;
@@ -42,7 +42,7 @@ result[i][j]+=a[i][m]*b[m][j];
 }
 
 }
-void Thread2()
+void* Thread2()
 
 {
 
@@ -64,7 +64,7 @@ result[i][j]+=a[i][m]*b[m][j];
 }
 
 //---------------多线程操作函数----------------------
-void Thread(int *p)
+void* Thread(int *p)
 
 {
 
@@ -133,7 +133,7 @@ for(j=0;j<n;j++)
 pass[i][j][0]=i;
 
 pass[i][j][1]=j;
-r=pthread_create(&thid[i][j],NULL,(void*)Thread,pass[i][j]);
+r=pthread_create(&thid[i][j],NULL,Thread,pass[i][j]);
 pthread_join(thid[i][j],NULL);//!!!!!!!!!!!!
 }
 
@@ -143,11 +143,11 @@ finish1=clock();//获得结束时间
 
 start3=clock();
 
-pthread_create(&tid[0],NULL,(void*)Thread1,NULL);
+pthread_create(&tid[0],NULL,Thread1,NULL);
 
 pthread_join(tid[0],NULL);//!!!!!!!!!!!!
 
-pthread_create(&tid[1],NULL,(void*)Thread2,NULL);
+pthread_create(&tid[1],NULL,Thread2,NULL);
 
 pthread_join(tid[1],NULL);//!!!!!!!!!!!!
 
