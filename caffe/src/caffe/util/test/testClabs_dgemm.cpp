@@ -219,7 +219,7 @@ for (i = 0; i < M * N; ++i) {
   _TIMING_START_
    for (i = 0; i < 1; ++i) {
     
-     matrix_mul_vector_neon( M, N, K, 1.0f, A,B,0.0f,matrix_C_data);
+     matrix_mul_vector_neon( M, N, K, 1.0f, A,B,0.0f,c1);
       
    }
    _TIMING_STOP_(1)
