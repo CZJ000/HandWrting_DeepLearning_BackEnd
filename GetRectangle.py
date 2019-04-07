@@ -28,10 +28,7 @@ class Node(object):
         self.data = val
         self.next = p
     def __repr__(self):
-        '''
-        用来定义Node的字符输出，
-        print为输出data
-        '''
+  
         return str(self.data)
 class LinkList(object):
     def __init__(self):
