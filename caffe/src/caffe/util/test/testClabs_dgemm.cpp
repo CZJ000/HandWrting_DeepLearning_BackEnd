@@ -192,6 +192,15 @@ for (i = 0; i < M * N; ++i) {
 
 
 
+  _TIMING_START_
+   for (i = 0; i < 1; ++i) {
+    
+     matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
+      
+   }
+   _TIMING_STOP_(1)
+
+
   //  _TIMING_START_
   //  for (i = 0; i < 1; ++i) {
   //   cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
