@@ -227,7 +227,7 @@ int main(const int argc, const char* argv[]) {
   _TIMING_START_
    for (i = 0; i < 1; ++i) {
     
-     matrix_mul_vector_neon( M, N, K, 1.0f, A,B,0.0f,c1);
+     matrix_mul_vector_neon( M, N, K, 1.0f, A,B,0.0f,matrix_C_data);
       
    }
    _TIMING_STOP_(1)
