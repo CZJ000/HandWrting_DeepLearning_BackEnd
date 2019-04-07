@@ -5,7 +5,7 @@ import cmath as math
 from enum import Enum
 
 
-root="~/HandWrting_DeepLearning_BackEnd/"
+root="./"
 class MergeType(Enum):
     left=0
     right=1
