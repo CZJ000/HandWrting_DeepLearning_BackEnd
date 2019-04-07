@@ -16,6 +16,15 @@ using namespace std;
 
 #define TEST_NTIMES 100;
 
+int M,N,K;
+float alpah,beta;
+
+float *A,*B,*C;
+
+
+
+
+
 struct mypara
 {
         int M;//参数1
@@ -103,20 +112,25 @@ int main(const int argc, const char* argv[]) {
 //   float* result_data_4 = (float*)malloc(M * sizeof(float));
 //   float* result_data_5 = (float*)malloc(M * sizeof(float));
   // init matrix and vector data
-  random_init_data(M * K, matrix_A_data);
-  random_init_data(K * N, matrix_B_data);
-  random_init_data(M * N, matrix_C_data);
+
+  A=matrix_A_data;
+  B=matrix_B_data;
+  C=matrix_C_data
+
+  random_init_data(M * K, A);
+  random_init_data(K * N, B);
+  random_init_data(M * N, C);
 
 float* c= (float*)malloc(M * N * sizeof(float));
 
 float* c1= (float*)malloc(M * N * sizeof(float));
   int i,j;
 for (i = 0; i < M * N; ++i) {
-   c[i]=matrix_C_data[i];
+   c[i]=C[i];
   }
 
   for (i = 0; i < M * N; ++i) {
-   c1[i]=matrix_C_data[i];
+   c1[i]=C[i];
   }
 
 //
@@ -185,7 +199,7 @@ for (i = 0; i < M * N; ++i) {
   _TIMING_START_
    for (i = 0; i < 1; ++i) {
     
-     matrix_mul_vector_neon_thread( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c1);
+     matrix_mul_vector_neon_thread( M, N, K, 1.0f, A,B,0.0f,c1);
       
    }
    _TIMING_STOP_(1)
@@ -205,7 +219,7 @@ for (i = 0; i < M * N; ++i) {
   _TIMING_START_
    for (i = 0; i < 1; ++i) {
     
-     matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
+     matrix_mul_vector_neon( M, N, K, 1.0f, A,B,0.0f,matrix_C_data);
       
    }
    _TIMING_STOP_(1)
