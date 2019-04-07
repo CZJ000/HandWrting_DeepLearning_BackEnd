@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/caffe
+CMAKE_SOURCE_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/caffe/build
+CMAKE_BINARY_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build
 
 # Utility rule file for lint.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/nvidia/caffe/build
 include CMakeFiles/lint.dir/progress.make
 
 CMakeFiles/lint:
-	/usr/bin/cmake -P /home/nvidia/caffe/cmake/lint.cmake
+	/usr/bin/cmake -P /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/cmake/lint.cmake
 
 lint: CMakeFiles/lint
 lint: CMakeFiles/lint.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/lint.dir/clean:
 .PHONY : CMakeFiles/lint.dir/clean
 
 CMakeFiles/lint.dir/depend:
-	cd /home/nvidia/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/caffe /home/nvidia/caffe /home/nvidia/caffe/build /home/nvidia/caffe/build /home/nvidia/caffe/build/CMakeFiles/lint.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles/lint.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/lint.dir/depend
 

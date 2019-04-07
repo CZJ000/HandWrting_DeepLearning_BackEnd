@@ -7,7 +7,7 @@ examples/CMakeFiles/convert_mnist_data.dir/mnist/convert_mnist_data.cpp.o
  ../include/caffe/util/db.hpp
  ../include/caffe/util/device_alternate.hpp
  ../include/caffe/util/format.hpp
- /home/nvidia/caffe/examples/mnist/convert_mnist_data.cpp
+ /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/mnist/convert_mnist_data.cpp
  /usr/local/cuda-9.0/include/builtin_types.h
  /usr/local/cuda-9.0/include/channel_descriptor.h
  /usr/local/cuda-9.0/include/common_functions.h

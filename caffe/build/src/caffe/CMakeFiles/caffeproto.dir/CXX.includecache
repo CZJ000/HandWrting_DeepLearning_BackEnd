@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/nvidia/caffe/build/include/caffe/proto/caffe.pb.cc
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto/caffe.pb.cc
 caffe.pb.h
-/home/nvidia/caffe/build/include/caffe/proto/caffe.pb.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto/caffe.pb.h
 algorithm
 -
 google/protobuf/stubs/common.h
@@ -28,7 +28,7 @@ google/protobuf/reflection_ops.h
 google/protobuf/wire_format.h
 -
 
-/home/nvidia/caffe/build/include/caffe/proto/caffe.pb.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto/caffe.pb.h
 string
 -
 google/protobuf/stubs/common.h

@@ -8,6 +8,7 @@ tools/CMakeFiles/caffe.bin.dir/caffe.cpp.o: ../include/caffe/filler.hpp
 tools/CMakeFiles/caffe.bin.dir/caffe.cpp.o: ../include/caffe/internal_thread.hpp
 tools/CMakeFiles/caffe.bin.dir/caffe.cpp.o: ../include/caffe/layer.hpp
 tools/CMakeFiles/caffe.bin.dir/caffe.cpp.o: ../include/caffe/layer_factory.hpp
+tools/CMakeFiles/caffe.bin.dir/caffe.cpp.o: ../include/caffe/layers/helper.hpp
 tools/CMakeFiles/caffe.bin.dir/caffe.cpp.o: ../include/caffe/net.hpp
 tools/CMakeFiles/caffe.bin.dir/caffe.cpp.o: ../include/caffe/parallel.hpp
 tools/CMakeFiles/caffe.bin.dir/caffe.cpp.o: ../include/caffe/solver.hpp

@@ -56,18 +56,18 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "/usr/bin/cmake") # path
-set(source_file "/home/nvidia/caffe/src/caffe/util/im2col.cu") # path
-set(NVCC_generated_dependency_file "/home/nvidia/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/cuda_compile_generated_im2col.cu.o.NVCC-depend") # path
-set(cmake_dependency_file "/home/nvidia/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/cuda_compile_generated_im2col.cu.o.depend") # path
+set(source_file "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/caffe/util/im2col.cu") # path
+set(NVCC_generated_dependency_file "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/cuda_compile_generated_im2col.cu.o.NVCC-depend") # path
+set(cmake_dependency_file "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/cuda_compile_generated_im2col.cu.o.depend") # path
 set(CUDA_make2cmake "/usr/share/cmake-3.5/Modules/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "/usr/share/cmake-3.5/Modules/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
 set(CUDA_HOST_COMPILER "/usr/bin/cc") # path
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
-set(generated_file_path "/home/nvidia/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/.") # path
-set(generated_file_internal "/home/nvidia/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/./cuda_compile_generated_im2col.cu.o") # path
-set(generated_cubin_file_internal "/home/nvidia/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/./cuda_compile_generated_im2col.cu.o.cubin.txt") # path
+set(generated_file_path "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/.") # path
+set(generated_file_internal "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/./cuda_compile_generated_im2col.cu.o") # path
+set(generated_cubin_file_internal "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/cuda_compile.dir/util/./cuda_compile_generated_im2col.cu.o.cubin.txt") # path
 
 set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda-9.0/bin/nvcc") # path
 set(CUDA_NVCC_FLAGS -gencode;arch=compute_53,code=sm_53;-Xcudafe;--diag_suppress=cc_clobber_ignored;-Xcudafe;--diag_suppress=integer_sign_change;-Xcudafe;--diag_suppress=useless_using_declaration;-Xcudafe;--diag_suppress=set_but_not_used;-DUSE_LMDB;-DUSE_LEVELDB;-DUSE_CUDNN;-DUSE_OPENCV;-DWITH_PYTHON_LAYER;-Xcompiler;-fPIC ;; ) # list
@@ -77,7 +77,7 @@ set(CUDA_NVCC_FLAGS_RELEASE  ; )
 set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64;-DCAFFE_VERSION=1.0.0;-DUSE_HDF5) # list
-set(CUDA_NVCC_INCLUDE_ARGS "-I/home/nvidia/caffe/include;-I/home/nvidia/caffe/src;-I/usr/include;-I/usr/include;-I/usr/include;-I/usr/include;-I/usr/include/hdf5/serial;-I/usr/include;-I/usr/include;-I/usr/include;-I/usr/local/cuda-9.0/include;-I/usr/include;-I/usr/include;-I/usr/include/opencv;-I/usr/include;-I/usr/include/atlas;-I/usr/include/python2.7;-I/usr/lib/python2.7/dist-packages/numpy/core/include;-I/usr/include;-I/usr/local/cuda-9.0/include;-I/home/nvidia/caffe/build/include;-I/usr/include/hdf5/serial;-I/home/nvidia/caffe/build") # list (needs to be in quotes to handle spaces properly).
+set(CUDA_NVCC_INCLUDE_ARGS "-I/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/include;-I/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src;-I/usr/include;-I/usr/include;-I/usr/include;-I/usr/include;-I/usr/include/hdf5/serial;-I/usr/include;-I/usr/include;-I/usr/include;-I/usr/local/cuda-9.0/include;-I/usr/include;-I/usr/include;-I/usr/include/opencv;-I/usr/include;-I/usr/include/atlas;-I/usr/include/python2.7;-I/usr/lib/python2.7/dist-packages/numpy/core/include;-I/usr/include;-I/usr/local/cuda-9.0/include;-I/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include;-I/usr/include/hdf5/serial;-I/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build") # list (needs to be in quotes to handle spaces properly).
 set(format_flag "-c") # string
 set(cuda_language_flag ) # list
 

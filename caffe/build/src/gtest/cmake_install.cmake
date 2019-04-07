@@ -1,8 +1,8 @@
-# Install script for directory: /home/nvidia/caffe/src/gtest
+# Install script for directory: /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/gtest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/nvidia/caffe/build/install")
+  set(CMAKE_INSTALL_PREFIX "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

@@ -5,6 +5,7 @@ tools/CMakeFiles/extract_features.dir/extract_features.cpp.o: ../include/caffe/b
 tools/CMakeFiles/extract_features.dir/extract_features.cpp.o: ../include/caffe/common.hpp
 tools/CMakeFiles/extract_features.dir/extract_features.cpp.o: ../include/caffe/layer.hpp
 tools/CMakeFiles/extract_features.dir/extract_features.cpp.o: ../include/caffe/layer_factory.hpp
+tools/CMakeFiles/extract_features.dir/extract_features.cpp.o: ../include/caffe/layers/helper.hpp
 tools/CMakeFiles/extract_features.dir/extract_features.cpp.o: ../include/caffe/net.hpp
 tools/CMakeFiles/extract_features.dir/extract_features.cpp.o: ../include/caffe/syncedmem.hpp
 tools/CMakeFiles/extract_features.dir/extract_features.cpp.o: ../include/caffe/util/cudnn.hpp

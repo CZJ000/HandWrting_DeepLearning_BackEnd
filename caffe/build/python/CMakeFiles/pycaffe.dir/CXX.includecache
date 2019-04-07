@@ -121,6 +121,8 @@ caffe/proto/caffe.pb.h
 ../include/caffe/caffe/proto/caffe.pb.h
 caffe/util/math_functions.hpp
 ../include/caffe/caffe/util/math_functions.hpp
+caffe/layers/helper.hpp
+../include/caffe/caffe/layers/helper.hpp
 
 ../include/caffe/layer_factory.hpp
 map
@@ -151,6 +153,20 @@ caffe/proto/caffe.pb.h
 ../include/caffe/layers/caffe/proto/caffe.pb.h
 caffe/util/blocking_queue.hpp
 ../include/caffe/layers/caffe/util/blocking_queue.hpp
+
+../include/caffe/layers/helper.hpp
+float.h
+-
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+sys/time.h
+-
+time.h
+-
 
 ../include/caffe/layers/memory_data_layer.hpp
 vector
@@ -358,7 +374,7 @@ string
 caffe/proto/caffe.pb.h
 ../include/caffe/util/caffe/proto/caffe.pb.h
 
-/home/nvidia/caffe/python/caffe/_caffe.cpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/_caffe.cpp
 Python.h
 -
 boost/make_shared.hpp
@@ -378,13 +394,13 @@ vector
 fstream
 -
 caffe/caffe.hpp
-/home/nvidia/caffe/python/caffe/caffe/caffe.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/caffe/caffe.hpp
 caffe/layers/memory_data_layer.hpp
-/home/nvidia/caffe/python/caffe/caffe/layers/memory_data_layer.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/caffe/layers/memory_data_layer.hpp
 caffe/layers/python_layer.hpp
-/home/nvidia/caffe/python/caffe/caffe/layers/python_layer.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/caffe/layers/python_layer.hpp
 caffe/sgd_solvers.hpp
-/home/nvidia/caffe/python/caffe/caffe/sgd_solvers.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/caffe/sgd_solvers.hpp
 
 /usr/include/atlas/cblas.h
 

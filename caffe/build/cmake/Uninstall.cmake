@@ -1,13 +1,13 @@
-if(NOT EXISTS "/home/nvidia/caffe/build/install_manifest.txt")
-  message(FATAL_ERROR "Cannot find install manifest: /home/nvidia/caffe/build/install_manifest.txt")
-endif(NOT EXISTS "/home/nvidia/caffe/build/install_manifest.txt")
+if(NOT EXISTS "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/install_manifest.txt")
+  message(FATAL_ERROR "Cannot find install manifest: /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/install_manifest.txt")
+endif(NOT EXISTS "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/install_manifest.txt")
 
 if (NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set (CMAKE_INSTALL_PREFIX "/home/nvidia/caffe/build/install")
+  set (CMAKE_INSTALL_PREFIX "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/install")
 endif ()
  message(${CMAKE_INSTALL_PREFIX})
 
-file(READ "/home/nvidia/caffe/build/install_manifest.txt" files)
+file(READ "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 foreach(file ${files})
   message(STATUS "Uninstalling $ENV{DESTDIR}${file}")

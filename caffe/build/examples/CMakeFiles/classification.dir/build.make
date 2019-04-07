@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/caffe
+CMAKE_SOURCE_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/caffe/build
+CMAKE_BINARY_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build
 
 # Include any dependencies generated for this target.
 include examples/CMakeFiles/classification.dir/depend.make
@@ -59,16 +59,16 @@ include examples/CMakeFiles/classification.dir/flags.make
 
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: examples/CMakeFiles/classification.dir/flags.make
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: ../examples/cpp_classification/classification.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o"
-	cd /home/nvidia/caffe/build/examples && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/classification.dir/cpp_classification/classification.cpp.o -c /home/nvidia/caffe/examples/cpp_classification/classification.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/classification.dir/cpp_classification/classification.cpp.o -c /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cpp_classification/classification.cpp
 
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/classification.dir/cpp_classification/classification.cpp.i"
-	cd /home/nvidia/caffe/build/examples && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/caffe/examples/cpp_classification/classification.cpp > CMakeFiles/classification.dir/cpp_classification/classification.cpp.i
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cpp_classification/classification.cpp > CMakeFiles/classification.dir/cpp_classification/classification.cpp.i
 
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/classification.dir/cpp_classification/classification.cpp.s"
-	cd /home/nvidia/caffe/build/examples && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/caffe/examples/cpp_classification/classification.cpp -o CMakeFiles/classification.dir/cpp_classification/classification.cpp.s
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cpp_classification/classification.cpp -o CMakeFiles/classification.dir/cpp_classification/classification.cpp.s
 
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o.requires:
 
@@ -133,9 +133,9 @@ examples/cpp_classification/classification: /usr/lib/libcblas.so
 examples/cpp_classification/classification: /usr/lib/libatlas.so
 examples/cpp_classification/classification: /usr/lib/aarch64-linux-gnu/libboost_python.so
 examples/cpp_classification/classification: examples/CMakeFiles/classification.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp_classification/classification"
-	cd /home/nvidia/caffe/build/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/classification.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/nvidia/caffe/build/examples && ln -sf /home/nvidia/caffe/build/examples/cpp_classification/classification /home/nvidia/caffe/build/examples/cpp_classification/classification.bin
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp_classification/classification"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/classification.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && ln -sf /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples/cpp_classification/classification /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples/cpp_classification/classification.bin
 
 # Rule to build all files generated by this target.
 examples/CMakeFiles/classification.dir/build: examples/cpp_classification/classification
@@ -147,10 +147,10 @@ examples/CMakeFiles/classification.dir/requires: examples/CMakeFiles/classificat
 .PHONY : examples/CMakeFiles/classification.dir/requires
 
 examples/CMakeFiles/classification.dir/clean:
-	cd /home/nvidia/caffe/build/examples && $(CMAKE_COMMAND) -P CMakeFiles/classification.dir/cmake_clean.cmake
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && $(CMAKE_COMMAND) -P CMakeFiles/classification.dir/cmake_clean.cmake
 .PHONY : examples/CMakeFiles/classification.dir/clean
 
 examples/CMakeFiles/classification.dir/depend:
-	cd /home/nvidia/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/caffe /home/nvidia/caffe/examples /home/nvidia/caffe/build /home/nvidia/caffe/build/examples /home/nvidia/caffe/build/examples/CMakeFiles/classification.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples/CMakeFiles/classification.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : examples/CMakeFiles/classification.dir/depend
 

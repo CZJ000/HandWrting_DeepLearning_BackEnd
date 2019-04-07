@@ -1,8 +1,8 @@
-# Install script for directory: /home/nvidia/caffe
+# Install script for directory: /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/nvidia/caffe/build/install")
+  set(CMAKE_INSTALL_PREFIX "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,14 +33,14 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Caffe" TYPE FILE FILES "/home/nvidia/caffe/build/cmake/CaffeConfig.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Caffe" TYPE FILE FILES "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/cmake/CaffeConfig.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/Caffe/CaffeTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/Caffe/CaffeTargets.cmake"
-         "/home/nvidia/caffe/build/CMakeFiles/Export/share/Caffe/CaffeTargets.cmake")
+         "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles/Export/share/Caffe/CaffeTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/share/Caffe/CaffeTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -49,21 +49,21 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Caffe" TYPE FILE FILES "/home/nvidia/caffe/build/CMakeFiles/Export/share/Caffe/CaffeTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Caffe" TYPE FILE FILES "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles/Export/share/Caffe/CaffeTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Caffe" TYPE FILE FILES "/home/nvidia/caffe/build/CMakeFiles/Export/share/Caffe/CaffeTargets-release.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/Caffe" TYPE FILE FILES "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles/Export/share/Caffe/CaffeTargets-release.cmake")
   endif()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/nvidia/caffe/build/src/gtest/cmake_install.cmake")
-  include("/home/nvidia/caffe/build/src/caffe/cmake_install.cmake")
-  include("/home/nvidia/caffe/build/tools/cmake_install.cmake")
-  include("/home/nvidia/caffe/build/examples/cmake_install.cmake")
-  include("/home/nvidia/caffe/build/python/cmake_install.cmake")
-  include("/home/nvidia/caffe/build/matlab/cmake_install.cmake")
-  include("/home/nvidia/caffe/build/docs/cmake_install.cmake")
+  include("/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/gtest/cmake_install.cmake")
+  include("/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/cmake_install.cmake")
+  include("/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/tools/cmake_install.cmake")
+  include("/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples/cmake_install.cmake")
+  include("/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python/cmake_install.cmake")
+  include("/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/matlab/cmake_install.cmake")
+  include("/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/docs/cmake_install.cmake")
 
 endif()
 
@@ -75,5 +75,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/nvidia/caffe/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

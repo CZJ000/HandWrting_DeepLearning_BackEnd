@@ -111,6 +111,8 @@ caffe/proto/caffe.pb.h
 ../include/caffe/caffe/proto/caffe.pb.h
 caffe/util/math_functions.hpp
 ../include/caffe/caffe/util/math_functions.hpp
+caffe/layers/helper.hpp
+../include/caffe/caffe/layers/helper.hpp
 
 ../include/caffe/layer_factory.hpp
 map
@@ -125,6 +127,20 @@ caffe/layer.hpp
 ../include/caffe/caffe/layer.hpp
 caffe/proto/caffe.pb.h
 ../include/caffe/caffe/proto/caffe.pb.h
+
+../include/caffe/layers/helper.hpp
+float.h
+-
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+sys/time.h
+-
+time.h
+-
 
 ../include/caffe/net.hpp
 map
@@ -310,9 +326,9 @@ string
 caffe/proto/caffe.pb.h
 ../include/caffe/util/caffe/proto/caffe.pb.h
 
-/home/nvidia/caffe/tools/caffe.cpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/caffe.cpp
 boost/python.hpp
-/home/nvidia/caffe/tools/boost/python.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/boost/python.hpp
 gflags/gflags.h
 -
 glog/logging.h
@@ -326,11 +342,11 @@ string
 vector
 -
 boost/algorithm/string.hpp
-/home/nvidia/caffe/tools/boost/algorithm/string.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/boost/algorithm/string.hpp
 caffe/caffe.hpp
-/home/nvidia/caffe/tools/caffe/caffe.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/caffe/caffe.hpp
 caffe/util/signal_handler.h
-/home/nvidia/caffe/tools/caffe/util/signal_handler.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/caffe/util/signal_handler.h
 
 /usr/include/atlas/cblas.h
 

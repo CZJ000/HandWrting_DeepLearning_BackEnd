@@ -92,25 +92,25 @@ cblas.h
 math.h
 -
 
-/home/nvidia/caffe/examples/siamese/convert_mnist_siamese_data.cpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/siamese/convert_mnist_siamese_data.cpp
 fstream
 -
 string
 -
 glog/logging.h
-/home/nvidia/caffe/examples/siamese/glog/logging.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/siamese/glog/logging.h
 google/protobuf/text_format.h
-/home/nvidia/caffe/examples/siamese/google/protobuf/text_format.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/siamese/google/protobuf/text_format.h
 stdint.h
-/home/nvidia/caffe/examples/siamese/stdint.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/siamese/stdint.h
 caffe/proto/caffe.pb.h
-/home/nvidia/caffe/examples/siamese/caffe/proto/caffe.pb.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/siamese/caffe/proto/caffe.pb.h
 caffe/util/format.hpp
-/home/nvidia/caffe/examples/siamese/caffe/util/format.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/siamese/caffe/util/format.hpp
 caffe/util/math_functions.hpp
-/home/nvidia/caffe/examples/siamese/caffe/util/math_functions.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/siamese/caffe/util/math_functions.hpp
 leveldb/db.h
-/home/nvidia/caffe/examples/siamese/leveldb/db.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/siamese/leveldb/db.h
 
 /usr/include/atlas/cblas.h
 

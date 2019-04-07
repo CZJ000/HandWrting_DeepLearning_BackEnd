@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/caffe
+CMAKE_SOURCE_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/caffe/build
+CMAKE_BINARY_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build
 
 # Utility rule file for runtest.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/nvidia/caffe/build
 include src/caffe/test/CMakeFiles/runtest.dir/progress.make
 
 src/caffe/test/CMakeFiles/runtest:
-	cd /home/nvidia/caffe && /home/nvidia/caffe/build/test/test.testbin --gtest_shuffle
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe && /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/test/test.testbin --gtest_shuffle
 
 runtest: src/caffe/test/CMakeFiles/runtest
 runtest: src/caffe/test/CMakeFiles/runtest.dir/build.make
@@ -67,10 +67,10 @@ src/caffe/test/CMakeFiles/runtest.dir/build: runtest
 .PHONY : src/caffe/test/CMakeFiles/runtest.dir/build
 
 src/caffe/test/CMakeFiles/runtest.dir/clean:
-	cd /home/nvidia/caffe/build/src/caffe/test && $(CMAKE_COMMAND) -P CMakeFiles/runtest.dir/cmake_clean.cmake
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/test && $(CMAKE_COMMAND) -P CMakeFiles/runtest.dir/cmake_clean.cmake
 .PHONY : src/caffe/test/CMakeFiles/runtest.dir/clean
 
 src/caffe/test/CMakeFiles/runtest.dir/depend:
-	cd /home/nvidia/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/caffe /home/nvidia/caffe/src/caffe/test /home/nvidia/caffe/build /home/nvidia/caffe/build/src/caffe/test /home/nvidia/caffe/build/src/caffe/test/CMakeFiles/runtest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/caffe/test /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/test /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/test/CMakeFiles/runtest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/caffe/test/CMakeFiles/runtest.dir/depend
 

@@ -76,25 +76,25 @@ sstream
 string
 -
 
-/home/nvidia/caffe/examples/cifar10/convert_cifar_data.cpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/convert_cifar_data.cpp
 fstream
 -
 string
 -
 boost/scoped_ptr.hpp
-/home/nvidia/caffe/examples/cifar10/boost/scoped_ptr.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/boost/scoped_ptr.hpp
 glog/logging.h
-/home/nvidia/caffe/examples/cifar10/glog/logging.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/glog/logging.h
 google/protobuf/text_format.h
-/home/nvidia/caffe/examples/cifar10/google/protobuf/text_format.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/google/protobuf/text_format.h
 stdint.h
-/home/nvidia/caffe/examples/cifar10/stdint.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/stdint.h
 caffe/proto/caffe.pb.h
-/home/nvidia/caffe/examples/cifar10/caffe/proto/caffe.pb.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/caffe/proto/caffe.pb.h
 caffe/util/db.hpp
-/home/nvidia/caffe/examples/cifar10/caffe/util/db.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/caffe/util/db.hpp
 caffe/util/format.hpp
-/home/nvidia/caffe/examples/cifar10/caffe/util/format.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/caffe/util/format.hpp
 
 /usr/local/cuda-9.0/include/builtin_types.h
 device_types.h

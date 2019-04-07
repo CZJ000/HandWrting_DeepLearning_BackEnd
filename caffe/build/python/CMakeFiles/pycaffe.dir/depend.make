@@ -10,6 +10,7 @@ python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../include/caffe/internal_thre
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../include/caffe/layer.hpp
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../include/caffe/layer_factory.hpp
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../include/caffe/layers/base_data_layer.hpp
+python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../include/caffe/layers/helper.hpp
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../include/caffe/layers/memory_data_layer.hpp
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../include/caffe/layers/python_layer.hpp
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../include/caffe/net.hpp

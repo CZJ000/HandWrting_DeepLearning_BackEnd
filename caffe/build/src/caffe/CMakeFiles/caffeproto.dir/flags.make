@@ -6,5 +6,5 @@ CXX_FLAGS =  -fPIC -Wall -Wno-sign-compare -Wno-uninitialized -O3 -DNDEBUG
 
 CXX_DEFINES = -DCAFFE_VERSION=1.0.0 -DUSE_HDF5
 
-CXX_INCLUDES = -I/home/nvidia/caffe/build/include -isystem /usr/include/hdf5/serial -I/home/nvidia/caffe/build 
+CXX_INCLUDES = -I/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include -isystem /usr/include/hdf5/serial -I/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build 
 

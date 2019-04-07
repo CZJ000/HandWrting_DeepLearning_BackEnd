@@ -11,6 +11,7 @@ python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o
  ../include/caffe/layer.hpp
  ../include/caffe/layer_factory.hpp
  ../include/caffe/layers/base_data_layer.hpp
+ ../include/caffe/layers/helper.hpp
  ../include/caffe/layers/memory_data_layer.hpp
  ../include/caffe/layers/python_layer.hpp
  ../include/caffe/net.hpp
@@ -29,7 +30,7 @@ python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o
  ../include/caffe/util/mkl_alternate.hpp
  ../include/caffe/util/nccl.hpp
  ../include/caffe/util/upgrade_proto.hpp
- /home/nvidia/caffe/python/caffe/_caffe.cpp
+ /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/_caffe.cpp
  /usr/include/atlas/cblas.h
  /usr/include/python2.7/Python.h
  /usr/include/python2.7/abstract.h

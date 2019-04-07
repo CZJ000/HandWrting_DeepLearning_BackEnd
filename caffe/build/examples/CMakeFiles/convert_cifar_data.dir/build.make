@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/caffe
+CMAKE_SOURCE_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/caffe/build
+CMAKE_BINARY_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build
 
 # Include any dependencies generated for this target.
 include examples/CMakeFiles/convert_cifar_data.dir/depend.make
@@ -59,16 +59,16 @@ include examples/CMakeFiles/convert_cifar_data.dir/flags.make
 
 examples/CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.o: examples/CMakeFiles/convert_cifar_data.dir/flags.make
 examples/CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.o: ../examples/cifar10/convert_cifar_data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.o"
-	cd /home/nvidia/caffe/build/examples && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.o -c /home/nvidia/caffe/examples/cifar10/convert_cifar_data.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object examples/CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.o"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.o -c /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/convert_cifar_data.cpp
 
 examples/CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.i"
-	cd /home/nvidia/caffe/build/examples && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/caffe/examples/cifar10/convert_cifar_data.cpp > CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.i
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/convert_cifar_data.cpp > CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.i
 
 examples/CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.s"
-	cd /home/nvidia/caffe/build/examples && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/caffe/examples/cifar10/convert_cifar_data.cpp -o CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.s
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/cifar10/convert_cifar_data.cpp -o CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.s
 
 examples/CMakeFiles/convert_cifar_data.dir/cifar10/convert_cifar_data.cpp.o.requires:
 
@@ -133,9 +133,9 @@ examples/cifar10/convert_cifar_data: /usr/lib/libcblas.so
 examples/cifar10/convert_cifar_data: /usr/lib/libatlas.so
 examples/cifar10/convert_cifar_data: /usr/lib/aarch64-linux-gnu/libboost_python.so
 examples/cifar10/convert_cifar_data: examples/CMakeFiles/convert_cifar_data.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cifar10/convert_cifar_data"
-	cd /home/nvidia/caffe/build/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/convert_cifar_data.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/nvidia/caffe/build/examples && ln -sf /home/nvidia/caffe/build/examples/cifar10/convert_cifar_data /home/nvidia/caffe/build/examples/cifar10/convert_cifar_data.bin
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cifar10/convert_cifar_data"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/convert_cifar_data.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && ln -sf /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples/cifar10/convert_cifar_data /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples/cifar10/convert_cifar_data.bin
 
 # Rule to build all files generated by this target.
 examples/CMakeFiles/convert_cifar_data.dir/build: examples/cifar10/convert_cifar_data
@@ -147,10 +147,10 @@ examples/CMakeFiles/convert_cifar_data.dir/requires: examples/CMakeFiles/convert
 .PHONY : examples/CMakeFiles/convert_cifar_data.dir/requires
 
 examples/CMakeFiles/convert_cifar_data.dir/clean:
-	cd /home/nvidia/caffe/build/examples && $(CMAKE_COMMAND) -P CMakeFiles/convert_cifar_data.dir/cmake_clean.cmake
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples && $(CMAKE_COMMAND) -P CMakeFiles/convert_cifar_data.dir/cmake_clean.cmake
 .PHONY : examples/CMakeFiles/convert_cifar_data.dir/clean
 
 examples/CMakeFiles/convert_cifar_data.dir/depend:
-	cd /home/nvidia/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/caffe /home/nvidia/caffe/examples /home/nvidia/caffe/build /home/nvidia/caffe/build/examples /home/nvidia/caffe/build/examples/CMakeFiles/convert_cifar_data.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples/CMakeFiles/convert_cifar_data.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : examples/CMakeFiles/convert_cifar_data.dir/depend
 

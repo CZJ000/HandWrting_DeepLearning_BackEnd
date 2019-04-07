@@ -43,7 +43,7 @@ add_library(caffe SHARED IMPORTED)
 
 set_target_properties(caffe PROPERTIES
   INTERFACE_COMPILE_DEFINITIONS "USE_LMDB;USE_LEVELDB;USE_CUDNN;USE_OPENCV"
-  INTERFACE_INCLUDE_DIRECTORIES "/usr/include;/usr/include;/usr/include;/usr/include;/usr/include/hdf5/serial;/usr/include;/usr/include;/usr/local/cuda-9.0/include;/usr/include;/usr/include;/usr/include/opencv;/usr/include;/usr/include/atlas;/usr/include;/home/nvidia/caffe/include"
+  INTERFACE_INCLUDE_DIRECTORIES "/usr/include;/usr/include;/usr/include;/usr/include;/usr/include/hdf5/serial;/usr/include;/usr/include;/usr/local/cuda-9.0/include;/usr/include;/usr/include;/usr/include/opencv;/usr/include;/usr/include/atlas;/usr/include;/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/include"
 )
 
 # Create imported target caffeproto
@@ -57,7 +57,7 @@ set_target_properties(caffeproto PROPERTIES
 set_property(TARGET caffe APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(caffe PROPERTIES
   IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "caffeproto;/usr/lib/aarch64-linux-gnu/libboost_system.so;/usr/lib/aarch64-linux-gnu/libboost_thread.so;/usr/lib/aarch64-linux-gnu/libboost_filesystem.so;/usr/lib/aarch64-linux-gnu/libboost_chrono.so;/usr/lib/aarch64-linux-gnu/libboost_date_time.so;/usr/lib/aarch64-linux-gnu/libboost_atomic.so;/usr/lib/aarch64-linux-gnu/libpthread.so;/usr/lib/aarch64-linux-gnu/libglog.so;/usr/lib/aarch64-linux-gnu/libgflags.so;/usr/lib/aarch64-linux-gnu/libprotobuf.so;-lpthread;/usr/lib/aarch64-linux-gnu/hdf5/serial/lib/libhdf5_hl.so;/usr/lib/aarch64-linux-gnu/hdf5/serial/lib/libhdf5.so;/usr/lib/aarch64-linux-gnu/libpthread.so;/usr/lib/aarch64-linux-gnu/libsz.so;/usr/lib/aarch64-linux-gnu/libz.so;/usr/lib/aarch64-linux-gnu/libdl.so;/usr/lib/aarch64-linux-gnu/libm.so;/usr/lib/aarch64-linux-gnu/hdf5/serial/lib/libhdf5_hl.so;/usr/lib/aarch64-linux-gnu/hdf5/serial/lib/libhdf5.so;/usr/lib/aarch64-linux-gnu/libpthread.so;/usr/lib/aarch64-linux-gnu/libsz.so;/usr/lib/aarch64-linux-gnu/libz.so;/usr/lib/aarch64-linux-gnu/libdl.so;/usr/lib/aarch64-linux-gnu/libm.so;/usr/lib/aarch64-linux-gnu/hdf5/serial/lib/libhdf5_hl.so;/usr/lib/aarch64-linux-gnu/hdf5/serial/lib/libhdf5.so;/usr/lib/aarch64-linux-gnu/libpthread.so;/usr/lib/aarch64-linux-gnu/libsz.so;/usr/lib/aarch64-linux-gnu/libz.so;/usr/lib/aarch64-linux-gnu/libdl.so;/usr/lib/aarch64-linux-gnu/libm.so;/usr/lib/aarch64-linux-gnu/hdf5/serial/lib/libhdf5_hl.so;/usr/lib/aarch64-linux-gnu/hdf5/serial/lib/libhdf5.so;/usr/lib/aarch64-linux-gnu/libpthread.so;/usr/lib/aarch64-linux-gnu/libsz.so;/usr/lib/aarch64-linux-gnu/libz.so;/usr/lib/aarch64-linux-gnu/libdl.so;/usr/lib/aarch64-linux-gnu/libm.so;/usr/lib/aarch64-linux-gnu/liblmdb.so;/usr/lib/aarch64-linux-gnu/libleveldb.so;/usr/local/cuda-9.0/lib64/libcudart.so;/usr/local/cuda-9.0/lib64/libcurand.so;/usr/local/cuda-9.0/lib64/libcublas.so;/usr/lib/aarch64-linux-gnu/libcudnn.so;opencv_core;opencv_highgui;opencv_imgproc;opencv_imgcodecs;/usr/lib/liblapack.so;/usr/lib/libcblas.so;/usr/lib/libatlas.so;/usr/lib/aarch64-linux-gnu/libboost_python.so"
-  IMPORTED_LOCATION_RELEASE "/home/nvidia/caffe/build/lib/libcaffe.so.1.0.0"
+  IMPORTED_LOCATION_RELEASE "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/lib/libcaffe.so.1.0.0"
   IMPORTED_SONAME_RELEASE "libcaffe.so.1.0.0"
   )
 
@@ -66,7 +66,7 @@ set_property(TARGET caffeproto APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(caffeproto PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "CXX"
   IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "/usr/lib/aarch64-linux-gnu/libprotobuf.so;-lpthread"
-  IMPORTED_LOCATION_RELEASE "/home/nvidia/caffe/build/lib/libcaffeproto.a"
+  IMPORTED_LOCATION_RELEASE "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/lib/libcaffeproto.a"
   )
 
 # This file does not depend on other imported targets which have

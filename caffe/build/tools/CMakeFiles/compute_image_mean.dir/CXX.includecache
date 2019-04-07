@@ -94,7 +94,7 @@ caffe/proto/caffe.pb.h
 caffe/util/format.hpp
 ../include/caffe/util/caffe/util/format.hpp
 
-/home/nvidia/caffe/tools/compute_image_mean.cpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/compute_image_mean.cpp
 stdint.h
 -
 algorithm
@@ -106,17 +106,17 @@ utility
 vector
 -
 boost/scoped_ptr.hpp
-/home/nvidia/caffe/tools/boost/scoped_ptr.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/boost/scoped_ptr.hpp
 gflags/gflags.h
-/home/nvidia/caffe/tools/gflags/gflags.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/gflags/gflags.h
 glog/logging.h
-/home/nvidia/caffe/tools/glog/logging.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/glog/logging.h
 caffe/proto/caffe.pb.h
-/home/nvidia/caffe/tools/caffe/proto/caffe.pb.h
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/caffe/proto/caffe.pb.h
 caffe/util/db.hpp
-/home/nvidia/caffe/tools/caffe/util/db.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/caffe/util/db.hpp
 caffe/util/io.hpp
-/home/nvidia/caffe/tools/caffe/util/io.hpp
+/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/caffe/util/io.hpp
 
 /usr/local/cuda-9.0/include/builtin_types.h
 device_types.h

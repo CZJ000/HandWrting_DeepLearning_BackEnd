@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nvidia/caffe/python/caffe/_caffe.cpp" "/home/nvidia/caffe/build/python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o"
+  "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/_caffe.cpp" "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -33,8 +33,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/nvidia/caffe/build/src/caffe/CMakeFiles/caffe.dir/DependInfo.cmake"
-  "/home/nvidia/caffe/build/src/caffe/CMakeFiles/caffeproto.dir/DependInfo.cmake"
+  "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/caffe.dir/DependInfo.cmake"
+  "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/caffeproto.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

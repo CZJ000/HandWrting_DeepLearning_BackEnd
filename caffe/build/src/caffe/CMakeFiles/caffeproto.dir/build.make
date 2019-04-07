@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/caffe
+CMAKE_SOURCE_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/caffe/build
+CMAKE_BINARY_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build
 
 # Include any dependencies generated for this target.
 include src/caffe/CMakeFiles/caffeproto.dir/depend.make
@@ -58,10 +58,10 @@ include src/caffe/CMakeFiles/caffeproto.dir/progress.make
 include src/caffe/CMakeFiles/caffeproto.dir/flags.make
 
 include/caffe/proto/caffe.pb.cc: ../src/caffe/proto/caffe.proto
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running C++/Python protocol buffer compiler on /home/nvidia/caffe/src/caffe/proto/caffe.proto"
-	cd /home/nvidia/caffe/build/src/caffe && /usr/bin/cmake -E make_directory /home/nvidia/caffe/build/include/caffe/proto
-	cd /home/nvidia/caffe/build/src/caffe && /usr/bin/protoc --cpp_out /home/nvidia/caffe/build/include/caffe/proto -I /home/nvidia/caffe/src/caffe/proto /home/nvidia/caffe/src/caffe/proto/caffe.proto
-	cd /home/nvidia/caffe/build/src/caffe && /usr/bin/protoc --python_out /home/nvidia/caffe/build/include --proto_path /home/nvidia/caffe/src -I /home/nvidia/caffe/src/caffe/proto /home/nvidia/caffe/src/caffe/proto/caffe.proto
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running C++/Python protocol buffer compiler on /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/caffe/proto/caffe.proto"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && /usr/bin/cmake -E make_directory /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && /usr/bin/protoc --cpp_out /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto -I /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/caffe/proto /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/caffe/proto/caffe.proto
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && /usr/bin/protoc --python_out /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include --proto_path /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src -I /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/caffe/proto /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/caffe/proto/caffe.proto
 
 include/caffe/proto/caffe.pb.h: include/caffe/proto/caffe.pb.cc
 	@$(CMAKE_COMMAND) -E touch_nocreate include/caffe/proto/caffe.pb.h
@@ -71,16 +71,16 @@ include/caffe/proto/caffe_pb2.py: include/caffe/proto/caffe.pb.cc
 
 src/caffe/CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.o: src/caffe/CMakeFiles/caffeproto.dir/flags.make
 src/caffe/CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.o: include/caffe/proto/caffe.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/caffe/CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.o"
-	cd /home/nvidia/caffe/build/src/caffe && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.o -c /home/nvidia/caffe/build/include/caffe/proto/caffe.pb.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/caffe/CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.o"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.o -c /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto/caffe.pb.cc
 
 src/caffe/CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.i"
-	cd /home/nvidia/caffe/build/src/caffe && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/caffe/build/include/caffe/proto/caffe.pb.cc > CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.i
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto/caffe.pb.cc > CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.i
 
 src/caffe/CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.s"
-	cd /home/nvidia/caffe/build/src/caffe && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/caffe/build/include/caffe/proto/caffe.pb.cc -o CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.s
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto/caffe.pb.cc -o CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.s
 
 src/caffe/CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.o.requires:
 
@@ -103,9 +103,9 @@ caffeproto_EXTERNAL_OBJECTS =
 lib/libcaffeproto.a: src/caffe/CMakeFiles/caffeproto.dir/__/__/include/caffe/proto/caffe.pb.cc.o
 lib/libcaffeproto.a: src/caffe/CMakeFiles/caffeproto.dir/build.make
 lib/libcaffeproto.a: src/caffe/CMakeFiles/caffeproto.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library ../../lib/libcaffeproto.a"
-	cd /home/nvidia/caffe/build/src/caffe && $(CMAKE_COMMAND) -P CMakeFiles/caffeproto.dir/cmake_clean_target.cmake
-	cd /home/nvidia/caffe/build/src/caffe && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/caffeproto.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library ../../lib/libcaffeproto.a"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && $(CMAKE_COMMAND) -P CMakeFiles/caffeproto.dir/cmake_clean_target.cmake
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/caffeproto.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/caffe/CMakeFiles/caffeproto.dir/build: lib/libcaffeproto.a
@@ -117,12 +117,12 @@ src/caffe/CMakeFiles/caffeproto.dir/requires: src/caffe/CMakeFiles/caffeproto.di
 .PHONY : src/caffe/CMakeFiles/caffeproto.dir/requires
 
 src/caffe/CMakeFiles/caffeproto.dir/clean:
-	cd /home/nvidia/caffe/build/src/caffe && $(CMAKE_COMMAND) -P CMakeFiles/caffeproto.dir/cmake_clean.cmake
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe && $(CMAKE_COMMAND) -P CMakeFiles/caffeproto.dir/cmake_clean.cmake
 .PHONY : src/caffe/CMakeFiles/caffeproto.dir/clean
 
 src/caffe/CMakeFiles/caffeproto.dir/depend: include/caffe/proto/caffe.pb.cc
 src/caffe/CMakeFiles/caffeproto.dir/depend: include/caffe/proto/caffe.pb.h
 src/caffe/CMakeFiles/caffeproto.dir/depend: include/caffe/proto/caffe_pb2.py
-	cd /home/nvidia/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/caffe /home/nvidia/caffe/src/caffe /home/nvidia/caffe/build /home/nvidia/caffe/build/src/caffe /home/nvidia/caffe/build/src/caffe/CMakeFiles/caffeproto.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/src/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/caffeproto.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/caffe/CMakeFiles/caffeproto.dir/depend
 

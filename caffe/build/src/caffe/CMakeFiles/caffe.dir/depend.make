@@ -300,6 +300,7 @@ src/caffe/CMakeFiles/caffe.dir/layer.cpp.o: ../include/caffe/blob.hpp
 src/caffe/CMakeFiles/caffe.dir/layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -390,6 +391,7 @@ src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o: ../include/caffe/layers/cudn
 src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o: ../include/caffe/layers/cudnn_tanh_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o: ../include/caffe/layers/deconv_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o: ../include/caffe/layers/eltwise_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o: ../include/caffe/layers/lrn_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layer_factory.cpp.o: ../include/caffe/layers/pooling_layer.hpp
@@ -478,6 +480,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o: ../include/caffe/commo
 src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o: ../include/caffe/layers/absval_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/absval_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -556,6 +559,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o: ../include/caffe/com
 src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o: ../include/caffe/layers/accuracy_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/accuracy_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -634,6 +638,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o: ../include/caffe/commo
 src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o: ../include/caffe/layers/argmax_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/argmax_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -793,6 +798,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o: ../include/caffe/in
 src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o: ../include/caffe/layers/base_data_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o: ../include/caffe/util/blocking_queue.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/base_data_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -871,6 +877,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o: ../include/caffe/c
 src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o: ../include/caffe/layers/batch_norm_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_norm_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -948,6 +955,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o: ../include/caff
 src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o: ../include/caffe/layers/batch_reindex_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/batch_reindex_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -1026,6 +1034,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o: ../include/caffe/filler.
 src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o: ../include/caffe/layers/bias_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bias_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -1103,6 +1112,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o: ../include/caffe/common.
 src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o: ../include/caffe/layers/bnll_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/bnll_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -1181,6 +1191,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/clip_layer.cpp.o: ../include/caffe/common.
 src/caffe/CMakeFiles/caffe.dir/layers/clip_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/clip_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/clip_layer.cpp.o: ../include/caffe/layers/clip_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/clip_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/clip_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/clip_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/clip_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -1259,6 +1270,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o: ../include/caffe/commo
 src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o: ../include/caffe/layers/concat_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/concat_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -1336,6 +1348,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o: ../include/c
 src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o: ../include/caffe/layers/contrastive_loss_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/contrastive_loss_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -1415,6 +1428,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o: ../include/caffe/layer.h
 src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o: ../include/caffe/layers/base_conv_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o: ../include/caffe/layers/conv_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/conv_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -1493,6 +1507,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o: ../include/caffe/common.
 src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o: ../include/caffe/layers/crop_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/crop_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -1573,6 +1588,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o: ../include/caffe/l
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o: ../include/caffe/layers/base_conv_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o: ../include/caffe/layers/conv_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o: ../include/caffe/layers/cudnn_conv_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_conv_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -1653,6 +1669,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_deconv_layer.cpp.o: ../include/caffe
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_deconv_layer.cpp.o: ../include/caffe/layers/base_conv_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_deconv_layer.cpp.o: ../include/caffe/layers/cudnn_deconv_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_deconv_layer.cpp.o: ../include/caffe/layers/deconv_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_deconv_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_deconv_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_deconv_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_deconv_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -1732,6 +1749,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o: ../include/caffe/la
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o: ../include/caffe/layers/cudnn_lcn_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o: ../include/caffe/layers/eltwise_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o: ../include/caffe/layers/lrn_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lcn_layer.cpp.o: ../include/caffe/layers/pooling_layer.hpp
@@ -1815,6 +1833,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o: ../include/caffe/la
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o: ../include/caffe/layers/cudnn_lrn_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o: ../include/caffe/layers/eltwise_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o: ../include/caffe/layers/lrn_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_lrn_layer.cpp.o: ../include/caffe/layers/pooling_layer.hpp
@@ -1897,6 +1916,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o: ../include/caff
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o: ../include/caffe/layers/cudnn_pooling_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o: ../include/caffe/layers/pooling_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_pooling_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -1975,6 +1995,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o: ../include/caffe/c
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o: ../include/caffe/layers/cudnn_relu_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o: ../include/caffe/layers/relu_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_relu_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -2054,6 +2075,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o: ../include/caff
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o: ../include/caffe/layers/cudnn_sigmoid_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o: ../include/caffe/layers/sigmoid_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_sigmoid_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -2133,6 +2155,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o: ../include/caff
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o: ../include/caffe/layers/cudnn_softmax_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o: ../include/caffe/layers/softmax_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_softmax_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -2870,6 +2893,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o: ../include/caffe/c
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o: ../include/caffe/layers/cudnn_tanh_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o: ../include/caffe/layers/tanh_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/cudnn_tanh_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -2952,6 +2976,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o: ../include/caffe/layer.h
 src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o: ../include/caffe/layers/base_data_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o: ../include/caffe/layers/data_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o: ../include/caffe/util/benchmark.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/data_layer.cpp.o: ../include/caffe/util/blocking_queue.hpp
@@ -3033,6 +3058,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o: ../include/caffe/layer
 src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o: ../include/caffe/layers/base_conv_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o: ../include/caffe/layers/deconv_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/deconv_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -3111,6 +3137,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o: ../include/caffe/comm
 src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o: ../include/caffe/layers/dropout_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dropout_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -3190,6 +3217,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o: ../include/caffe/f
 src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o: ../include/caffe/layers/dummy_data_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/dummy_data_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -3267,6 +3295,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o: ../include/caffe/comm
 src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o: ../include/caffe/layers/eltwise_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/eltwise_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -3344,6 +3373,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o: ../include/caffe/common.h
 src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o: ../include/caffe/layers/elu_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/elu_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -3423,6 +3453,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o: ../include/caffe/filler
 src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o: ../include/caffe/layers/embed_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/embed_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -3500,6 +3531,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o: ../include/caf
 src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o: ../include/caffe/layers/euclidean_loss_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/euclidean_loss_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -3578,6 +3610,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o: ../include/caffe/common.h
 src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o: ../include/caffe/layers/exp_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/exp_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -3656,6 +3689,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o: ../include/caffe/commo
 src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o: ../include/caffe/layers/filter_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/filter_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -3733,6 +3767,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o: ../include/caffe/comm
 src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o: ../include/caffe/layers/flatten_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/flatten_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -3813,6 +3848,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o: ../include/caffe/la
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o: ../include/caffe/layers/base_data_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o: ../include/caffe/layers/hdf5_data_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o: ../include/caffe/util/blocking_queue.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_data_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -3932,6 +3968,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: ../include/caffe/
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: ../include/caffe/layers/hdf5_output_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: ../include/caffe/util/cudnn.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: ../include/caffe/util/device_alternate.hpp
@@ -4045,10 +4082,14 @@ src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: /usr/local/cuda-9
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: /usr/local/cuda-9.0/include/vector_types.h
 src/caffe/CMakeFiles/caffe.dir/layers/hdf5_output_layer.cpp.o: include/caffe/proto/caffe.pb.h
 
+src/caffe/CMakeFiles/caffe.dir/layers/helper.cpp.o: ../include/caffe/layers/helper.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/helper.cpp.o: ../src/caffe/layers/helper.cpp
+
 src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o: ../include/caffe/blob.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o: ../include/caffe/layers/hinge_loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/hinge_loss_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -4127,6 +4168,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o: ../include/caffe/blob.
 src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o: ../include/caffe/layers/im2col_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/im2col_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -4208,6 +4250,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o: ../include/caffe/i
 src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o: ../include/caffe/layers/base_data_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o: ../include/caffe/layers/image_data_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/image_data_layer.cpp.o: ../include/caffe/util/benchmark.hpp
@@ -4290,6 +4333,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o: ../include/caff
 src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o: ../include/caffe/layers/infogain_loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/infogain_loss_layer.cpp.o: ../include/caffe/layers/softmax_layer.hpp
@@ -4372,6 +4416,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o: ../include/caff
 src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o: ../include/caffe/filler.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o: ../include/caffe/layers/inner_product_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/inner_product_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -4449,6 +4494,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o: ../include/caffe/blob.h
 src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o: ../include/caffe/layers/input_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/input_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -4526,6 +4572,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o: ../include/caffe/blob.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o: ../include/caffe/layers/log_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/log_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -4604,6 +4651,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o: ../include/caffe/blob.hp
 src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/loss_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -4682,6 +4730,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o: ../include/caffe/common.h
 src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o: ../include/caffe/layers/eltwise_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o: ../include/caffe/layers/lrn_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lrn_layer.cpp.o: ../include/caffe/layers/pooling_layer.hpp
@@ -4764,6 +4813,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o: ../include/caffe/common.
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o: ../include/caffe/filler.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o: ../include/caffe/layers/lstm_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o: ../include/caffe/layers/recurrent_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_layer.cpp.o: ../include/caffe/net.hpp
@@ -4844,6 +4894,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o: ../include/caffe/bl
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o: ../include/caffe/layers/lstm_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o: ../include/caffe/layers/recurrent_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/lstm_unit_layer.cpp.o: ../include/caffe/net.hpp
@@ -4927,6 +4978,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o: ../include/caffe/
 src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o: ../include/caffe/layers/base_data_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o: ../include/caffe/layers/memory_data_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/memory_data_layer.cpp.o: ../include/caffe/util/blocking_queue.hpp
@@ -5005,6 +5057,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o: ../
 src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o: ../include/caffe/layers/multinomial_logistic_loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/multinomial_logistic_loss_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -5083,6 +5136,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o: ../include/caffe/blob.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o: ../include/caffe/layers/mvn_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/mvn_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -5160,6 +5214,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o: ../include/caffe/blob.
 src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/neuron_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -5237,6 +5292,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o: ../include/caffe/bl
 src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o: ../include/caffe/layers/parameter_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/parameter_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -5314,6 +5370,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o: ../include/caffe/blob
 src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o: ../include/caffe/layers/pooling_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/pooling_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -5391,6 +5448,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o: ../include/caffe/blob.h
 src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o: ../include/caffe/layers/power_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/power_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -5470,6 +5528,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o: ../include/caffe/common
 src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o: ../include/caffe/filler.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o: ../include/caffe/layers/prelu_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/prelu_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -5549,6 +5608,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o: ../include/caffe/co
 src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o: ../include/caffe/filler.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o: ../include/caffe/layers/recurrent_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/recurrent_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -5628,6 +5688,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o: ../include/caffe/bl
 src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o: ../include/caffe/layers/reduction_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reduction_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -5705,6 +5766,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o: ../include/caffe/blob.hp
 src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o: ../include/caffe/layers/relu_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/relu_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -5783,6 +5845,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o: ../include/caffe/blob
 src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o: ../include/caffe/layers/reshape_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/reshape_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -5861,6 +5924,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o: ../include/caffe/common.h
 src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o: ../include/caffe/filler.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o: ../include/caffe/layers/recurrent_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o: ../include/caffe/layers/rnn_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/rnn_layer.cpp.o: ../include/caffe/net.hpp
@@ -5943,6 +6007,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o: ../include/caffe/filler
 src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o: ../include/caffe/layers/bias_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o: ../include/caffe/layers/scale_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/scale_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -6020,6 +6085,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o: ..
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_cross_entropy_loss_layer.cpp.o: ../include/caffe/layers/sigmoid_cross_entropy_loss_layer.hpp
@@ -6100,6 +6166,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o: ../include/caffe/blob
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o: ../include/caffe/layers/sigmoid_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/sigmoid_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -6178,6 +6245,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o: ../include/caffe/blob
 src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o: ../include/caffe/layers/silence_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/silence_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -6255,6 +6323,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o: ../include/caffe/blob.h
 src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o: ../include/caffe/layers/slice_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/slice_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -6332,6 +6401,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o: ../include/caffe/blob
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o: ../include/caffe/layers/softmax_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -6409,6 +6479,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o: ../include/caffe
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o: ../include/caffe/layers/loss_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o: ../include/caffe/layers/softmax_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/softmax_loss_layer.cpp.o: ../include/caffe/layers/softmax_loss_layer.hpp
@@ -6488,6 +6559,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o: ../include/caffe/blob.h
 src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o: ../include/caffe/layers/split_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/split_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -6567,6 +6639,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o: ../include/caffe/layer.hp
 src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o: ../include/caffe/layers/concat_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o: ../include/caffe/layers/flatten_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o: ../include/caffe/layers/pooling_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o: ../include/caffe/layers/split_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/spp_layer.cpp.o: ../include/caffe/layers/spp_layer.hpp
@@ -6646,6 +6719,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/swish_layer.cpp.o: ../include/caffe/blob.h
 src/caffe/CMakeFiles/caffe.dir/layers/swish_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/swish_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/swish_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/swish_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/swish_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/swish_layer.cpp.o: ../include/caffe/layers/sigmoid_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/swish_layer.cpp.o: ../include/caffe/layers/swish_layer.hpp
@@ -6725,6 +6799,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o: ../include/caffe/blob.hp
 src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o: ../include/caffe/layers/tanh_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tanh_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -6803,6 +6878,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o: ../include/caffe/bl
 src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o: ../include/caffe/layers/neuron_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o: ../include/caffe/layers/threshold_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/threshold_layer.cpp.o: ../include/caffe/syncedmem.hpp
@@ -6881,6 +6957,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o: ../include/caffe/blob.hp
 src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o: ../include/caffe/layers/tile_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/tile_layer.cpp.o: ../include/caffe/util/cudnn.hpp
@@ -6961,6 +7038,7 @@ src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o: ../include/caffe/
 src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o: ../include/caffe/layers/base_data_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o: ../include/caffe/layers/window_data_layer.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o: ../include/caffe/syncedmem.hpp
 src/caffe/CMakeFiles/caffe.dir/layers/window_data_layer.cpp.o: ../include/caffe/util/benchmark.hpp
@@ -7044,6 +7122,7 @@ src/caffe/CMakeFiles/caffe.dir/net.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/net.cpp.o: ../include/caffe/internal_thread.hpp
 src/caffe/CMakeFiles/caffe.dir/net.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/net.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/net.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/net.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/net.cpp.o: ../include/caffe/parallel.hpp
 src/caffe/CMakeFiles/caffe.dir/net.cpp.o: ../include/caffe/solver.hpp
@@ -7173,6 +7252,7 @@ src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o: ../include/caffe/filler.hpp
 src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o: ../include/caffe/internal_thread.hpp
 src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o: ../include/caffe/parallel.hpp
 src/caffe/CMakeFiles/caffe.dir/parallel.cpp.o: ../include/caffe/sgd_solvers.hpp
@@ -7260,6 +7340,7 @@ src/caffe/CMakeFiles/caffe.dir/solver.cpp.o: ../include/caffe/blob.hpp
 src/caffe/CMakeFiles/caffe.dir/solver.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/solver.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/solver.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/solver.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/solver.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/solver.cpp.o: ../include/caffe/solver.hpp
 src/caffe/CMakeFiles/caffe.dir/solver.cpp.o: ../include/caffe/solver_factory.hpp
@@ -7384,6 +7465,7 @@ src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o: ../include/caffe/b
 src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o: ../include/caffe/sgd_solvers.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adadelta_solver.cpp.o: ../include/caffe/solver.hpp
@@ -7465,6 +7547,7 @@ src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o: ../include/caffe/bl
 src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o: ../include/caffe/sgd_solvers.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adagrad_solver.cpp.o: ../include/caffe/solver.hpp
@@ -7546,6 +7629,7 @@ src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o: ../include/caffe/blob.
 src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o: ../include/caffe/sgd_solvers.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/adam_solver.cpp.o: ../include/caffe/solver.hpp
@@ -7627,6 +7711,7 @@ src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o: ../include/caffe/b
 src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o: ../include/caffe/sgd_solvers.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/nesterov_solver.cpp.o: ../include/caffe/solver.hpp
@@ -7708,6 +7793,7 @@ src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o: ../include/caffe/bl
 src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o: ../include/caffe/sgd_solvers.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/rmsprop_solver.cpp.o: ../include/caffe/solver.hpp
@@ -7789,6 +7875,7 @@ src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o: ../include/caffe/blob.h
 src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o: ../include/caffe/sgd_solvers.hpp
 src/caffe/CMakeFiles/caffe.dir/solvers/sgd_solver.cpp.o: ../include/caffe/solver.hpp
@@ -8060,6 +8147,7 @@ src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o: ../include/caffe/inter
 src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o: ../include/caffe/layer_factory.hpp
 src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o: ../include/caffe/layers/base_data_layer.hpp
+src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o: ../include/caffe/parallel.hpp
 src/caffe/CMakeFiles/caffe.dir/util/blocking_queue.cpp.o: ../include/caffe/solver.hpp
@@ -8825,6 +8913,7 @@ src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: ../include/caffe/blob.
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: ../include/caffe/layer.hpp
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: ../include/caffe/layer_factory.hpp
+src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: ../include/caffe/layers/helper.hpp
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: ../include/caffe/net.hpp
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: ../include/caffe/solver.hpp
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: ../include/caffe/solver_factory.hpp
@@ -8901,6 +8990,10 @@ src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: /usr/local/cuda-9.0/in
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: /usr/local/cuda-9.0/include/vector_functions.hpp
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: /usr/local/cuda-9.0/include/vector_types.h
 src/caffe/CMakeFiles/caffe.dir/util/signal_handler.cpp.o: include/caffe/proto/caffe.pb.h
+
+src/caffe/CMakeFiles/caffe.dir/util/test/ThreadTest.cpp.o: ../src/caffe/util/test/ThreadTest.cpp
+
+src/caffe/CMakeFiles/caffe.dir/util/test/testClabs_dgemm.cpp.o: ../src/caffe/util/test/testClabs_dgemm.cpp
 
 src/caffe/CMakeFiles/caffe.dir/util/upgrade_proto.cpp.o: ../include/caffe/common.hpp
 src/caffe/CMakeFiles/caffe.dir/util/upgrade_proto.cpp.o: ../include/caffe/util/cudnn.hpp

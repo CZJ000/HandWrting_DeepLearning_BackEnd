@@ -9,6 +9,7 @@ tools/CMakeFiles/upgrade_net_proto_binary.dir/upgrade_net_proto_binary.cpp.o
  ../include/caffe/internal_thread.hpp
  ../include/caffe/layer.hpp
  ../include/caffe/layer_factory.hpp
+ ../include/caffe/layers/helper.hpp
  ../include/caffe/net.hpp
  ../include/caffe/parallel.hpp
  ../include/caffe/solver.hpp
@@ -24,7 +25,7 @@ tools/CMakeFiles/upgrade_net_proto_binary.dir/upgrade_net_proto_binary.cpp.o
  ../include/caffe/util/mkl_alternate.hpp
  ../include/caffe/util/nccl.hpp
  ../include/caffe/util/upgrade_proto.hpp
- /home/nvidia/caffe/tools/upgrade_net_proto_binary.cpp
+ /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/tools/upgrade_net_proto_binary.cpp
  /usr/include/atlas/cblas.h
  /usr/local/cuda-9.0/include/builtin_types.h
  /usr/local/cuda-9.0/include/channel_descriptor.h

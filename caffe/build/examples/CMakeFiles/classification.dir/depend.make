@@ -8,6 +8,7 @@ examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: 
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: ../include/caffe/internal_thread.hpp
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: ../include/caffe/layer.hpp
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: ../include/caffe/layer_factory.hpp
+examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: ../include/caffe/layers/helper.hpp
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: ../include/caffe/net.hpp
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: ../include/caffe/parallel.hpp
 examples/CMakeFiles/classification.dir/cpp_classification/classification.cpp.o: ../include/caffe/solver.hpp

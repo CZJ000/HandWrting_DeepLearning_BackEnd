@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nvidia/caffe
+CMAKE_SOURCE_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nvidia/caffe/build
+CMAKE_BINARY_DIR = /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build
 
 # Include any dependencies generated for this target.
 include python/CMakeFiles/pycaffe.dir/depend.make
@@ -59,16 +59,16 @@ include python/CMakeFiles/pycaffe.dir/flags.make
 
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: python/CMakeFiles/pycaffe.dir/flags.make
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o: ../python/caffe/_caffe.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o"
-	cd /home/nvidia/caffe/build/python && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o -c /home/nvidia/caffe/python/caffe/_caffe.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o -c /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/_caffe.cpp
 
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.i"
-	cd /home/nvidia/caffe/build/python && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/caffe/python/caffe/_caffe.cpp > CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.i
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/_caffe.cpp > CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.i
 
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.s"
-	cd /home/nvidia/caffe/build/python && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/caffe/python/caffe/_caffe.cpp -o CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.s
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/_caffe.cpp -o CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.s
 
 python/CMakeFiles/pycaffe.dir/caffe/_caffe.cpp.o.requires:
 
@@ -134,13 +134,13 @@ lib/_caffe.so: /usr/lib/libcblas.so
 lib/_caffe.so: /usr/lib/libatlas.so
 lib/_caffe.so: /usr/lib/aarch64-linux-gnu/libboost_python.so
 lib/_caffe.so: python/CMakeFiles/pycaffe.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library ../lib/_caffe.so"
-	cd /home/nvidia/caffe/build/python && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pycaffe.dir/link.txt --verbose=$(VERBOSE)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Creating symlink /home/nvidia/caffe/python/caffe/_caffe.so -> /home/nvidia/caffe/build/lib/_caffe.so"
-	cd /home/nvidia/caffe/build/python && ln -sf /home/nvidia/caffe/build/lib/_caffe.so /home/nvidia/caffe/python/caffe/_caffe.so
-	cd /home/nvidia/caffe/build/python && /usr/bin/cmake -E make_directory /home/nvidia/caffe/python/caffe/proto
-	cd /home/nvidia/caffe/build/python && touch /home/nvidia/caffe/python/caffe/proto/__init__.py
-	cd /home/nvidia/caffe/build/python && cp /home/nvidia/caffe/build/include/caffe/proto/*.py /home/nvidia/caffe/python/caffe/proto/
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library ../lib/_caffe.so"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pycaffe.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Creating symlink /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/_caffe.so -> /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/lib/_caffe.so"
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && ln -sf /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/lib/_caffe.so /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/_caffe.so
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && /usr/bin/cmake -E make_directory /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/proto
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && touch /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/proto/__init__.py
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && cp /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/include/caffe/proto/*.py /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python/caffe/proto/
 
 # Rule to build all files generated by this target.
 python/CMakeFiles/pycaffe.dir/build: lib/_caffe.so
@@ -152,10 +152,10 @@ python/CMakeFiles/pycaffe.dir/requires: python/CMakeFiles/pycaffe.dir/caffe/_caf
 .PHONY : python/CMakeFiles/pycaffe.dir/requires
 
 python/CMakeFiles/pycaffe.dir/clean:
-	cd /home/nvidia/caffe/build/python && $(CMAKE_COMMAND) -P CMakeFiles/pycaffe.dir/cmake_clean.cmake
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python && $(CMAKE_COMMAND) -P CMakeFiles/pycaffe.dir/cmake_clean.cmake
 .PHONY : python/CMakeFiles/pycaffe.dir/clean
 
 python/CMakeFiles/pycaffe.dir/depend:
-	cd /home/nvidia/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/caffe /home/nvidia/caffe/python /home/nvidia/caffe/build /home/nvidia/caffe/build/python /home/nvidia/caffe/build/python/CMakeFiles/pycaffe.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/python /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python /home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/python/CMakeFiles/pycaffe.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : python/CMakeFiles/pycaffe.dir/depend
 

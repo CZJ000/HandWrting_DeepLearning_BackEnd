@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nvidia/caffe/examples/mnist/convert_mnist_data.cpp" "/home/nvidia/caffe/build/examples/CMakeFiles/convert_mnist_data.dir/mnist/convert_mnist_data.cpp.o"
+  "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/examples/mnist/convert_mnist_data.cpp" "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/examples/CMakeFiles/convert_mnist_data.dir/mnist/convert_mnist_data.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -31,8 +31,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/nvidia/caffe/build/src/caffe/CMakeFiles/caffe.dir/DependInfo.cmake"
-  "/home/nvidia/caffe/build/src/caffe/CMakeFiles/caffeproto.dir/DependInfo.cmake"
+  "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/caffe.dir/DependInfo.cmake"
+  "/home/nvidia/HandWrting_DeepLearning_BackEnd/caffe/build/src/caffe/CMakeFiles/caffeproto.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
