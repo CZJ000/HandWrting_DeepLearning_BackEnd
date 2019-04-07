@@ -282,15 +282,15 @@ void* matrix_mul_vector_neon_4by4_thread(void *arg)
        pstru = (struct mypara*) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
-      int M,N,K;
-      M=pstru->M;
-      N=pstru->N;
-      K=pstru->K;
-      float alpha=pstru->alpha;
-       float beta=pstru->beta;
-      float* A=pstru->A;
-      float* B=pstru->B;
-      float* C=pstru->C;
+      // int M,N,K;
+      // M=pstru->M;
+      // N=pstru->N;
+      // K=pstru->K;
+      // float alpha=pstru->alpha;
+      //  float beta=pstru->beta;
+      // float* A=pstru->A;
+      // float* B=pstru->B;
+      // float* C=pstru->C;
 
 
     float32x4_t valpha = vdupq_n_f32(alpha);
@@ -371,15 +371,15 @@ void*  matrix_mul_vector_neon_colnot4_thread(void *arg)
        pstru = ( struct mypara *) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
-      int M,N,K;
-      M=pstru->M;
-      N=pstru->N;
-      K=pstru->K;
-      float alpha=pstru->alpha;
-       float beta=pstru->beta;
-      float* A=pstru->A;
-      float* B=pstru->B;
-      float* C=pstru->C;
+      // int M,N,K;
+      // M=pstru->M;
+      // N=pstru->N;
+      // K=pstru->K;
+      // float alpha=pstru->alpha;
+      //  float beta=pstru->beta;
+      // float* A=pstru->A;
+      // float* B=pstru->B;
+      // float* C=pstru->C;
 
 
     int i,e;
@@ -414,15 +414,15 @@ void* matrix_mul_vector_neon_rownot4_thread(void *arg)
        pstru = (struct mypara*) arg;
       //  pstru->;//参数1
       //  pstru->para2;//参数2 
-      int M,N,K;
-      M=pstru->M;
-      N=pstru->N;
-      K=pstru->K;
-    float alpha=pstru->alpha;
-    float beta=pstru->beta;
-     float* A=pstru->A;
-     float* B=pstru->B;
-      float* C=pstru->C;
+    //   int M,N,K;
+    //   M=pstru->M;
+    //   N=pstru->N;
+    //   K=pstru->K;
+    // float alpha=pstru->alpha;
+    // float beta=pstru->beta;
+    //  float* A=pstru->A;
+    //  float* B=pstru->B;
+    //   float* C=pstru->C;
 
 
     int i,e;
@@ -468,17 +468,17 @@ for ( i = 0; i <=M-4; i+=4)
        for(e=0;e<=N-4;e+=4)
       {         
           struct mypara pstru;        
-          pstru.M=M;      
-          pstru.N=N;    
-          pstru.K=K;
+          // pstru.M=M;      
+          // pstru.N=N;    
+          // pstru.K=K;
           
-          pstru.alpha=alpha;
+          // pstru.alpha=alpha;
           
-          pstru.A=A;
+          // pstru.A=A;
          
-          pstru.B=B;
+          // pstru.B=B;
            
-          pstru.C=C;
+          // pstru.C=C;
           
           pstru.i=i;       
           pstru.e=e;       
@@ -491,13 +491,13 @@ for ( i = 0; i <=M-4; i+=4)
       if(e<N)
     {
          struct mypara pstru;
-          pstru.M=M;
-          pstru.N=N;
-          pstru.K=K;
-          pstru.alpha=alpha;
-          pstru.A=A;
-          pstru.B=B;
-          pstru.C=C;
+          // pstru.M=M;
+          // pstru.N=N;
+          // pstru.K=K;
+          // pstru.alpha=alpha;
+          // pstru.A=A;
+          // pstru.B=B;
+          // pstru.C=C;
           pstru.i=i;
           pstru.e=e;
           pthread_create(&t[a], NULL, matrix_mul_vector_neon_colnot4_thread,&(pstru));
@@ -507,13 +507,13 @@ for ( i = 0; i <=M-4; i+=4)
 }
 
           struct mypara pstru;
-          pstru.M=M;
-          pstru.N=N;
-          pstru.K=K;
-          pstru.alpha=alpha;
-          pstru.A=A;
-          pstru.B=B;
-          pstru.C=C;
+          // pstru.M=M;
+          // pstru.N=N;
+          // pstru.K=K;
+          // pstru.alpha=alpha;
+          // pstru.A=A;
+          // pstru.B=B;
+          // pstru.C=C;
           pstru.i=i;
           pstru.e=e;
           pthread_create(&t[a], NULL, matrix_mul_vector_neon_rownot4_thread,&(pstru));
