@@ -339,7 +339,7 @@ def CCLCut(img,img_num):        #255白
     gray = cv2.copyMakeBorder(gray, (int)(gr_w * padding_rate), (int)(gr_w * padding_rate),
                                       (int)(gr_h * padding_rate), (int)(gr_h * padding_rate),
                                       cv2.BORDER_CONSTANT, value=[255, 255, 255])
-    cv2.imshow("ggg",gray)
+    #cv2.imshow("ggg",gray)
     img_shape = gray.shape
     w = img_shape[0]
     h = img_shape[1]
@@ -488,8 +488,8 @@ def  AdhereCut(img,img_num):
     w = img_shape[0]
     h = img_shape[1]
     gray=img
-    cv2.imshow("gray",gray)
-    cv2.waitKey(0)
+    #cv2.imshow("gray",gray)
+    #cv2.waitKey(0)
 
     # 二值化处理
     #_, gray = cv2.threshold(img, 120, 255, cv2.THRESH_BINARY_INV)
@@ -519,7 +519,7 @@ def  AdhereCut(img,img_num):
         return
 
 
-    cv2.imshow('origi', pic)
+    #cv2.imshow('origi', pic)
 
 
     # 得到下轮廓波峰和波谷
@@ -670,7 +670,7 @@ def  AdhereCut(img,img_num):
                                           (int)(gr_h * padding_rate), (int)(gr_h * padding_rate),cv2.BORDER_CONSTANT,
                                           value=[255, 255, 255])
         print(constant.shape)
-        cv2.imshow("cons",constant)
+        #cv2.imshow("cons",constant)
         result_pic = cv2.resize(constant, (28, 28), interpolation=cv2.INTER_LINEAR)
         imgFix = np.zeros((28, 28, 1), np.uint8)
         for i in range(28):
@@ -757,8 +757,8 @@ def  AdhereCut(img,img_num):
         gr_w = cut.shape[0]
         gr_h = cut.shape[1]
 
-        cv2.imshow("cut", cut)
-        cv2.waitKey(0)
+        #cv2.imshow("cut", cut)
+        #cv2.waitKey(0)
 
         top_posi=0
         bottom_posi = w
@@ -784,8 +784,8 @@ def  AdhereCut(img,img_num):
         print(top_posi,bottom_posi)
         cut = cut[top_posi:bottom_posi, 0: gr_h]
 
-        cv2.imshow("cut",cut)
-        cv2.waitKey(0)
+        #cv2.imshow("cut",cut)
+        #cv2.waitKey(0)
         constant = []
         padding_rate = 0.2
         gr_w = cut.shape[0]
@@ -891,7 +891,7 @@ def  AdhereCut(img,img_num):
     #result_pic_gray = cv2.cvtColor(result_pic, cv2.COLOR_BGR2GRAY)
     # cv2.imshow("pic", result_pic)
     cv2.imwrite(root + img_num+"__"+str(count) + ".png", imgFix)
-    cv2.imshow('cut', gray)
+    #cv2.imshow('cut', gray)
 
 
 
@@ -943,7 +943,7 @@ gray=cv2.cvtColor(original_img,cv2.COLOR_BGR2GRAY)
 #retval,
 im_fixed=cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_MEAN_C ,cv2.THRESH_BINARY,27,27)
 
-cv2.imshow("im_fixed", im_fixed)
+#cv2.imshow("im_fixed", im_fixed)
 
 #kernel = cv2.getStructuringElement(cv2.MARKER_CROSS,(2,2))
 
@@ -954,7 +954,7 @@ erosion = cv2.erode(im_fixed,kernel,iterations = 1)
 #dilation=cv2.dilate(erosion,kernel,iterations = 1)
 
 
-cv2.imshow("erosion", erosion)
+#cv2.imshow("erosion", erosion)
 
 
 # Blur = cv2.GaussianBlur(erosion, (3, 3), 0,0)
@@ -969,7 +969,7 @@ cv2.imshow("erosion", erosion)
 # cv2.imshow("MeansDeno",MeansDeno)
 
 
-cv2.waitKey(0)
+#cv2.waitKey(0)
 
 
 
@@ -983,7 +983,7 @@ vertical(erosion)
 
 
 
-cv2.waitKey(0)
+#cv2.waitKey(0)
 
 
 
