@@ -568,8 +568,8 @@ for ( i = 0; i <=M-4; i+=4)
     {
                   //B K*N bb 
         float32x4_t vb =vld1q_f32(B+j*N+e); // vget(&B[k][4]);   
-        //vfmaq_f32 混合   c=a*b+c  
-        vc0=vmlaq_f32( vc0,vdupq_n_f32(A[i*K+j]), vb);  
+        //vfmaq_f32 混合   c=a*b+c     A[i*K+j]
+        vc0=vmlaq_f32( vc0,vdupq_n_f32(A[j*K+i]), vb);  
         //  cout<<"vc0 temp:"<<endl;
         //  float temp[4];
       // vst1q_f32(temp, vc0);
@@ -578,9 +578,9 @@ for ( i = 0; i <=M-4; i+=4)
         //   cout<<temp[i]<<" ";
         // }
         // cout<<endl;
-        vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
-        vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
-        vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
+        vc1=vmlaq_f32(vc1,vdupq_n_f32(A[j*K+i+1]), vb);
+        vc2=vmlaq_f32(vc2,vdupq_n_f32(A[j*K+i+2]), vb);
+        vc3=vmlaq_f32(vc3,vdupq_n_f32(A[j*K+i+3]), vb);
     }  
         // C M*N
         float32x4_t c0 =vld1q_f32(C+i*N+e);
