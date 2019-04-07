@@ -67,7 +67,7 @@ result[i][j]+=a[i][m]*b[m][j];
 void* Thread(void *arg)
 
 {
-  p = (int*) arg;
+int*  p = (int*) arg;
 int row=p[0];
 
 int col=p[1];
