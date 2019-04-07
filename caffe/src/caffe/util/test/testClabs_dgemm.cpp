@@ -27,14 +27,14 @@ float *A,*B,*C;
 
 struct mypara
 {
-        int M;//参数1
-        int N;//参数2
-        int K;
-        float alpha;
-        float *A;
-        float *B;
-        float beta;
-       float *C;
+      //   int M;//参数1
+      //   int N;//参数2
+      //   int K;
+      //   float alpha;
+      //   // float *A;
+      //   // float *B;
+      //   float beta;
+      //  float *C;
        int i;
        int e;
        int k;
@@ -115,7 +115,7 @@ int main(const int argc, const char* argv[]) {
 
   A=matrix_A_data;
   B=matrix_B_data;
-  C=matrix_C_data
+  C=matrix_C_data;
 
   random_init_data(M * K, A);
   random_init_data(K * N, B);
