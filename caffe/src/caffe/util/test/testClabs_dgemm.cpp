@@ -17,7 +17,7 @@ using namespace std;
 #define TEST_NTIMES 100;
 
 int M,N,K;
-float alpah,beta;
+float alpha=1.0f,beta=0.0f;
 
 float *A,*B,*C;
 
@@ -92,9 +92,9 @@ int main(const int argc, const char* argv[]) {
     printf( "M*K,   K* N  ,  M* N\n");
     return 0;
   }
-   int M = atoi(argv[1]); 
-   int N = atoi(argv[2]); 
-   int K = atoi(argv[3]); 
+    M = atoi(argv[1]); 
+    N = atoi(argv[2]); 
+    K = atoi(argv[3]); 
 
   // malloc matrix and vector
   float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
