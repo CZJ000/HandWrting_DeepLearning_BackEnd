@@ -229,7 +229,7 @@ def vertical(img):
     endX = 0
     startY = 0
     endY = 0
-    sum=8;
+    sum=8
 
 #边界提取
     # edges_row = []
@@ -291,7 +291,7 @@ def vertical(img):
     # right = max(edges_column)
     # print(right)                #右边界
     # pre2_picture = pixdata[bottom:top,left:right]
-    pre2_picture = pixdata;
+    pre2_picture = pixdata
     #cv2.imwrite("F:/emily_65004.png", pre2_picture)
     #w,h=pre2_picture.shape[:2]
     for x in range(w):
@@ -573,7 +573,7 @@ def  AdhereCut(img,img_num):
     avg_w = 0
 
     if num==0:
-        return;
+        return
 
     for i in wave_list:
         avg_h += i.WaveH()
@@ -713,7 +713,7 @@ def  AdhereCut(img,img_num):
             while y <= h:
                 if (gray[start_posi[0]][y]) == 0:  # 0
                     start_posi = [start_posi[0], y]
-                    break;
+                    break
                 y += 1
         refer_Y = wave_list_result[count + 1].wave_start[1]
         start_x = start_posi[0]
