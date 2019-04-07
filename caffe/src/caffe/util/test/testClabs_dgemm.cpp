@@ -192,11 +192,11 @@ for (i = 0; i < M * N; ++i) {
 
 
 
-   _TIMING_START_
-   for (i = 0; i < 1; ++i) {
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
-   }
-   _TIMING_STOP_(1)
+  //  _TIMING_START_
+  //  for (i = 0; i < 1; ++i) {
+  //   cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
+  //  }
+  //  _TIMING_STOP_(1)
    
   //  for( i=0;i<M;i++)
   //   {
@@ -433,16 +433,10 @@ void matrix_mul_vector_neon_thread(  int M,
 for ( i = 0; i <=M-4; i+=4) 
   {
        for(e=0;e<=N-4;e+=4)
-      {
-        
-       
-   
-          struct mypara pstru;
-          
-          pstru.M=M;
-         
-          pstru.N=N;
-           
+      {         
+          struct mypara pstru;        
+          pstru.M=M;      
+          pstru.N=N;    
           pstru.K=K;
           
           pstru.alpha=alpha;
@@ -453,11 +447,8 @@ for ( i = 0; i <=M-4; i+=4)
            
           pstru.C=C;
           
-          pstru.i=i;
-           
-          pstru.e=e;
-           
-          
+          pstru.i=i;       
+          pstru.e=e;       
           int re =pthread_create(&t[a], NULL, matrix_mul_vector_neon_4by4_thread,&(pstru));
          
           pthread_join(t[a],NULL);
