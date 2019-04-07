@@ -1,6 +1,5 @@
 #include <vector>
 #include <iostream>
-#include "caffe/util/math_functions.hpp"
 #include <float.h>
 #include <math.h>
 #include <stdio.h>
