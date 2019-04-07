@@ -120,17 +120,17 @@ int main(const int argc, const char* argv[]) {
   random_init_data(K * N, B);
   random_init_data(M * N, C);
 
-float* c= (float*)malloc(M * N * sizeof(float));
+//float* c= (float*)malloc(M * N * sizeof(float));
 
-float* c1= (float*)malloc(M * N * sizeof(float));
+//float* c1= (float*)malloc(M * N * sizeof(float));
   int i,j;
-for (i = 0; i < M * N; ++i) {
-   c[i]=C[i];
-  }
+// for (i = 0; i < M * N; ++i) {
+//    c[i]=C[i];
+//   }
 
-  for (i = 0; i < M * N; ++i) {
-   c1[i]=C[i];
-  }
+//   for (i = 0; i < M * N; ++i) {
+//    c1[i]=C[i];
+//   }
 
 //
   //random_init_data(N, vector_data);
@@ -214,13 +214,13 @@ for (i = 0; i < M * N; ++i) {
 //        cout<<endl;
 //     }  
 
-  _TIMING_START_
-   for (i = 0; i < 1; ++i) {
+  // _TIMING_START_
+  //  for (i = 0; i < 1; ++i) {
     
-     matrix_normal( M, N, K, 1.0f, A,B,0.0f,c);
+  //    matrix_normal( M, N, K, 1.0f, A,B,0.0f,c);
       
-   }
-   _TIMING_STOP_(1)
+  //  }
+  //  _TIMING_STOP_(1)
 
 
 
@@ -233,11 +233,11 @@ for (i = 0; i < M * N; ++i) {
    _TIMING_STOP_(1)
 
 
-   _TIMING_START_
-   for (i = 0; i < 1; ++i) {
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
-   }
-   _TIMING_STOP_(1)
+  //  _TIMING_START_
+  //  for (i = 0; i < 1; ++i) {
+  //   cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
+  //  }
+  //  _TIMING_STOP_(1)
    
   //  for( i=0;i<M;i++)
   //   {
