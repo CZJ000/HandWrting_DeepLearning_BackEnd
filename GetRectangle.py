@@ -5,6 +5,7 @@ import cmath as math
 from enum import Enum
 
 
+root="~/HandWrting_DeepLearning_BackEnd/"
 class MergeType(Enum):
     left=0
     right=1
@@ -676,7 +677,7 @@ def  AdhereCut(img,img_num):
             for j in range(28):
                 imgFix[i, j] = 255 - result_pic[i, j]
        # result_pic_gray = cv2.cvtColor(result_pic, cv2.COLOR_BGR2GRAY)
-        cv2.imwrite("E:/" + img_num + ".png", imgFix)
+        cv2.imwrite(root + img_num + ".png", imgFix)
         return
     count = 0
     cut_posi = []
@@ -823,7 +824,7 @@ def  AdhereCut(img,img_num):
         for i in range(28):
             for j in range(28):
                 imgFix[i, j] = 255 - result_pic[i, j]
-        cv2.imwrite("E:/" +img_num+"__"+str(count) +".png", imgFix)
+        cv2.imwrite(root +img_num+"__"+str(count) +".png", imgFix)
         # for i in range(w):
         #     gray[i][start_y] = 0 //分界线上色
         count += 1
@@ -889,10 +890,13 @@ def  AdhereCut(img,img_num):
             imgFix[i, j] = 255 - result_pic[i, j]
     #result_pic_gray = cv2.cvtColor(result_pic, cv2.COLOR_BGR2GRAY)
     # cv2.imshow("pic", result_pic)
-    cv2.imwrite("E:/" + img_num+"__"+str(count) + ".png", imgFix)
+    cv2.imwrite(root + img_num+"__"+str(count) + ".png", imgFix)
     cv2.imshow('cut', gray)
-original_img = cv2.imread("E:/IMG4.png") #F:/handwriting.png
-bg=cv2.imread("E:/IMG_BG.png")
+
+
+
+original_img = cv2.imread(root+"IMG4.png") #F:/handwriting.png
+#bg=cv2.imread(root+"IMG_BG.png")
 img_shape= original_img.shape
 
 w=img_shape[0]
