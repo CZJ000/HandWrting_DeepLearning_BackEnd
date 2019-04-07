@@ -145,7 +145,7 @@ class LinkList(object):
 
         i = 0
         p = self.head
-        # 遍历找到索引值为 index 的结点
+       
         while p.next:
             pre = p
             p = p.next
@@ -155,7 +155,7 @@ class LinkList(object):
                 p = None
                 return 1
 
-        # p的下一个结点为空说明到了最后一个结点, 删除之即可
+      
         pre.next = None
     def getItemList(self):
         item_list=[]
@@ -210,12 +210,7 @@ def setTreeTagImage(head,tag_img,val):
         tag_img[p.data[0]][p.data[1]]=val
         p=p.next
 def vertical(img):
-    '''
-    :param img:
-    :param threashold: 阀值
-    :param outDir: 保存位置
-    :return:
-    '''
+    
     cv2.imshow("img",img)
     w, h = img.shape[:2]
     pixdata = img
