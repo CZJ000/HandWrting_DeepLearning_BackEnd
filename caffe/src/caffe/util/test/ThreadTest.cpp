@@ -90,7 +90,7 @@ int main()
 
 int t;
 
-for(t=1;t<200;t++)
+for(t=400;t<1000;t+=30)
 
 {
 
