@@ -9,7 +9,6 @@ class MergeType(Enum):
     right=1
     none=2
 class Wave:
-    '所有员工的基类'
     wave_start = [0,0]
     wave_top = [0,0]
     wave_end = [0,0]
