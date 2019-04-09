@@ -125,10 +125,10 @@ int main(const int argc, const char* argv[]) {
   // B=matrix_B_data;
   // C=matrix_C_data;
 
-constant_init_data(M * N, matrix_A_data,1);
-constant_init_data(M * N, matrix_B_data,1);
-  // random_init_data(M * K, matrix_A_data);
-  // random_init_data(K * N, matrix_B_data);
+// constant_init_data(M * N, matrix_A_data,1);
+// constant_init_data(M * N, matrix_B_data,1);
+   random_init_data(M * K, matrix_A_data);
+   random_init_data(K * N, matrix_B_data);
 
 
   constant_init_data(M * N, matrix_C_data,0);
@@ -257,6 +257,9 @@ int i=0,j=0;
        }   
        cout<<endl;
     }  
+
+     cout<<endl;
+      cout<<endl;
 
    _TIMING_START_
    for (i = 0; i < 1; ++i) {
