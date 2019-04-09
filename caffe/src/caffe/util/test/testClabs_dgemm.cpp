@@ -45,8 +45,8 @@ void matrix_mul_vector_neon_optimize(
      const int N,
      const int K,   
      const float alpha, 
-     const float *A, 
-     const float *B, 
+      float *A, 
+      float *B, 
      const float beta,    
       float *C) ;
 void matrix_mul_vector_neon_thread(  int M, 
