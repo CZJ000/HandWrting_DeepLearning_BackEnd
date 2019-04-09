@@ -726,7 +726,7 @@ for ( i = 0; i <=M-4; i+=4)
             float sum=0;
             for(p=0;p<K;p++)
             {
-                sum+=A[(i+l)*K+p]*B[p*N+q];
+                sum+=A[(i+l)*K_full+p]*B[p*N+q];
             }
             C[(i+l)*N+q]=sum;
           }     
@@ -742,7 +742,7 @@ for ( i = 0; i <=M-4; i+=4)
       float sum=0;
         for(p=0;p<K;p++)
         {
-          sum+=A[i*K+p]*B[p*N+e];
+          sum+=A[i*K_full+p]*B[p*N+e];
 
         }
         C[i*N+e]=sum;
