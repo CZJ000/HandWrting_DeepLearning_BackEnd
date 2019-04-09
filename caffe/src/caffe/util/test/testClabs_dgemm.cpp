@@ -20,7 +20,8 @@ float alpha=1.0f,beta=0.0f;
 
  float *A,*B,*C;
 
-
+#define mc 256 
+#define kc 256
 
 
 
@@ -126,15 +127,12 @@ int main(const int argc, const char* argv[]) {
 
   random_init_data(M * K, matrix_A_data);
   random_init_data(K * N, matrix_B_data);
-  random_init_data(M * N, matrix_C_data);
+  constant_init_data(M * N, matrix_C_data);
 
 float* c= (float*)malloc(M * N * sizeof(float));
-
+constant_init_data(M * N, c);
 //float* c1= (float*)malloc(M * N * sizeof(float));
-  int i,j;
-for (i = 0; i < M * N; ++i) {
-   c[i]=matrix_C_data[i];
-  }
+
 
 //   for (i = 0; i < M * N; ++i) {
 //    c1[i]=C[i];
@@ -253,7 +251,25 @@ for (i = 0; i < M * N; ++i) {
 
    _TIMING_START_
    for (i = 0; i < 1; ++i) {
-     matrix_mul_vector_neon_optimize( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
+
+    // int r, p, pb, ib; 
+    // for (p = 0; p < k; p += kc) {
+    // pb = min(k - p, kc);
+    // for (r = 0; r < m; r += mc) {
+    //   ib = min(m - r, mc);     //每次取256块，小于256时，取小的值
+    //   InnerKernel(ib, n, pb, &A(r, p), lda, &B(p, 0), ldb, &C(r, 0), ldc);
+    // }
+
+    int r, p, pb, ib; 
+    for (p = 0; p < k; p += kc) {
+      pb = k-p>kc?kc:k-p;//min(k - p, kc);
+    for (r = 0; r < m; r += mc) {
+      ib = m-r>mc?mc:m-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
+      matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
+    }
+  }
+    
+//     matrix_mul_vector_neon_optimize( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
       
    }
  _TIMING_STOP_(1)
@@ -588,10 +604,10 @@ void matrix_mul_vector_neon(
 //      result[i] += matrix[i * n + j] * vector[j];
 //    }
     
- float32x4_t valpha = vdupq_n_f32(alpha);
- float32x4_t vbeta  = vdupq_n_f32(beta);
+//  float32x4_t valpha = vdupq_n_f32(alpha);
+//  float32x4_t vbeta  = vdupq_n_f32(beta);
 
- 
+
 for ( i = 0; i <=M-4; i+=4) 
   {
    for(e=0;e<=N-4;e+=4)
@@ -620,30 +636,25 @@ for ( i = 0; i <=M-4; i+=4)
     }  
         // C M*N
         float32x4_t c0 =vld1q_f32(C+i*N+e);
-
-
         float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
         float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
         float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
-
-
-        float32x4_t c0_b =vmulq_f32(c0, vbeta);
-
-
-
-        
-        float32x4_t c1_b = vmulq_f32(c1, vbeta);
+      //   float32x4_t c0_b =vmulq_f32(c0, vbeta);      
+      //   float32x4_t c1_b = vmulq_f32(c1, vbeta);
       
-        float32x4_t c2_b = vmulq_f32(c2, vbeta);
+      //   float32x4_t c2_b = vmulq_f32(c2, vbeta);
       
-        float32x4_t c3_b =vmulq_f32(c3, vbeta);
-    
+      //   float32x4_t c3_b =vmulq_f32(c3, vbeta);
+      // float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
+      // float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
+      // float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
+      // float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
 
-
-      float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
-      float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
-      float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
-      float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+      float32x4_t c0_r= vaddq_f32(vc0,c0);
+      float32x4_t c1_r= vaddq_f32(vc1,c1);
+      float32x4_t c2_r= vaddq_f32(vc2,c2);
+      float32x4_t c3_r= vaddq_f32(vc3,c3);
+      
 
 
         vst1q_f32(C+i*N+e,c0_r);
@@ -656,7 +667,7 @@ for ( i = 0; i <=M-4; i+=4)
       //     cout<<C[i]<<" ";
       //   }
       //   cout<<endl;
-        vst1q_f32(C+(i+2)*N+e,c2_r);
+        vst1q_f32(C+(i+2)*N+e,c3_r);
         vst1q_f32(C+(i+3)*N+e,c3_r);
       
   }
@@ -787,74 +798,29 @@ for ( i = 0; i <=M-4; i+=4)
         vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
 
     }  
-
-
-      //  float32x4_t c0 =vld1q_f32(C+i*N+e);
-      //   float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
-      //   float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
-      //   float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
-
+        float32x4_t c0 =vld1q_f32(C+i*N+e);
+        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
+        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
+        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
 
       //   float32x4_t c0_b =vmulq_f32(c0, vbeta);
-
-
-
         
       //   float32x4_t c1_b = vmulq_f32(c1, vbeta);
       
       //   float32x4_t c2_b = vmulq_f32(c2, vbeta);
       
       //   float32x4_t c3_b =vmulq_f32(c3, vbeta);
-    
+
+      float32x4_t c0_r= vaddq_f32(vc0,c0);
+      float32x4_t c1_r= vaddq_f32(vc1,c1);
+      float32x4_t c2_r= vaddq_f32(vc2,c2);
+      float32x4_t c3_r= vaddq_f32(vc3,c3);
 
 
-      // float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
-      // float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
-      // float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
-      // float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
-
-
-      //   vst1q_f32(C+i*N+e,c0_r);
-      //   vst1q_f32(C+(i+1)*N+e,c1_r);
-
-      //   vst1q_f32(C+(i+2)*N+e,c2_r);
-      //   vst1q_f32(C+(i+3)*N+e,c3_r);
-
-
-
-
-
-
-        // C M*N
-        float32x4_t c0 =vld1q_f32(C+i*N+e);
-         float32x4_t c0_b =vmulq_f32(c0, vbeta);
-        float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
         vst1q_f32(C+i*N+e,c0_r);
-
-
-        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
-        float32x4_t c1_b = vmulq_f32(c1, vbeta);
-        float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
-         vst1q_f32(C+(i+1)*N+e,c1_r);
-
-
-
-
-
-        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
-        float32x4_t c2_b = vmulq_f32(c2, vbeta);
-        float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
-         vst1q_f32(C+(i+2)*N+e,c2_r);
-
-
-        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
-       float32x4_t c3_b =vmulq_f32(c3, vbeta);    
-       float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+        vst1q_f32(C+(i+1)*N+e,c1_r);
+        vst1q_f32(C+(i+2)*N+e,c2_r);
         vst1q_f32(C+(i+3)*N+e,c3_r);
-
-
-
-       
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
