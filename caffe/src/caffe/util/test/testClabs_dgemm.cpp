@@ -137,7 +137,7 @@ constant_init_data(M * N, c);
 
 
 //float* c1= (float*)malloc(M * N * sizeof(float));
-int i=0;
+int i=0,j=0;
 
 //   for (i = 0; i < M * N; ++i) {
 //    c1[i]=C[i];
