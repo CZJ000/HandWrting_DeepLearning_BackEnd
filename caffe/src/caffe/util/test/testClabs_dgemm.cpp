@@ -743,9 +743,6 @@ void matrix_mul_vector_neon_optimize(
 //    for (; j < n; ++j) {
 //      result[i] += matrix[i * n + j] * vector[j];
 //    }
-    
- float32x4_t valpha = vdupq_n_f32(alpha);
- float32x4_t vbeta  = vdupq_n_f32(beta);
 for ( i = 0; i <=M-4; i+=4) 
   {
    for(e=0;e<=N-4;e+=4)
