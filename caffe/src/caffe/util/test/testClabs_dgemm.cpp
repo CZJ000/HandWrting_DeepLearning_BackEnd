@@ -844,10 +844,10 @@ for ( i = 0; i <=M-4; i+=4)
       float32x4_t c3_r= vaddq_f32(vc3,c3);
 
 
-        vst1q_f32(C+i*N+e,c0_r);
-        vst1q_f32(C+(i+1)*N+e,c1_r);
-        vst1q_f32(C+(i+2)*N+e,c2_r);
-        vst1q_f32(C+(i+3)*N+e,c3_r);
+        vst1q_f32(C+i*N+e,vc0);
+        vst1q_f32(C+(i+1)*N+e,vc1);
+        vst1q_f32(C+(i+2)*N+e,vc2);
+        vst1q_f32(C+(i+3)*N+e,vc3);
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
