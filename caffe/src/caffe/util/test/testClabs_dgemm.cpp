@@ -157,27 +157,27 @@ int i=0,j=0;
 //   constant_init_data(M, result_data_5);
 
   // timing
-// cout<<"before A"<<endl;
+cout<<"before A"<<endl;
 
-//  for( i=0;i<M;i++)
-//     {
-//        for( j=0;j<N;j++)
-//        {
-//            cout<<matrix_A_data[i*N+j]<<" ";
-//        }   
-//        cout<<endl;
-//     }  
+ for( i=0;i<M;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<matrix_A_data[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
  
-// cout<<"before B"<<endl;
+cout<<"before B"<<endl;
 
-//  for( i=0;i<M;i++)
-//     {
-//        for( j=0;j<N;j++)
-//        {
-//            cout<<matrix_B_data[i*N+j]<<" ";
-//        }   
-//        cout<<endl;
-//     }  
+ for( i=0;i<M;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<matrix_B_data[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
 
 
 
