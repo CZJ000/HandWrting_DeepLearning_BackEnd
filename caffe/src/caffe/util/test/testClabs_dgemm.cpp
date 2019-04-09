@@ -128,7 +128,7 @@ int main(const int argc, const char* argv[]) {
   random_init_data(K * N, matrix_B_data);
   random_init_data(M * N, matrix_C_data);
 
-//float* c= (float*)malloc(M * N * sizeof(float));
+float* c= (float*)malloc(M * N * sizeof(float));
 
 //float* c1= (float*)malloc(M * N * sizeof(float));
   int i,j;

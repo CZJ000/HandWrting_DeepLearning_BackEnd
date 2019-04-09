@@ -11,6 +11,8 @@
         "initializer_list": "cpp",
         "xstring": "cpp",
         "xtree": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "algorithm": "cpp",
+        "limits": "cpp"
     }
 }
