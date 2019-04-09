@@ -857,7 +857,7 @@ for ( i = 0; i <=M-4; i+=4)
         {
 
           for(x=0;x<N;x++)
-            cout<<C[z][x]<<" ";
+            cout<<C[z*N+x]<<" ";
         }
         cout<<endl;
        
