@@ -648,40 +648,40 @@ for ( i = 0; i <=M-4; i+=4)
         vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
     }  
         // C M*N
-        float32x4_t c0 =vld1q_f32(C+i*N+e);
-        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
-        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
-        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
-      //   float32x4_t c0_b =vmulq_f32(c0, vbeta);      
-      //   float32x4_t c1_b = vmulq_f32(c1, vbeta);
+      //   float32x4_t c0 =vld1q_f32(C+i*N+e);
+      //   float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
+      //   float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
+      //   float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
+      // //   float32x4_t c0_b =vmulq_f32(c0, vbeta);      
+      // //   float32x4_t c1_b = vmulq_f32(c1, vbeta);
       
-      //   float32x4_t c2_b = vmulq_f32(c2, vbeta);
+      // //   float32x4_t c2_b = vmulq_f32(c2, vbeta);
       
-      //   float32x4_t c3_b =vmulq_f32(c3, vbeta);
-      // float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
-      // float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
-      // float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
-      // float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+      // //   float32x4_t c3_b =vmulq_f32(c3, vbeta);
+      // // float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
+      // // float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
+      // // float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
+      // // float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
 
-      float32x4_t c0_r= vaddq_f32(vc0,c0);
-      float32x4_t c1_r= vaddq_f32(vc1,c1);
-      float32x4_t c2_r= vaddq_f32(vc2,c2);
-      float32x4_t c3_r= vaddq_f32(vc3,c3);
+      // float32x4_t c0_r= vaddq_f32(vc0,c0);
+      // float32x4_t c1_r= vaddq_f32(vc1,c1);
+      // float32x4_t c2_r= vaddq_f32(vc2,c2);
+      // float32x4_t c3_r= vaddq_f32(vc3,c3);
       
 
 
-        vst1q_f32(C+i*N+e,c0_r);
+        vst1q_f32(C+i*N+e,v0);
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-        vst1q_f32(C+(i+1)*N+e,c1_r);
+        vst1q_f32(C+(i+1)*N+e,v1);
       // for(i=0;i<4;i++)
       //   {
       //     cout<<C[i]<<" ";
       //   }
       //   cout<<endl;
-        vst1q_f32(C+(i+2)*N+e,c3_r);
-        vst1q_f32(C+(i+3)*N+e,c3_r);
+        vst1q_f32(C+(i+2)*N+e,v2);
+        vst1q_f32(C+(i+3)*N+e,v3);
       
   }
     if(e<N)
