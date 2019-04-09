@@ -20,8 +20,8 @@ float alpha=1.0f,beta=0.0f;
 
  float *A,*B,*C;
 
-#define mc 4 
-#define kc 4
+#define mc 128
+#define kc 128
 
 
 
