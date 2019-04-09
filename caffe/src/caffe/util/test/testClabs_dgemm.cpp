@@ -852,7 +852,8 @@ for ( i = 0; i <=M-4; i+=4)
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
        int z,x;
-
+       cout<<endl;
+        cout<<endl;
       for(z=0;z<M;z++)
         {
            cout<<endl;
