@@ -733,29 +733,29 @@ for ( i = 0; i <=M-4; i+=4)
     float32x4_t vc2 = vdupq_n_f32(0.0f);
     float32x4_t vc3 = vdupq_n_f32(0.0f);
 
-    float 
-    /* Point to the current elements in the four rows of A */
-    *a_0p_pntr, *a_1p_pntr, *a_2p_pntr, *a_3p_pntr;
+    // float 
+    // /* Point to the current elements in the four rows of A */
+    // *a_0p_pntr, *a_1p_pntr, *a_2p_pntr, *a_3p_pntr;
 
-    a_0p_pntr = A+i*K;
-    a_1p_pntr = A+(i+1)*K;
-    a_2p_pntr = A+(i+2)*K;
-    a_3p_pntr = A+(i+3)*K;
+    // a_0p_pntr = A+i*K;
+    // a_1p_pntr = A+(i+1)*K;
+    // a_2p_pntr = A+(i+2)*K;
+    // a_3p_pntr = A+(i+3)*K;
 
-    register float
-    a_0p_reg,
-    a_1p_reg,   
-    a_2p_reg,
-    a_3p_reg;
+    // register float
+    // a_0p_reg,
+    // a_1p_reg,   
+    // a_2p_reg,
+    // a_3p_reg;
 
     for ( j= 0; j < K; j++) 
     {
 
 
-      a_0p_reg = *a_0p_pntr++;
-      a_1p_reg = *a_1p_pntr++;
-      a_2p_reg = *a_2p_pntr++;
-      a_3p_reg = *a_3p_pntr++;
+      // a_0p_reg = *a_0p_pntr++;
+      // a_1p_reg = *a_1p_pntr++;
+      // a_2p_reg = *a_2p_pntr++;
+      // a_3p_reg = *a_3p_pntr++;
                   //B K*N bb 
         float32x4_t vb =vld1q_f32(B+j*N+e); // vget(&B[k][4]);   
         //vfmaq_f32 混合   c=a*b+c  
@@ -773,7 +773,7 @@ for ( i = 0; i <=M-4; i+=4)
       //   vc3=vmlaq_n_f32(vc3, vb,a_3p_reg);
 
 
-      vc0=vmlaq_f32( vc0,vdupq_n_f32(a_0p_reg), vb);  
+      vc0=vmlaq_f32( vc0,vdupq_n_f32(A[i*K+j]), vb);  
         //  cout<<"vc0 temp:"<<endl;
         //  float temp[4];
       // vst1q_f32(temp, vc0);
@@ -782,82 +782,75 @@ for ( i = 0; i <=M-4; i+=4)
         //   cout<<temp[i]<<" ";
         // }
         // cout<<endl;
-        vc1=vmlaq_f32(vc1,vdupq_n_f32(a_1p_reg), vb);
-        vc2=vmlaq_f32(vc2,vdupq_n_f32(a_2p_reg), vb);
-        vc3=vmlaq_f32(vc3,vdupq_n_f32(a_3p_reg), vb);
+        vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
+        vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
+        vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
 
     }  
 
 
-       float32x4_t c0 =vld1q_f32(C+i*N+e);
-        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
-        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
-        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
+      //  float32x4_t c0 =vld1q_f32(C+i*N+e);
+      //   float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
+      //   float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
+      //   float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
 
 
-        float32x4_t c0_b =vmulq_f32(c0, vbeta);
+      //   float32x4_t c0_b =vmulq_f32(c0, vbeta);
 
 
 
         
-        float32x4_t c1_b = vmulq_f32(c1, vbeta);
+      //   float32x4_t c1_b = vmulq_f32(c1, vbeta);
       
-        float32x4_t c2_b = vmulq_f32(c2, vbeta);
+      //   float32x4_t c2_b = vmulq_f32(c2, vbeta);
       
-        float32x4_t c3_b =vmulq_f32(c3, vbeta);
+      //   float32x4_t c3_b =vmulq_f32(c3, vbeta);
     
 
 
-      float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
-      float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
-      float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
-      float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+      // float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
+      // float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
+      // float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
+      // float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
 
 
-        vst1q_f32(C+i*N+e,c0_r);
-      // cout<<"c1 temp:"<<endl;
-      //  float temp[4];
-      //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-        vst1q_f32(C+(i+1)*N+e,c1_r);
-      // for(i=0;i<4;i++)
-      //   {
-      //     cout<<C[i]<<" ";
-      //   }
-      //   cout<<endl;
-        vst1q_f32(C+(i+2)*N+e,c2_r);
-        vst1q_f32(C+(i+3)*N+e,c3_r);
-
-
-
-
-
-
-      //   // C M*N
-      //   float32x4_t c0 =vld1q_f32(C+i*N+e);
-      //    float32x4_t c0_b =vmulq_f32(c0, vbeta);
-      //   float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
       //   vst1q_f32(C+i*N+e,c0_r);
+      //   vst1q_f32(C+(i+1)*N+e,c1_r);
 
-
-      //   float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
-      //   float32x4_t c1_b = vmulq_f32(c1, vbeta);
-      //   float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
-      //    vst1q_f32(C+(i+1)*N+e,c1_r);
-
-
-
-
-
-      //   float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
-      //   float32x4_t c2_b = vmulq_f32(c2, vbeta);
-      //   float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
-      //    vst1q_f32(C+(i+2)*N+e,c2_r);
-
-
-      //   float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
-      //  float32x4_t c3_b =vmulq_f32(c3, vbeta);    
-      //  float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+      //   vst1q_f32(C+(i+2)*N+e,c2_r);
       //   vst1q_f32(C+(i+3)*N+e,c3_r);
+
+
+
+
+
+
+        // C M*N
+        float32x4_t c0 =vld1q_f32(C+i*N+e);
+         float32x4_t c0_b =vmulq_f32(c0, vbeta);
+        float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
+        vst1q_f32(C+i*N+e,c0_r);
+
+
+        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
+        float32x4_t c1_b = vmulq_f32(c1, vbeta);
+        float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
+         vst1q_f32(C+(i+1)*N+e,c1_r);
+
+
+
+
+
+        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
+        float32x4_t c2_b = vmulq_f32(c2, vbeta);
+        float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
+         vst1q_f32(C+(i+2)*N+e,c2_r);
+
+
+        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
+       float32x4_t c3_b =vmulq_f32(c3, vbeta);    
+       float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+        vst1q_f32(C+(i+3)*N+e,c3_r);
 
 
 
