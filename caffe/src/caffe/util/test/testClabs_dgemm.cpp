@@ -853,9 +853,9 @@ for ( i = 0; i <=M-4; i+=4)
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
        int z,x;
 
-      for(z=0;z<M;i++)
+      for(z=0;z<M;z++)
         {
-
+           cout<<endl;
           for(x=0;x<N;x++)
             cout<<C[z*N+x]<<" ";
         }
