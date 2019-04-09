@@ -670,18 +670,18 @@ for ( i = 0; i <=M-4; i+=4)
       
 
 
-        vst1q_f32(C+i*N+e,v0);
+        vst1q_f32(C+i*N+e,vc0);
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-        vst1q_f32(C+(i+1)*N+e,v1);
+        vst1q_f32(C+(i+1)*N+e,vc1);
       // for(i=0;i<4;i++)
       //   {
       //     cout<<C[i]<<" ";
       //   }
       //   cout<<endl;
-        vst1q_f32(C+(i+2)*N+e,v2);
-        vst1q_f32(C+(i+3)*N+e,v3);
+        vst1q_f32(C+(i+2)*N+e,vc2);
+        vst1q_f32(C+(i+3)*N+e,vc3);
       
   }
     if(e<N)
