@@ -276,7 +276,6 @@ cout<<"before B"<<endl;
     for (p = 0; p < K; p += kc) {
       pb = K-p>kc?kc:K-p;//min(k - p, kc);
     for (r = 0; r < M; r += mc) {
-    
       ib = M-r>mc?mc:M-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
       matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
       int q,a;
@@ -852,12 +851,15 @@ for ( i = 0; i <=M-4; i+=4)
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-       
-      // for(i=0;i<4;i++)
-      //   {
-      //     cout<<C[i]<<" ";
-      //   }
-      //   cout<<endl;
+       int z,x;
+
+      for(z=0;z<M;i++)
+        {
+
+          for(x=0;x<N;x++)
+            cout<<C[z][x]<<" ";
+        }
+        cout<<endl;
        
         
       
