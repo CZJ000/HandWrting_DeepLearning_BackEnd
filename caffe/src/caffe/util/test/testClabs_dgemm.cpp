@@ -20,8 +20,8 @@ float alpha=1.0f,beta=0.0f;
 
  float *A,*B,*C;
 
-#define mc 2 
-#define kc 2
+#define mc 4 
+#define kc 4
 
 
 
@@ -859,7 +859,7 @@ for ( i = 0; i <=M-4; i+=4)
             {
                 sum+=A[(i+l)*K+p]*B[p*N+q];
             }
-            C[(i+l)*N+q]=sum;
+            C[(i+l)*N+q]+=sum;
           }     
         } 
     }
@@ -876,7 +876,7 @@ for ( i = 0; i <=M-4; i+=4)
           sum+=A[i*K+p]*B[p*N+e];
 
         }
-        C[i*N+e]=sum;
+        C[i*N+e]+=sum;
     }
   }
 }
