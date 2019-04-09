@@ -701,6 +701,19 @@ for ( i = 0; i <=M-4; i+=4)
       //   cout<<endl;
         vst1q_f32(C+(i+2)*N+e,vc2);
         vst1q_f32(C+(i+3)*N+e,vc3);
+
+         int z,x;
+       cout<<endl;
+        cout<<endl;
+      for(z=0;z<M;z++)
+        {
+           
+          for(x=0;x<N;x++)
+            cout<<C[z*N+x]<<" ";
+          cout<<endl;
+        }
+        cout<<endl;
+       
       
   }
     if(e<N)
@@ -825,10 +838,10 @@ for ( i = 0; i <=M-4; i+=4)
         vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
 
     }  
-        float32x4_t c0 =vld1q_f32(C+i*N+e);
-        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
-        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
-        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
+        // float32x4_t c0 =vld1q_f32(C+i*N+e);
+        // float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
+        // float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
+        // float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
 
       //   float32x4_t c0_b =vmulq_f32(c0, vbeta);
         
@@ -838,10 +851,10 @@ for ( i = 0; i <=M-4; i+=4)
       
       //   float32x4_t c3_b =vmulq_f32(c3, vbeta);
 
-      float32x4_t c0_r= vaddq_f32(vc0,c0);
-      float32x4_t c1_r= vaddq_f32(vc1,c1);
-      float32x4_t c2_r= vaddq_f32(vc2,c2);
-      float32x4_t c3_r= vaddq_f32(vc3,c3);
+      // float32x4_t c0_r= vaddq_f32(vc0,c0);
+      // float32x4_t c1_r= vaddq_f32(vc1,c1);
+      // float32x4_t c2_r= vaddq_f32(vc2,c2);
+      // float32x4_t c3_r= vaddq_f32(vc3,c3);
 
 
         vst1q_f32(C+i*N+e,vc0);
