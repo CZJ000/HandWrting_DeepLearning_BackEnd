@@ -125,15 +125,19 @@ int main(const int argc, const char* argv[]) {
   // B=matrix_B_data;
   // C=matrix_C_data;
 
-  random_init_data(M * K, matrix_A_data);
-  random_init_data(K * N, matrix_B_data);
+constant_init_data(M * N, matrix_A_data,1);
+constant_init_data(M * N, matrix_B_data,1);
+  // random_init_data(M * K, matrix_A_data);
+  // random_init_data(K * N, matrix_B_data);
+
+
   constant_init_data(M * N, matrix_C_data);
 
 float* c= (float*)malloc(M * N * sizeof(float));
 constant_init_data(M * N, c);
 
 float* c1= (float*)malloc(M * N * sizeof(float));
-constant_init_data(M * N, c);
+constant_init_data(M * N, c1);
 
 
 //float* c1= (float*)malloc(M * N * sizeof(float));
@@ -271,6 +275,16 @@ int i=0,j=0;
     for (r = 0; r < M; r += mc) {
       ib = M-r>mc?mc:M-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
       matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
+      int q,a;
+       for( q=0;q<M;q++)
+        {
+          for( q=0;q<N;q++)
+          {
+              cout<<c[q*N+a]<<" ";
+          }   
+          cout<<endl;
+        }  
+
     }
   }
     
