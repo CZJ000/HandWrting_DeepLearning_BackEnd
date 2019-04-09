@@ -20,8 +20,8 @@ float alpha=1.0f,beta=0.0f;
 
  float *A,*B,*C;
 
-#define mc 128 
-#define kc 128
+#define mc 2 
+#define kc 2
 
 
 
@@ -131,6 +131,11 @@ int main(const int argc, const char* argv[]) {
 
 float* c= (float*)malloc(M * N * sizeof(float));
 constant_init_data(M * N, c);
+
+float* c1= (float*)malloc(M * N * sizeof(float));
+constant_init_data(M * N, c);
+
+
 //float* c1= (float*)malloc(M * N * sizeof(float));
 int i=0;
 
@@ -288,7 +293,7 @@ int i=0;
 
    _TIMING_START_
    for (i = 0; i < 1; ++i) {
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, matrix_C_data, N);
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, c1, N);
    }
    _TIMING_STOP_(1)
    
