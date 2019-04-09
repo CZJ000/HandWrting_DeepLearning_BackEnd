@@ -733,33 +733,47 @@ for ( i = 0; i <=M-4; i+=4)
     float32x4_t vc2 = vdupq_n_f32(0.0f);
     float32x4_t vc3 = vdupq_n_f32(0.0f);
 
-    float 
-    /* Point to the current elements in the four rows of A */
-    *a_0p_pntr, *a_1p_pntr, *a_2p_pntr, *a_3p_pntr;
+    // float 
+    // /* Point to the current elements in the four rows of A */
+    // *a_0p_pntr, *a_1p_pntr, *a_2p_pntr, *a_3p_pntr;
 
-    a_0p_pntr = A+i*K;
-    a_1p_pntr = A+(i+1)*K;
-    a_2p_pntr = A+(i+2)*K;
-    a_3p_pntr = A+(i+3)*K;
+    // a_0p_pntr = A+i*K;
+    // a_1p_pntr = A+(i+1)*K;
+    // a_2p_pntr = A+(i+2)*K;
+    // a_3p_pntr = A+(i+3)*K;
 
-    register float
-    a_0p_reg,
-    a_1p_reg,   
-    a_2p_reg,
-    a_3p_reg;
+    // register float
+    // a_0p_reg,
+    // a_1p_reg,   
+    // a_2p_reg,
+    // a_3p_reg;
 
     for ( j= 0; j < K; j++) 
     {
 
 
-      a_0p_reg = *a_0p_pntr++;
-      a_1p_reg = *a_1p_pntr++;
-      a_2p_reg = *a_2p_pntr++;
-      a_3p_reg = *a_3p_pntr++;
+      // a_0p_reg = *a_0p_pntr++;
+      // a_1p_reg = *a_1p_pntr++;
+      // a_2p_reg = *a_2p_pntr++;
+      // a_3p_reg = *a_3p_pntr++;
                   //B K*N bb 
         float32x4_t vb =vld1q_f32(B+j*N+e); // vget(&B[k][4]);   
         //vfmaq_f32 混合   c=a*b+c  
-        vc0=vmlaq_n_f32( vc0, vb,a_0p_reg);  
+      //   vc0=vmlaq_n_f32( vc0, vb,a_0p_reg);  
+      //   //  cout<<"vc0 temp:"<<endl;
+      //   //  float temp[4];
+      // // vst1q_f32(temp, vc0);
+      //   // for(i=0;i<4;i++)
+      //   // {
+      //   //   cout<<temp[i]<<" ";
+      //   // }
+      //   // cout<<endl;
+      //   vc1=vmlaq_n_f32(vc1, vb,a_1p_reg);
+      //   vc2=vmlaq_n_f32(vc2, vb,a_2p_reg);
+      //   vc3=vmlaq_n_f32(vc3, vb,a_3p_reg);
+
+
+         vc0=vmlaq_f32( vc0,vdupq_n_f32(A[i*K+j]), vb);  
         //  cout<<"vc0 temp:"<<endl;
         //  float temp[4];
       // vst1q_f32(temp, vc0);
@@ -768,15 +782,14 @@ for ( i = 0; i <=M-4; i+=4)
         //   cout<<temp[i]<<" ";
         // }
         // cout<<endl;
-        vc1=vmlaq_n_f32(vc1, vb,a_1p_reg);
-        vc2=vmlaq_n_f32(vc2, vb,a_2p_reg);
-        vc3=vmlaq_n_f32(vc3, vb,a_3p_reg);
+        vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
+        vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
+        vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
+
     }  
 
 
        float32x4_t c0 =vld1q_f32(C+i*N+e);
-
-
         float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
         float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
         float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
@@ -847,7 +860,7 @@ for ( i = 0; i <=M-4; i+=4)
       //   vst1q_f32(C+(i+3)*N+e,c3_r);
 
 
-      
+
        
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
