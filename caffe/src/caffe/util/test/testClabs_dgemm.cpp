@@ -132,7 +132,7 @@ int main(const int argc, const char* argv[]) {
 float* c= (float*)malloc(M * N * sizeof(float));
 constant_init_data(M * N, c);
 //float* c1= (float*)malloc(M * N * sizeof(float));
-
+int i=0;
 
 //   for (i = 0; i < M * N; ++i) {
 //    c1[i]=C[i];
