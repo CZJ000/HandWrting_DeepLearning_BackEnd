@@ -728,7 +728,7 @@ for ( i = 0; i <=M-4; i+=4)
             {
                 sum+=A[(i+l)*K_full+p]*B[p*N+q];
             }
-            C[(i+l)*N+q]=sum;
+            C[(i+l)*N+q]+=sum;
           }     
         } 
     }
@@ -745,7 +745,7 @@ for ( i = 0; i <=M-4; i+=4)
           sum+=A[i*K_full+p]*B[p*N+e];
 
         }
-        C[i*N+e]=sum;
+        C[i*N+e]+=sum;
     }
   }
 }
