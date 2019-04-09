@@ -262,9 +262,9 @@ int i=0;
 
     int r, p, pb, ib; 
     for (p = 0; p < K; p += kc) {
-      pb = k-p>kc?kc:k-p;//min(k - p, kc);
+      pb = K-p>kc?kc:K-p;//min(k - p, kc);
     for (r = 0; r < M; r += mc) {
-      ib = m-r>mc?mc:m-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
+      ib = M-r>mc?mc:M-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
       matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
     }
   }
