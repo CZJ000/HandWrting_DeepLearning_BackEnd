@@ -131,13 +131,13 @@ constant_init_data(M * N, matrix_B_data,1);
   // random_init_data(K * N, matrix_B_data);
 
 
-  constant_init_data(M * N, matrix_C_data);
+  constant_init_data(M * N, matrix_C_data,0);
 
 float* c= (float*)malloc(M * N * sizeof(float));
-constant_init_data(M * N, c);
+constant_init_data(M * N, c,0);
 
 float* c1= (float*)malloc(M * N * sizeof(float));
-constant_init_data(M * N, c1);
+constant_init_data(M * N, c1,0);
 
 
 //float* c1= (float*)malloc(M * N * sizeof(float));
