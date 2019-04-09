@@ -18,7 +18,7 @@ using namespace std;
 int M,N,K;
 float alpha=1.0f,beta=0.0f;
 
-float *A,*B,*C;
+ float *A,*B,*C;
 
 
 
@@ -40,7 +40,15 @@ struct mypara
 };
 pthread_t t[100];  
 
-
+void matrix_mul_vector_neon_optimize( 
+     const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
+      float *C) ;
 void matrix_mul_vector_neon_thread(  int M, 
       int N,
       int K,   
@@ -112,21 +120,21 @@ int main(const int argc, const char* argv[]) {
 //   float* result_data_5 = (float*)malloc(M * sizeof(float));
   // init matrix and vector data
 
-  A=matrix_A_data;
-  B=matrix_B_data;
-  C=matrix_C_data;
+  // A=matrix_A_data;
+  // B=matrix_B_data;
+  // C=matrix_C_data;
 
-  random_init_data(M * K, A);
-  random_init_data(K * N, B);
-  random_init_data(M * N, C);
+  random_init_data(M * K, matrix_A_data);
+  random_init_data(K * N, matrix_B_data);
+  random_init_data(M * N, matrix_C_data);
 
 //float* c= (float*)malloc(M * N * sizeof(float));
 
 //float* c1= (float*)malloc(M * N * sizeof(float));
   int i,j;
-// for (i = 0; i < M * N; ++i) {
-//    c[i]=C[i];
-//   }
+for (i = 0; i < M * N; ++i) {
+   c[i]=matrix_C_data[i];
+  }
 
 //   for (i = 0; i < M * N; ++i) {
 //    c1[i]=C[i];
@@ -227,9 +235,38 @@ int main(const int argc, const char* argv[]) {
   _TIMING_START_
    for (i = 0; i < 1; ++i) {
     
-     matrix_mul_vector_neon( M, N, K, 1.0f, A,B,0.0f,matrix_C_data);
+     matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
       
    }
+   _TIMING_STOP_(1)
+
+
+
+   for( i=0;i<M;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<matrix_C_data[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
+
+   _TIMING_START_
+   for (i = 0; i < 1; ++i) {
+     matrix_mul_vector_neon_optimize( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
+      
+   }
+
+
+   
+   for( i=0;i<M;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<c[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
    _TIMING_STOP_(1)
 
 
@@ -239,14 +276,7 @@ int main(const int argc, const char* argv[]) {
   //  }
   //  _TIMING_STOP_(1)
    
-  //  for( i=0;i<M;i++)
-  //   {
-  //      for( j=0;j<N;j++)
-  //      {
-  //          cout<<matrix_C_data[i*N+j]<<" ";
-  //      }   
-  //      cout<<endl;
-  //   }  
+
 
  
 
@@ -564,8 +594,6 @@ void matrix_mul_vector_neon(
  
 for ( i = 0; i <=M-4; i+=4) 
   {
-
-
    for(e=0;e<=N-4;e+=4)
   {
     float32x4_t vc0 = vdupq_n_f32(0.0f);
@@ -592,39 +620,44 @@ for ( i = 0; i <=M-4; i+=4)
     }  
         // C M*N
         float32x4_t c0 =vld1q_f32(C+i*N+e);
+
+
         float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
         float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
         float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
 
 
-      //   float32x4_t c0_b =vmulq_f32(c0, vbeta);
+        float32x4_t c0_b =vmulq_f32(c0, vbeta);
+
+
+
         
-      //   float32x4_t c1_b = vmulq_f32(c1, vbeta);
+        float32x4_t c1_b = vmulq_f32(c1, vbeta);
       
-      //   float32x4_t c2_b = vmulq_f32(c2, vbeta);
+        float32x4_t c2_b = vmulq_f32(c2, vbeta);
       
-      //   float32x4_t c3_b =vmulq_f32(c3, vbeta);
+        float32x4_t c3_b =vmulq_f32(c3, vbeta);
     
 
 
-      // float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
-      // float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
-      // float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
-      // float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+      float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
+      float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
+      float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
+      float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
 
 
-        vst1q_f32(C+i*N+e,c0);
+        vst1q_f32(C+i*N+e,c0_r);
       // cout<<"c1 temp:"<<endl;
       //  float temp[4];
       //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
-        vst1q_f32(C+(i+1)*N+e,c1);
+        vst1q_f32(C+(i+1)*N+e,c1_r);
       // for(i=0;i<4;i++)
       //   {
       //     cout<<C[i]<<" ";
       //   }
       //   cout<<endl;
-        vst1q_f32(C+(i+2)*N+e,c2);
-        vst1q_f32(C+(i+3)*N+e,c3);
+        vst1q_f32(C+(i+2)*N+e,c2_r);
+        vst1q_f32(C+(i+3)*N+e,c3_r);
       
   }
     if(e<N)
@@ -660,6 +693,164 @@ for ( i = 0; i <=M-4; i+=4)
     }
   }
 }
+
+
+
+void matrix_mul_vector_neon_optimize( 
+     const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
+      float *C) {
+  int i, j,e;
+//  for (i = 0; i < m; ++i) {
+//    float32x4_t v0 = vdupq_n_f32(0.f);
+//    for (j = 0; j < n - 4; j += 4) {
+//      float32x4_t v1 = vld1q_f32(matrix + i * n + j);
+//      float32x4_t v2 = vld1q_f32(vector + j);
+//      v0 = vmlaq_f32(v0, v1, v2);
+//    }
+//    float temp[4];
+//    vst1q_f32(temp, v0);
+//    result[i] = temp[0] + temp[1] + temp[2] + temp[3];
+//    for (; j < n; ++j) {
+//      result[i] += matrix[i * n + j] * vector[j];
+//    }
+    
+ float32x4_t valpha = vdupq_n_f32(alpha);
+ float32x4_t vbeta  = vdupq_n_f32(beta);
+
+ 
+for ( i = 0; i <=M-4; i+=4) 
+  {
+   for(e=0;e<=N-4;e+=4)
+  {
+    float32x4_t vc0 = vdupq_n_f32(0.0f);
+    float32x4_t vc1 = vdupq_n_f32(0.0f);
+    float32x4_t vc2 = vdupq_n_f32(0.0f);
+    float32x4_t vc3 = vdupq_n_f32(0.0f);
+
+    float 
+    /* Point to the current elements in the four rows of A */
+    *a_0p_pntr, *a_1p_pntr, *a_2p_pntr, *a_3p_pntr;
+
+    a_0p_pntr = A+i*K;
+    a_1p_pntr = A+(i+1)*K;
+    a_2p_pntr = A+(i+2)*K;
+    a_3p_pntr = A+(i+3)*K;
+
+    register float
+    a_0p_reg,
+    a_1p_reg,   
+    a_2p_reg,
+    a_3p_reg;
+
+    for ( j= 0; j < K; j++) 
+    {
+
+
+      a_0p_reg = *a_0p_pntr++;
+      a_1p_reg = *a_1p_pntr++;
+      a_2p_reg = *a_2p_pntr++;
+      a_3p_reg = *a_3p_pntr++;
+                  //B K*N bb 
+        float32x4_t vb =vld1q_f32(B+j*N+e); // vget(&B[k][4]);   
+        //vfmaq_f32 混合   c=a*b+c  
+        vc0=vmlaq_n_f32( vc0, vb,a_0p_reg);  
+        //  cout<<"vc0 temp:"<<endl;
+        //  float temp[4];
+      // vst1q_f32(temp, vc0);
+        // for(i=0;i<4;i++)
+        // {
+        //   cout<<temp[i]<<" ";
+        // }
+        // cout<<endl;
+        vc1=vmlaq_n_f32(vc1, vb,a_1p_reg);
+        vc2=vmlaq_n_f32(vc2, vb,a_2p_reg);
+        vc3=vmlaq_n_f32(vc3, vb,a_3p_reg);
+    }  
+        // C M*N
+        float32x4_t c0 =vld1q_f32(C+i*N+e);
+         float32x4_t c0_b =vmulq_f32(c0, vbeta);
+        float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
+        vst1q_f32(C+i*N+e,c0_r);
+
+
+        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
+        float32x4_t c1_b = vmulq_f32(c1, vbeta);
+        float32x4_t c1_r= vaddq_f32(vmulq_f32(vc0, valpha),c1_b);
+         vst1q_f32(C+(i+1)*N+e,c1_r);
+
+
+
+
+
+        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
+        float32x4_t c2_b = vmulq_f32(c2, vbeta);
+        float32x4_t c2_r= vaddq_f32(vmulq_f32(vc0, valpha),c2_b);
+         vst1q_f32(C+(i+2)*N+e,c2_r);
+
+
+        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
+       float32x4_t c3_b =vmulq_f32(c3, vbeta);    
+       float32x4_t c3_r= vaddq_f32(vmulq_f32(vc0, valpha),c3_b);
+        vst1q_f32(C+(i+3)*N+e,c3_r);
+       
+      // cout<<"c1 temp:"<<endl;
+      //  float temp[4];
+      //vst1q_f32(temp, vaddq_f32(vmulq_f32(vc1, valpha), vmulq_f32(c1, vbeta)));
+       
+      // for(i=0;i<4;i++)
+      //   {
+      //     cout<<C[i]<<" ";
+      //   }
+      //   cout<<endl;
+       
+        
+      
+  }
+    if(e<N)
+    {
+        int p=0,l,q;
+        for(l=0;l<4;l++)
+        {
+          for(q=e;q<N;q++)
+          {
+            float sum=0;
+            for(p=0;p<K;p++)
+            {
+                sum+=A[(i+l)*K+p]*B[p*N+q];
+            }
+            C[(i+l)*N+q]=sum;
+          }     
+        } 
+    }
+  }
+
+ int p=0;
+  for(;i<M;i++)
+  {
+    for(e=0;e<N;e++)
+    {
+      float sum=0;
+        for(p=0;p<K;p++)
+        {
+          sum+=A[i*K+p]*B[p*N+e];
+
+        }
+        C[i*N+e]=sum;
+    }
+  }
+}
+
+
+
+
+
+
 
 
 
