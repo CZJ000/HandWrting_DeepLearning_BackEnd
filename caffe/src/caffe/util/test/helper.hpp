@@ -39,7 +39,7 @@ void random_init_data(const int num, T *data, const int min = -0,
 
 /// constant init data
 template <typename T>
-void constant_init_data(const int num, T *data, const T value = 0) {
+void constant_init_data(const int num, T *data,  T value = 0) {
   if (value == 0) {
     memset(data, 0, num * sizeof(T));
   } else {
@@ -48,6 +48,11 @@ void constant_init_data(const int num, T *data, const T value = 0) {
     }
   }
 }
+
+
+/// constant init data
+
+
 
 /// check result
 template <typename T>
