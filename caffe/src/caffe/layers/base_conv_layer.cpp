@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <arm_neon.h>
+#include <typeinfo>
 #include "caffe/layers/helper.hpp"
 namespace caffe {
 
@@ -275,7 +276,7 @@ void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
   }
   for (int g = 0; g < group_; ++g) {
 
-	 LOG_IF(INFO, Caffe::root_solver()) <<"Dtype "<<Dtype;
+	 LOG_IF(INFO, Caffe::root_solver()) <<"Dtype :"<<typeid(input).name();
 
 
        _TIMING_START_
