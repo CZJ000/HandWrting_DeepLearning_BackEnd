@@ -9,9 +9,7 @@
 #include <time.h>
 
 
-double _time_sum=0;
-
-
+extern double _time_sum=0;
 /// define start timing macro.
 #define _TIMING_START_                            \
   {                                               \
@@ -30,10 +28,8 @@ double _time_sum=0;
   
   
 
-double get_helper_time_sum()
-{
-  return _time_sum;
-}
+double get_helper_time_sum();
+
 
 
 
