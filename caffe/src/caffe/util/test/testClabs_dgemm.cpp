@@ -105,7 +105,7 @@ int main(const int argc, const char* argv[]) {
     K = atoi(argv[3]); 
   K_full=K;
   // malloc matrix and vector
-  int* blo={16,32,64,128,256,512,1024,2048};
+  int blo[8]={16,32,64,128,256,512,1024,2048};
 
 //float* c1= (float*)malloc(M * N * sizeof(float));
 
