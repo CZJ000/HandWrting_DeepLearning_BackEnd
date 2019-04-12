@@ -103,42 +103,9 @@ int main(const int argc, const char* argv[]) {
     M = atoi(argv[1]); 
     N = atoi(argv[2]); 
     K = atoi(argv[3]); 
-K_full=K;
+  K_full=K;
   // malloc matrix and vector
-  float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
-
-//   float matrix_A_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
-// float matrix_B_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
-// float matrix_C_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
-  float* matrix_B_data = (float*)malloc(K * N * sizeof(float));
-
-  float* matrix_C_data = (float*)malloc(M * N * sizeof(float));
-  //float* vector_data = (float*)malloc(N * sizeof(float));
-//   float* result_data_1 = (float*)malloc(M * sizeof(float));
-//   float* result_data_2 = (float*)malloc(M * sizeof(float));
-//   float* result_data_3 = (float*)malloc(M * sizeof(float));
-//   float* result_data_4 = (float*)malloc(M * sizeof(float));
-//   float* result_data_5 = (float*)malloc(M * sizeof(float));
-  // init matrix and vector data
-
-  // A=matrix_A_data;
-  // B=matrix_B_data;
-  // C=matrix_C_data;
-
-// constant_init_data(M * N, matrix_A_data,1);
-// constant_init_data(M * N, matrix_B_data,1);
-   random_init_data(M * K, matrix_A_data);
-   random_init_data(K * N, matrix_B_data);
-
-
-  constant_init_data(M * N, matrix_C_data,0);
-
-float* c= (float*)malloc(M * N * sizeof(float));
-constant_init_data(M * N, c,0);
-
-float* c1= (float*)malloc(M * N * sizeof(float));
-constant_init_data(M * N, c1,0);
-
+  int* blo={16,32,64,128,256,512,1024,2048}
 
 //float* c1= (float*)malloc(M * N * sizeof(float));
 int i=0,j=0;
@@ -188,17 +155,75 @@ int i=0,j=0;
      
   // }
   // _TIMING_STOP_(1)
+int e=0;
+
+for(e=0;e<8;e++)
+{
+
+  M=blo[e];
+  N=blo[e];
+  K=blo[e];
 
 
+  float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
+
+//   float matrix_A_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
+// float matrix_B_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
+// float matrix_C_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
+  float* matrix_B_data = (float*)malloc(K * N * sizeof(float));
+
+  float* matrix_C_data = (float*)malloc(M * N * sizeof(float));
+  random_init_data(M * K, matrix_A_data);
+  random_init_data(K * N, matrix_B_data);
+  constant_init_data(M * N, matrix_C_data,0);
+
+  float* c= (float*)malloc(M * N * sizeof(float));
+  constant_init_data(M * N, c,0);
+
+  float* c1= (float*)malloc(M * N * sizeof(float));
+  constant_init_data(M * N, c1,0);
 
 
-  // _TIMING_START_
-  // for (i = 0; i < 1; ++i) {
+cout<<"size: "<<blo[e]<<endl;
+
+
+cout<<"matrix_normal cost time"<<endl;
+
+  _TIMING_START_
+  for (i = 0; i < TEST_NTIMES; ++i) {
    
-  //   matrix_normal( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c1);
+    matrix_normal( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c1);
      
-  // }
-  //  _TIMING_STOP_(1)
+  }
+   _TIMING_STOP_(100)
+
+
+
+cout<<"matrix_mul_vector_neon cost time"<<endl;
+
+  _TIMING_START_
+   for (i = 0; i < TEST_NTIMES; ++i) {
+    
+     matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
+      
+   }
+   _TIMING_STOP_(100)
+
+
+cout<<"cblas_sgemm cost time"<<endl;
+
+ _TIMING_START_
+   for (i = 0; i < TEST_NTIMES; ++i) {
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, c, N);
+   }
+   _TIMING_STOP_(100)
+
+
+}
+
+
+
+
 
 //  for( i=0;i<M;i++)
 //     {
@@ -239,13 +264,6 @@ int i=0,j=0;
 
 
 
-  _TIMING_START_
-   for (i = 0; i < 1; ++i) {
-    
-     matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
-      
-   }
-   _TIMING_STOP_(1)
 
 
 
@@ -260,43 +278,43 @@ int i=0,j=0;
 
   //    cout<<endl;
   //     cout<<endl;
+//分块cache
+//    _TIMING_START_
+//    for (i = 0; i < 1; ++i) {
 
-   _TIMING_START_
-   for (i = 0; i < 1; ++i) {
+//     // int r, p, pb, ib; 
+//     // for (p = 0; p < k; p += kc) {
+//     // pb = min(k - p, kc);
+//     // for (r = 0; r < m; r += mc) {
+//     //   ib = min(m - r, mc);     //每次取256块，小于256时，取小的值
+//     //   InnerKernel(ib, n, pb, &A(r, p), lda, &B(p, 0), ldb, &C(r, 0), ldc);
+//     // }
 
-    // int r, p, pb, ib; 
-    // for (p = 0; p < k; p += kc) {
-    // pb = min(k - p, kc);
-    // for (r = 0; r < m; r += mc) {
-    //   ib = min(m - r, mc);     //每次取256块，小于256时，取小的值
-    //   InnerKernel(ib, n, pb, &A(r, p), lda, &B(p, 0), ldb, &C(r, 0), ldc);
-    // }
+//     int r, p, pb, ib; 
+//     for (p = 0; p < K; p += kc) {
+//       pb = K-p>kc?kc:K-p;//min(k - p, kc);
+//     for (r = 0; r < M; r += mc) {
+//       ib = M-r>mc?mc:M-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
+//       matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
+//       // int q,a;
+//       //  for( q=0;q<M;q++)
+//       //   {
+//       //     for( a=0;a<N;a++)
+//       //     {
+//       //         cout<<c[q*N+a]<<" ";
+//       //     }   
+//       //     cout<<endl;
+//       //   }  
 
-    int r, p, pb, ib; 
-    for (p = 0; p < K; p += kc) {
-      pb = K-p>kc?kc:K-p;//min(k - p, kc);
-    for (r = 0; r < M; r += mc) {
-      ib = M-r>mc?mc:M-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
-      matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
-      // int q,a;
-      //  for( q=0;q<M;q++)
-      //   {
-      //     for( a=0;a<N;a++)
-      //     {
-      //         cout<<c[q*N+a]<<" ";
-      //     }   
-      //     cout<<endl;
-      //   }  
+//       //    cout<<endl;
 
-      //    cout<<endl;
-
-    }
-  }
+//     }
+//   }
     
-//     matrix_mul_vector_neon_optimize( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
+// //     matrix_mul_vector_neon_optimize( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
       
-   }
- _TIMING_STOP_(1)
+//    }
+//  _TIMING_STOP_(100)
 
    
   //  for( i=0;i<M;i++)
@@ -310,11 +328,7 @@ int i=0,j=0;
   
 
 
-   _TIMING_START_
-   for (i = 0; i < 1; ++i) {
-    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, c1, N);
-   }
-   _TIMING_STOP_(1)
+  
    
   //  for( i=0;i<M;i++)
   //   {
