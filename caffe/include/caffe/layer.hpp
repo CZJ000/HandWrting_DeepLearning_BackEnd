@@ -417,11 +417,11 @@ inline Dtype Layer<Dtype>::Forward(const vector<Blob<Dtype>*>& bottom,
   Reshape(bottom, top);
   switch (Caffe::mode()) {
   case Caffe::CPU:
-   if(strcmp(type(),"Convolution")==0)
-   _TIMING_START_
+  //  if(strcmp(type(),"Convolution")==0)
+  //  _TIMING_START_
     Forward_cpu(bottom, top);
-    if(strcmp(type(),"Convolution")==0)
-   _TIMING_STOP_(1)
+  //   if(strcmp(type(),"Convolution")==0)
+  //  _TIMING_STOP_(1)
 
     for (int top_id = 0; top_id < top.size(); ++top_id) {
       if (!this->loss(top_id)) { continue; }
