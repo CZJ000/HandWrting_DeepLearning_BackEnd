@@ -105,7 +105,7 @@ int main(const int argc, const char* argv[]) {
     K = atoi(argv[3]); 
   K_full=K;
   // malloc matrix and vector
-  int blo[8]={16,32,64,128,256,512,1024,2048};
+  int blo[8]={512,1024,2048};
   int blo_size[6]={16,32,64,128,256,512};
 //float* c1= (float*)malloc(M * N * sizeof(float));
 
@@ -186,70 +186,70 @@ cout<<"size: "<<blo[e]<<endl;
 cout<<"matrix_normal cost time"<<endl;
 
   _TIMING_START_
-  for (i = 0; i < 10;++i) {
+  for (i = 0; i < 1;++i) {
    
     matrix_normal( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c1);
      
   }
-   _TIMING_STOP_(10)
+   _TIMING_STOP_(1)
 
 cout<<"matrix_mul_vector_neon cost time"<<endl;
 
-  _TIMING_START_
-   for (i = 0; i < 10;++i) {
+//   _TIMING_START_
+//    for (i = 0; i < 10;++i) {
     
-     matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
+//      matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
       
-   }
-   _TIMING_STOP_(10)
+//    }
+//    _TIMING_STOP_(10)
 
 //分块cache
 
-//     cout<<"matrix_mul_vector_neon_optimize cost time"<<endl;
+    cout<<"matrix_mul_vector_neon_optimize cost time"<<endl;
    
-//     int v=0;
-//     for(v=0;v<6;v++)
-//     {   
+    int v=0;
+    for(v=0;v<6;v++)
+    {   
 
-//         cout<<"block size "<<blo_size[v]<<endl;
-//         mc=blo_size[v];kc=blo_size[v];
-//         _TIMING_START_
-//         for (i = 0; i < 1; ++i) {
+        cout<<"block size "<<blo_size[v]<<endl;
+        mc=blo_size[v];kc=blo_size[v];
+        _TIMING_START_
+        for (i = 0; i < 1; ++i) {
 
-//             // int r, p, pb, ib; 
-//             // for (p = 0; p < k; p += kc) {
-//             // pb = min(k - p, kc);
-//             // for (r = 0; r < m; r += mc) {
-//             //   ib = min(m - r, mc);     //每次取256块，小于256时，取小的值
-//             //   InnerKernel(ib, n, pb, &A(r, p), lda, &B(p, 0), ldb, &C(r, 0), ldc);
-//             // }
-//             int r, p, pb, ib; 
-//             for (p = 0; p < K; p += kc) {
-//             pb = K-p>kc?kc:K-p;//min(k - p, kc);
-//             for (r = 0; r < M; r += mc) {
-//             ib = M-r>mc?mc:M-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
-//             matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
-//             // int q,a;
-//             //  for( q=0;q<M;q++)
-//             //   {
-//             //     for( a=0;a<N;a++)
-//             //     {
-//             //         cout<<c[q*N+a]<<" ";
-//             //     }   
-//             //     cout<<endl;
-//             //   }  
+            // int r, p, pb, ib; 
+            // for (p = 0; p < k; p += kc) {
+            // pb = min(k - p, kc);
+            // for (r = 0; r < m; r += mc) {
+            //   ib = min(m - r, mc);     //每次取256块，小于256时，取小的值
+            //   InnerKernel(ib, n, pb, &A(r, p), lda, &B(p, 0), ldb, &C(r, 0), ldc);
+            // }
+            int r, p, pb, ib; 
+            for (p = 0; p < K; p += kc) {
+            pb = K-p>kc?kc:K-p;//min(k - p, kc);
+            for (r = 0; r < M; r += mc) {
+            ib = M-r>mc?mc:M-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
+            matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
+            // int q,a;
+            //  for( q=0;q<M;q++)
+            //   {
+            //     for( a=0;a<N;a++)
+            //     {
+            //         cout<<c[q*N+a]<<" ";
+            //     }   
+            //     cout<<endl;
+            //   }  
 
-//             //    cout<<endl;
+            //    cout<<endl;
 
-//                 }
+                }
 
-//             }
+            }
   
-//         }
-//          _TIMING_STOP_(1)
-// //     matrix_mul_vector_neon_optimize( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
+        }
+         _TIMING_STOP_(1)
+//     matrix_mul_vector_neon_optimize( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
       
-//    }
+   }
 
 
 
@@ -264,10 +264,10 @@ cout<<"matrix_mul_vector_neon cost time"<<endl;
 cout<<"cblas_sgemm cost time"<<endl;
 
  _TIMING_START_
-   for (i = 0; i < 10; ++i) {
+   for (i = 0; i < 1; ++i) {
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, c, N);
    }
-   _TIMING_STOP_(10)
+   _TIMING_STOP_(1)
 
 
 }
