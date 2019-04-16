@@ -276,7 +276,7 @@ void BaseConvolutionLayer<Dtype>::forward_cpu_gemm(const Dtype* input,
   }
   for (int g = 0; g < group_; ++g) {
 
-	 LOG_IF(INFO, Caffe::root_solver()) <<"Dtype :"<<typeid(input).name();
+	//  LOG_IF(INFO, Caffe::root_solver()) <<"Dtype :"<<typeid(input).name();
 
 
        _TIMING_START_

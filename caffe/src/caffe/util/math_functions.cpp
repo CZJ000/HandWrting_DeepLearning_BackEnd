@@ -21,7 +21,9 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
   int lda = (TransA == CblasNoTrans) ? K : M;
   int ldb = (TransB == CblasNoTrans) ? N : K;
 
-  //LOG_IF(INFO, Caffe::root_solver())<< "M:"<<M<<"  N:"<<N<<"  K:"<<K;
+ // LOG_IF(INFO, Caffe::root_solver())<< "M:"<<M<<"  N:"<<N<<"  K:"<<K;
+
+ LOG_IF(INFO, Caffe::root_solver())<<"float";
 
   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
       ldb, beta, C, N);
@@ -34,6 +36,7 @@ void caffe_cpu_gemm<double>(const CBLAS_TRANSPOSE TransA,
     double* C) {
   int lda = (TransA == CblasNoTrans) ? K : M;
   int ldb = (TransB == CblasNoTrans) ? N : K;
+  LOG_IF(INFO, Caffe::root_solver())<<"double";
   cblas_dgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
       ldb, beta, C, N);
 }
@@ -42,6 +45,7 @@ template <>
 void caffe_cpu_gemv<float>(const CBLAS_TRANSPOSE TransA, const int M,
     const int N, const float alpha, const float* A, const float* x,
     const float beta, float* y) {
+      LOG_IF(INFO, Caffe::root_solver())<<"floatvvv";
   cblas_sgemv(CblasRowMajor, TransA, M, N, alpha, A, N, x, 1, beta, y, 1);
 }
 
@@ -49,6 +53,7 @@ template <>
 void caffe_cpu_gemv<double>(const CBLAS_TRANSPOSE TransA, const int M,
     const int N, const double alpha, const double* A, const double* x,
     const double beta, double* y) {
+         LOG_IF(INFO, Caffe::root_solver())<<"doublevvv";
   cblas_dgemv(CblasRowMajor, TransA, M, N, alpha, A, N, x, 1, beta, y, 1);
 }
 
