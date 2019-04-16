@@ -6,7 +6,7 @@
 #include "caffe/common.hpp"
 #include "caffe/util/math_functions.hpp"
 #include "caffe/util/rng.hpp"
-
+#include "caffe/layers/helper.hpp"
 namespace caffe {
 
 
@@ -23,10 +23,11 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
 
  // LOG_IF(INFO, Caffe::root_solver())<< "M:"<<M<<"  N:"<<N<<"  K:"<<K;
 
- 
-
+  _TIMING_START_
   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
       ldb, beta, C, N);
+
+   _TIMING_STOP_(1)
 }
 
 template<>
