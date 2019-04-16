@@ -19,9 +19,9 @@ int M,N,K,K_full;
 float alpha=1.0f,beta=0.0f;
 
  float *A,*B,*C;
-
-#define mc 128
-#define kc 128
+int mc=0,kc=0;
+// #define mc 128
+// #define kc 128
 
 
 
@@ -105,8 +105,8 @@ int main(const int argc, const char* argv[]) {
     K = atoi(argv[3]); 
   K_full=K;
   // malloc matrix and vector
-  int blo[8]={16,32,64,128,256,512,1024,2048};
-
+  int blo[2]={1024,2048};
+  int blo_size[6]={16,32,64,128,256,512};
 //float* c1= (float*)malloc(M * N * sizeof(float));
 
 
@@ -157,21 +157,17 @@ int main(const int argc, const char* argv[]) {
   // _TIMING_STOP_(1)
 int e=0;
 
-for(e=0;e<8;e++)
+for(e=0;e<2;e++)
 {
   int i=0,j=0;
   M=blo[e];
   N=blo[e];
   K=blo[e];
-
-
   float* matrix_A_data = (float*)malloc(M * K * sizeof(float));
-
 //   float matrix_A_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
 // float matrix_B_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
 // float matrix_C_data[]={1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4};
   float* matrix_B_data = (float*)malloc(K * N * sizeof(float));
-
   float* matrix_C_data = (float*)malloc(M * N * sizeof(float));
   random_init_data(M * K, matrix_A_data);
   random_init_data(K * N, matrix_B_data);
@@ -197,17 +193,72 @@ cout<<"matrix_normal cost time"<<endl;
   }
    _TIMING_STOP_(1)
 
+// cout<<"matrix_mul_vector_neon cost time"<<endl;
 
-
-cout<<"matrix_mul_vector_neon cost time"<<endl;
-
-  _TIMING_START_
-   for (i = 0; i < 1;++i) {
+//   _TIMING_START_
+//    for (i = 0; i < 1;++i) {
     
-     matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
+//      matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
+      
+//    }
+//    _TIMING_STOP_(1)
+
+//分块cache
+
+    cout<<"matrix_mul_vector_neon_optimize cost time"<<endl;
+   
+    int v=0;
+    for(v=0;v<6;v++)
+    {   
+
+        cout<<"block size "<<blo_size[v]<<endl;
+        mc=blo_size[v];kc=blo_size[v];
+        _TIMING_START_
+        for (i = 0; i < 1; ++i) {
+
+            // int r, p, pb, ib; 
+            // for (p = 0; p < k; p += kc) {
+            // pb = min(k - p, kc);
+            // for (r = 0; r < m; r += mc) {
+            //   ib = min(m - r, mc);     //每次取256块，小于256时，取小的值
+            //   InnerKernel(ib, n, pb, &A(r, p), lda, &B(p, 0), ldb, &C(r, 0), ldc);
+            // }
+            int r, p, pb, ib; 
+            for (p = 0; p < K; p += kc) {
+            pb = K-p>kc?kc:K-p;//min(k - p, kc);
+            for (r = 0; r < M; r += mc) {
+            ib = M-r>mc?mc:M-r;//min(m - r, mc);     //每次取256块，小于256时，取小的值
+            matrix_mul_vector_neon_optimize( ib, N, pb, 1.0f, matrix_A_data+r*K+p,matrix_B_data+p*N,0.0f,c+r*N);
+            // int q,a;
+            //  for( q=0;q<M;q++)
+            //   {
+            //     for( a=0;a<N;a++)
+            //     {
+            //         cout<<c[q*N+a]<<" ";
+            //     }   
+            //     cout<<endl;
+            //   }  
+
+            //    cout<<endl;
+
+                }
+
+            }
+  
+        }
+         _TIMING_STOP_(1)
+//     matrix_mul_vector_neon_optimize( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
       
    }
-   _TIMING_STOP_(1)
+
+
+
+
+
+
+
+
+
 
 
 cout<<"cblas_sgemm cost time"<<endl;
