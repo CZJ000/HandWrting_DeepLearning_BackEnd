@@ -186,7 +186,7 @@ cout<<"size: "<<blo[e]<<endl;
 cout<<"matrix_normal cost time"<<endl;
 
   _TIMING_START_
-  for (i = 0; i < 1;++i) {
+  for (i = 0; i < 10;++i) {
    
     matrix_normal( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c1);
      
@@ -196,7 +196,7 @@ cout<<"matrix_normal cost time"<<endl;
 cout<<"matrix_mul_vector_neon cost time"<<endl;
 
   _TIMING_START_
-   for (i = 0; i < 1;++i) {
+   for (i = 0; i < 10;++i) {
     
      matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,matrix_C_data);
       
@@ -264,7 +264,7 @@ cout<<"matrix_mul_vector_neon cost time"<<endl;
 cout<<"cblas_sgemm cost time"<<endl;
 
  _TIMING_START_
-   for (i = 0; i < 1; ++i) {
+   for (i = 0; i < 10; ++i) {
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, matrix_A_data, K, matrix_B_data, N, 0, c, N);
    }
    _TIMING_STOP_(10)
