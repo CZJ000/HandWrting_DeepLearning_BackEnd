@@ -163,6 +163,12 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
  // 
  // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);
  
+
+ if((abs(alpha-1.0f) > 1e-6)||(abs(beta-0.0f) > 1e-6)
+         {
+           LOG_IF(INFO, Caffe::root_solver())<< "alpha: "<<alpha<<"beta: "<<beta;
+         }
+
  _TIMING_START_ 
     if(TransA==CblasNoTrans&&TransB == CblasNoTrans)
     {
@@ -170,6 +176,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
          {
            LOG_IF(INFO, Caffe::root_solver())<< "alpha: "<<alpha<<"beta: "<<beta;
          }
+
       // LOG_IF(INFO, Caffe::root_solver())<< "M:";
       //       int i=0,j=0;
       //   float* mc=(float*)malloc(M * N * sizeof(float));
