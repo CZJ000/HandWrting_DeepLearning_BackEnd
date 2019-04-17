@@ -126,7 +126,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         mc[i*N+j]=C[i*N+j];
       }
     }
-
+   int re=1;
     for(i=0;i<M;i++)
     {
       for(j=0;j<N;j++)
