@@ -155,8 +155,26 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
     const CBLAS_TRANSPOSE TransB, const int M, const int N, const int K,
     const float alpha, const float* A, const float* B, const float beta,
     float* C) {
-  int lda = (TransA == CblasNoTrans) ? K : M;
-  int ldb = (TransB == CblasNoTrans) ? N : K;
+ 
+    int lda = (TransA == CblasNoTrans) ? K : M;
+      int ldb = (TransB == CblasNoTrans) ? N : K;
+    _TIMING_START_ 
+    cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+                ldb, beta, C, N);
+        // if(TransA==CblasNoTrans&&TransB == CblasNoTrans)
+        // {
+        //   //neon优化的矩阵乘法
+        //       matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);    
+        // }
+        // else{
+          
+        // }
+    _TIMING_STOP_(1) 
+
+
+
+
+  
   //  LOG_IF(INFO, Caffe::root_solver())<< "M:"<<M<<"  N:"<<N<<"  K:"<<K;
   //  LOG_IF(INFO, Caffe::root_solver())<<(TransA == CblasNoTrans);
  //if( abs(a-b) <= 1e-6 ){  
@@ -169,10 +187,6 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         //    LOG_IF(INFO, Caffe::root_solver())<< "alpha: "<<alpha<<"beta: "<<beta;
         // }
 
- _TIMING_START_ 
-    if(TransA==CblasNoTrans&&TransB == CblasNoTrans)
-    {
-       
 
       // LOG_IF(INFO, Caffe::root_solver())<< "M:";
       //       int i=0,j=0;
@@ -187,7 +201,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
       //   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
       //        ldb, beta, C, N);
         // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
-        matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);
+      
         // int re=1;
 
         // for(i=0;i<M;i++)
@@ -209,16 +223,11 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         //   }
         // }
         // delete[] mc;
-    }
-    else{
-
-       cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
-             ldb, beta, C, N);
-    }
+    
 
     //  cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
     //          ldb, beta, C, N);
-_TIMING_STOP_(1) 
+
    
    // if(re) LOG_IF(INFO, Caffe::root_solver())<<"true";
 
