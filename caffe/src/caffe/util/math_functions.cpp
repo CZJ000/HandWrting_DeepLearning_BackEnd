@@ -105,7 +105,7 @@ void matrix_mul_vector_neon(
 }
 
 
-matrix_mul_normal(const int M, 
+void matrix_mul_normal(const int M, 
      const int N,
      const int K,   
      const float alpha, 
