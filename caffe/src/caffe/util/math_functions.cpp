@@ -7,12 +7,77 @@
 #include "caffe/util/math_functions.hpp"
 #include "caffe/util/rng.hpp"
 #include "caffe/layers/helper.hpp"
+#include <arm_neon.h>
 namespace caffe {
 
 
+void matrix_mul_vector_neon( 
+     const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
+      float *C) {
+  int i, j,e;
+  for ( i = 0; i <=M-4; i+=4) 
+  {
+   for(e=0;e<=N-4;e+=4)
+  {
+    float32x4_t vc0 = vdupq_n_f32(0.0f);
+    float32x4_t vc1 = vdupq_n_f32(0.0f);
+    float32x4_t vc2 = vdupq_n_f32(0.0f);
+    float32x4_t vc3 = vdupq_n_f32(0.0f);
+    for ( j= 0; j < K; j++) 
+    {
+                  //B K*N bb 
+        float32x4_t vb =vld1q_f32(B+j*N+e); // vget(&B[k][4]);   
+        //vfmaq_f32 混合   c=a*b+c  
+        vc0=vmlaq_f32( vc0,vdupq_n_f32(A[i*K+j]), vb);  
+        vc1=vmlaq_f32(vc1,vdupq_n_f32(A[(i+1)*K+j]), vb);
+        vc2=vmlaq_f32(vc2,vdupq_n_f32(A[(i+2)*K+j]), vb);
+        vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
+    }  
+        // C M*N
+        vst1q_f32(C+i*N+e,vc0);
+        vst1q_f32(C+(i+1)*N+e,vc1);
+        vst1q_f32(C+(i+2)*N+e,vc2);
+        vst1q_f32(C+(i+3)*N+e,vc3);
+  }
+    if(e<N)
+    {
+        int p=0,l,q;
+        for(l=0;l<4;l++)
+        {
+          for(q=e;q<N;q++)
+          {
+            float sum=0;
+            for(p=0;p<K;p++)
+            {
+                sum+=A[(i+l)*K+p]*B[p*N+q];
+            }
+            C[(i+l)*N+q]=sum;
+          }     
+        } 
+    }
+  }
 
+ int p=0;
+  for(;i<M;i++)
+  {
+    for(e=0;e<N;e++)
+    {
+      float sum=0;
+        for(p=0;p<K;p++)
+        {
+          sum+=A[i*K+p]*B[p*N+e];
 
-
+        }
+        C[i*N+e]=sum;
+    }
+  }
+}
 template<>
 void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
     const CBLAS_TRANSPOSE TransB, const int M, const int N, const int K,
@@ -20,13 +85,11 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
     float* C) {
   int lda = (TransA == CblasNoTrans) ? K : M;
   int ldb = (TransB == CblasNoTrans) ? N : K;
-
  // LOG_IF(INFO, Caffe::root_solver())<< "M:"<<M<<"  N:"<<N<<"  K:"<<K;
-
   _TIMING_START_
-  cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
-      ldb, beta, C, N);
-
+  // cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+  //     ldb, beta, C, N);
+  matrix_mul_vector_neon(M, N, K,1.0f, A,B,0.0f,C);
    _TIMING_STOP_(1)
 }
 
