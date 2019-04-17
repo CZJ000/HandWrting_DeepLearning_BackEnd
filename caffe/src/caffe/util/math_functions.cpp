@@ -164,53 +164,53 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
  // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);
  
  _TIMING_START_ 
-    // if(TransA==CblasNoTrans&&TransB == CblasNoTrans)
-    // {
+    if(TransA==CblasNoTrans&&TransB == CblasNoTrans)
+    {
 
-    //   // LOG_IF(INFO, Caffe::root_solver())<< "M:";
-    //   //       int i=0,j=0;
-    //   //   float* mc=(float*)malloc(M * N * sizeof(float));
-    //   //   for(i=0;i<M;i++)
-    //   //   {
-    //   //     for(j=0;j<N;j++)
-    //   //     {
-    //   //       mc[i*N+j]=C[i*N+j];
-    //   //     }
-    //   //   }
-    //   //   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
-    //   //        ldb, beta, C, N);
-    //     // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
-    //     matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);
-    //     // int re=1;
+      // LOG_IF(INFO, Caffe::root_solver())<< "M:";
+      //       int i=0,j=0;
+      //   float* mc=(float*)malloc(M * N * sizeof(float));
+      //   for(i=0;i<M;i++)
+      //   {
+      //     for(j=0;j<N;j++)
+      //     {
+      //       mc[i*N+j]=C[i*N+j];
+      //     }
+      //   }
+      //   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+      //        ldb, beta, C, N);
+        // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
+        matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);
+        // int re=1;
 
-    //     // for(i=0;i<M;i++)
-    //     // {
-    //     //   for(j=0;j<N;j++)
-    //     //   {
-    //     //     if(abs(mc[i*N+j]-C[i*N+j]) > 1e-6)
-    //     //     {
-    //     //       re=0;
-    //     //       break;
-    //     //     }
-    //     //   }
-    //     //   if(!re)
-    //     //   {
-    //     //     LOG_IF(INFO, Caffe::root_solver())<<"false posi"<<": i:"<<i<<" j:"<<j;
-    //     //     LOG_IF(INFO, Caffe::root_solver())<<"C:"<<C[i*N+j];
-    //     //     LOG_IF(INFO, Caffe::root_solver())<<"mc:"<<mc[i*N+j];
-    //     //     break;
-    //     //   }
-    //     // }
-    //     // delete[] mc;
-    // }
-    // else{
+        // for(i=0;i<M;i++)
+        // {
+        //   for(j=0;j<N;j++)
+        //   {
+        //     if(abs(mc[i*N+j]-C[i*N+j]) > 1e-6)
+        //     {
+        //       re=0;
+        //       break;
+        //     }
+        //   }
+        //   if(!re)
+        //   {
+        //     LOG_IF(INFO, Caffe::root_solver())<<"false posi"<<": i:"<<i<<" j:"<<j;
+        //     LOG_IF(INFO, Caffe::root_solver())<<"C:"<<C[i*N+j];
+        //     LOG_IF(INFO, Caffe::root_solver())<<"mc:"<<mc[i*N+j];
+        //     break;
+        //   }
+        // }
+        // delete[] mc;
+    }
+    else{
 
-    //    cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
-    //          ldb, beta, C, N);
-    // }
-
-     cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+       cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
              ldb, beta, C, N);
+    }
+
+    //  cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+    //          ldb, beta, C, N);
 _TIMING_STOP_(1) 
    
    // if(re) LOG_IF(INFO, Caffe::root_solver())<<"true";
