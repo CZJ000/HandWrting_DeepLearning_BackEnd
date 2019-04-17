@@ -21,6 +21,8 @@ void matrix_mul_vector_neon(
      const float beta,    
       float *C) {
   int i, j,e;
+    float32x4_t valpha = vdupq_n_f32(alpha);
+    float32x4_t vbeta  = vdupq_n_f32(beta);
   for ( i = 0; i <=M-4; i+=4) 
   {
    for(e=0;e<=N-4;e+=4)
@@ -40,10 +42,37 @@ void matrix_mul_vector_neon(
         vc3=vmlaq_f32(vc3,vdupq_n_f32(A[(i+3)*K+j]), vb);
     }  
         // C M*N
-        vst1q_f32(C+i*N+e,vc0);
-        vst1q_f32(C+(i+1)*N+e,vc1);
-        vst1q_f32(C+(i+2)*N+e,vc2);
-        vst1q_f32(C+(i+3)*N+e,vc3);
+      // C = alpha*op( A )*op( B ) + beta*C
+         // C M*N
+        float32x4_t c0 =vld1q_f32(C+i*N+e);
+        float32x4_t c1 = vld1q_f32(C+(i+1)*N+e);
+        float32x4_t c2 = vld1q_f32(C+(i+2)*N+e);
+        float32x4_t c3 =vld1q_f32(C+(i+3)*N+e);
+
+        float32x4_t c0_b =vmulq_f32(c0, vbeta);
+        
+        float32x4_t c1_b = vmulq_f32(c1, vbeta);
+      
+        float32x4_t c2_b = vmulq_f32(c2, vbeta);
+      
+        float32x4_t c3_b =vmulq_f32(c3, vbeta);
+
+      float32x4_t c0_r= vaddq_f32(vmulq_f32(vc0, valpha),c0_b);
+      float32x4_t c1_r= vaddq_f32(vmulq_f32(vc1, valpha),c1_b);
+      float32x4_t c2_r= vaddq_f32(vmulq_f32(vc2, valpha),c2_b);
+      float32x4_t c3_r= vaddq_f32(vmulq_f32(vc3, valpha),c3_b);
+
+
+
+        // vst1q_f32(C+i*N+e,vc0);
+        // vst1q_f32(C+(i+1)*N+e,vc1);
+        // vst1q_f32(C+(i+2)*N+e,vc2);
+        // vst1q_f32(C+(i+3)*N+e,vc3);
+
+         vst1q_f32(C+i*N+e,c0_r);
+        vst1q_f32(C+(i+1)*N+e,c1_r);
+        vst1q_f32(C+(i+2)*N+e,c2_r);
+        vst1q_f32(C+(i+3)*N+e,c3_r);
   }
     if(e<N)
     {
@@ -57,7 +86,7 @@ void matrix_mul_vector_neon(
             {
                 sum+=A[(i+l)*K+p]*B[p*N+q];
             }
-            C[(i+l)*N+q]=sum;
+            C[(i+l)*N+q]= C[(i+l)*N+q]*beta+(sum*alpha);
           }     
         } 
     }
@@ -74,7 +103,7 @@ void matrix_mul_vector_neon(
           sum+=A[i*K+p]*B[p*N+e];
 
         }
-        C[i*N+e]=sum;
+        C[i*N+e]= C[i*N+e]*beta+(sum*alpha);
     }
   }
 }
