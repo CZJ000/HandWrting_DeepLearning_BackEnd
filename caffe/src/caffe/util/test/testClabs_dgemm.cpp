@@ -115,7 +115,7 @@ int main(const int argc, const char* argv[]) {
     random_init_data(K * N, matrix_B_data);
     //constant_init_data(M * N, matrix_C_data,0);
     constant_init_data(M * N, c,0);
-
+int i=0,j=0;
 //float* c1= (float*)malloc(M * N * sizeof(float));
 //   for (i = 0; i < M * N; ++i) {
 //    c1[i]=C[i];
