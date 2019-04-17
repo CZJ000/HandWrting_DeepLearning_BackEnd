@@ -126,12 +126,8 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         mc[i*N+j]=C[i*N+j];
       }
     }
-   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
-            ldb, beta, C, N);
-    matrix_mul_vector_neon(M, N, K,1.0f, A,B,0.0f,mc);
-    int re=1;
 
-     for(i=0;i<M;i++)
+    for(i=0;i<M;i++)
     {
       for(j=0;j<N;j++)
       {
@@ -149,6 +145,30 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         break;
       }
     }
+
+   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+            ldb, beta, C, N);
+    matrix_mul_vector_neon(M, N, K,1.0f, A,B,0.0f,mc);
+    // int re=1;
+
+    //  for(i=0;i<M;i++)
+    // {
+    //   for(j=0;j<N;j++)
+    //   {
+    //     if(mc[i*N+j]!=C[i*N+j])
+    //     {
+    //       re=0;
+    //       break;
+    //     }
+    //   }
+    //   if(!re)
+    //   {
+    //     LOG_IF(INFO, Caffe::root_solver())<<"false posi"<<": i:"<<i<<" j:"<<j;
+    //     LOG_IF(INFO, Caffe::root_solver())<<"C:"<<C[i*N+j];
+    //      LOG_IF(INFO, Caffe::root_solver())<<"mc:"<<mc[i*N+j];
+    //     break;
+    //   }
+    // }
    // if(re) LOG_IF(INFO, Caffe::root_solver())<<"true";
 
       // if(TransA == CblasNoTrans)
