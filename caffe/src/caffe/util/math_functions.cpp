@@ -119,19 +119,35 @@ void matrix_mul_normal(const int M,
     {
       for(j=0;j<N;j++)
       {
-        float sum=0.0f;
-        float c=0.0f;
+        float sum=0;
+        //float c=0.0f;
         for(k=0;k<K;k++)
         {
-          float y=A[i*K+k]*B[k*K+j]-c;
-          float t = sum + y;
-           c = (t - sum) - y;
-           sum = t;
-          //sum+=A[i*K+k]*B[k*K+j];    
+          // float y=A[i*K+k]*B[k*K+j]-c;
+          // float t = sum + y;
+          //  c = (t - sum) - y;
+          //  sum = t;
+          sum+=A[i*K+k]*B[k*N+j]*alpha;    
         }
-        C[i*N+j]=C[i*N+j]*beta+sum*alpha;
+        C[i*N+j]=sum+C[i*N+j]*beta;
       }
     }
+
+
+    
+    // for(i=0;i<M;i++)
+    // {
+    //     for(j=0;j<N;j++)
+    //     {   
+    //       float sum=0;
+    //         for(k=0;k<K;k++)
+    //         {
+    //           sum+=A[i*K+k]*B[k*N+j]*alpha;
+    //         }
+    //         C[i*N+j]=sum+C[i*N+j]*beta;
+    //     }
+    // }
+
 }
 
 template<>
@@ -147,44 +163,45 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
  // _TIMING_START_ 
  // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);
  // _TIMING_STOP_(1)  
-  int i=0,j=0;
-    float* mc=(float*)malloc(M * N * sizeof(float));
-    for(i=0;i<M;i++)
+ 
+    if(TransA==CblasNoTrans)
     {
-      for(j=0;j<N;j++)
-      {
-        mc[i*N+j]=C[i*N+j];
-      }
-    }
-  
-
-    cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
-             ldb, beta, C, N);
-    // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
-    matrix_mul_normal(M, N, K,alpha, A,B,beta,mc);
-    int re=1;
-
-     for(i=0;i<M;i++)
-    {
-      for(j=0;j<N;j++)
-      {
-        if(abs(mc[i*N+j]-C[i*N+j]) > 1e-6)
+            int i=0,j=0;
+        float* mc=(float*)malloc(M * N * sizeof(float));
+        for(i=0;i<M;i++)
         {
-          re=0;
-          break;
+          for(j=0;j<N;j++)
+          {
+            mc[i*N+j]=C[i*N+j];
+          }
         }
-      }
-      if(!re)
-      {
-        LOG_IF(INFO, Caffe::root_solver())<<"false posi"<<": i:"<<i<<" j:"<<j;
-        LOG_IF(INFO, Caffe::root_solver())<<"C:"<<C[i*N+j];
-         LOG_IF(INFO, Caffe::root_solver())<<"mc:"<<mc[i*N+j];
-        break;
-      }
+        cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+             ldb, beta, C, N);
+        // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
+        matrix_mul_normal(M, N, K,alpha, A,B,beta,mc);
+        int re=1;
+
+        for(i=0;i<M;i++)
+        {
+          for(j=0;j<N;j++)
+          {
+            if(abs(mc[i*N+j]-C[i*N+j]) > 1e-6)
+            {
+              re=0;
+              break;
+            }
+          }
+          if(!re)
+          {
+            LOG_IF(INFO, Caffe::root_solver())<<"false posi"<<": i:"<<i<<" j:"<<j;
+            LOG_IF(INFO, Caffe::root_solver())<<"C:"<<C[i*N+j];
+            LOG_IF(INFO, Caffe::root_solver())<<"mc:"<<mc[i*N+j];
+            break;
+          }
+        }
+        delete[] mc;
     }
-
-
-    delete[] mc;
+   
    // if(re) LOG_IF(INFO, Caffe::root_solver())<<"true";
 
       // if(TransA == CblasNoTrans)
