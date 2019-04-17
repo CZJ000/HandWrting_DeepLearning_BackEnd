@@ -166,7 +166,10 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
  _TIMING_START_ 
     if(TransA==CblasNoTrans&&TransB == CblasNoTrans)
     {
-
+         if((abs(alpha-1.0f) > 1e-6)||(abs(beta-0.0f) > 1e-6)
+         {
+           LOG_IF(INFO, Caffe::root_solver())<< "alpha: "<<alpha<<"beta: "<<beta;
+         }
       // LOG_IF(INFO, Caffe::root_solver())<< "M:";
       //       int i=0,j=0;
       //   float* mc=(float*)malloc(M * N * sizeof(float));
