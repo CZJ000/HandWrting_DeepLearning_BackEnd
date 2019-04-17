@@ -177,7 +177,7 @@ cout<<"before C"<<endl;
   _TIMING_STOP_(1)
 
 
-  cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 0.1f, matrix_A_data, K, matrix_B_data, N,0.005f, c1, N);
+  cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 0.0001f, matrix_A_data, K, matrix_B_data, N,0.005f, c1, N);
 
 
 
