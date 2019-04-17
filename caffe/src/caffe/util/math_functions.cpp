@@ -178,7 +178,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
              ldb, beta, C, N);
         // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
-        matrix_mul_normal(M, N, K,alpha, A,B,beta,mc);
+        matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
         int re=1;
 
         for(i=0;i<M;i++)
