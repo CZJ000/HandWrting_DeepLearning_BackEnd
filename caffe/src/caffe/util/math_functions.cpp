@@ -119,7 +119,7 @@ void matrix_mul_normal(const int M,
     {
       for(j=0;j<N;j++)
       {
-        float sum=0;
+        double sum=0;
         for(k=0;k<K;k++)
         {
           sum+=A[i*K+k]*B[k*K+j]*alpha;    
@@ -177,6 +177,9 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         break;
       }
     }
+
+
+    delete[] mc;
    // if(re) LOG_IF(INFO, Caffe::root_solver())<<"true";
 
       // if(TransA == CblasNoTrans)
