@@ -144,9 +144,9 @@ cout<<"before A"<<endl;
  
 cout<<"before B"<<endl;
 
- for( i=0;i<M;i++)
+ for( i=0;i<K;i++)
     {
-       for( j=0;j<N;j++)
+       for( j=0;j<1;j++)
        {
            cout<<matrix_B_data[i*N+j]<<" ";
        }   
