@@ -171,13 +171,13 @@ cout<<"before B"<<endl;
   _TIMING_START_
   for (i = 0; i < 1; ++i) {
    
-    matrix_mul_vector_neon( M, N, K, 1.0f, matrix_A_data,matrix_B_data,0.0f,c);
+    matrix_mul_vector_neon( M, N, K,0.1f, matrix_A_data,matrix_B_data,0.5f,c);
      
   }
   _TIMING_STOP_(1)
 
 
-  cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1.0f, matrix_A_data, K, matrix_B_data, N, 0.0f, c1, N);
+  cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 0.1f, matrix_A_data, K, matrix_B_data, N,0.5f, c1, N);
 
 
  for( i=0;i<M;i++)
