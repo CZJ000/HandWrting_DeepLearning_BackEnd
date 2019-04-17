@@ -166,6 +166,8 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
  
     if(TransA==CblasNoTrans&&TransB == CblasNoTrans)
     {
+
+      LOG_IF(INFO, Caffe::root_solver())<< "M:";
             int i=0,j=0;
         float* mc=(float*)malloc(M * N * sizeof(float));
         for(i=0;i<M;i++)
