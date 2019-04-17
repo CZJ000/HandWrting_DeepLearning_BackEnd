@@ -116,41 +116,44 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
   int ldb = (TransB == CblasNoTrans) ? N : K;
   //  LOG_IF(INFO, Caffe::root_solver())<< "M:"<<M<<"  N:"<<N<<"  K:"<<K;
   //  LOG_IF(INFO, Caffe::root_solver())<<(TransA == CblasNoTrans);
- // _TIMING_START_   
-  int i=0,j=0;
-    float* mc=(float*)malloc(M * N * sizeof(float));
-    for(i=0;i<M;i++)
-    {
-      for(j=0;j<N;j++)
-      {
-        mc[i*N+j]=C[i*N+j];
-      }
-    }
+
+  _TIMING_START_ 
+  matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);
+  _TIMING_STOP_(1)  
+  // int i=0,j=0;
+  //   float* mc=(float*)malloc(M * N * sizeof(float));
+  //   for(i=0;i<M;i++)
+  //   {
+  //     for(j=0;j<N;j++)
+  //     {
+  //       mc[i*N+j]=C[i*N+j];
+  //     }
+  //   }
   
 
-   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
-            ldb, beta, C, N);
-    matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
-    int re=1;
+  //  cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+  //           ldb, beta, C, N);
+  //   matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
+  //   int re=1;
 
-     for(i=0;i<M;i++)
-    {
-      for(j=0;j<N;j++)
-      {
-        if(mc[i*N+j]!=C[i*N+j])
-        {
-          re=0;
-          break;
-        }
-      }
-      if(!re)
-      {
-        LOG_IF(INFO, Caffe::root_solver())<<"false posi"<<": i:"<<i<<" j:"<<j;
-        LOG_IF(INFO, Caffe::root_solver())<<"C:"<<C[i*N+j];
-         LOG_IF(INFO, Caffe::root_solver())<<"mc:"<<mc[i*N+j];
-        break;
-      }
-    }
+  //    for(i=0;i<M;i++)
+  //   {
+  //     for(j=0;j<N;j++)
+  //     {
+  //       if(mc[i*N+j]!=C[i*N+j])
+  //       {
+  //         re=0;
+  //         break;
+  //       }
+  //     }
+  //     if(!re)
+  //     {
+  //       LOG_IF(INFO, Caffe::root_solver())<<"false posi"<<": i:"<<i<<" j:"<<j;
+  //       LOG_IF(INFO, Caffe::root_solver())<<"C:"<<C[i*N+j];
+  //        LOG_IF(INFO, Caffe::root_solver())<<"mc:"<<mc[i*N+j];
+  //       break;
+  //     }
+  //   }
    // if(re) LOG_IF(INFO, Caffe::root_solver())<<"true";
 
       // if(TransA == CblasNoTrans)
@@ -162,7 +165,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
       //      cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
       //       ldb, beta, C, N);
       // }
-  //_TIMING_STOP_(1)
+  
 }
 
 template<>
