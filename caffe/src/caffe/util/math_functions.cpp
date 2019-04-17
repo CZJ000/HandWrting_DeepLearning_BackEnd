@@ -86,7 +86,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
   int lda = (TransA == CblasNoTrans) ? K : M;
   int ldb = (TransB == CblasNoTrans) ? N : K;
 //  LOG_IF(INFO, Caffe::root_solver())<< "M:"<<M<<"  N:"<<N<<"  K:"<<K;
-   LOG_IF(INFO, Caffe::root_solver())<<(TransA == CblasNoTrans) ?;
+   LOG_IF(INFO, Caffe::root_solver())<<(TransA == CblasNoTrans);
   _TIMING_START_   
    cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
             ldb, beta, C, N);
