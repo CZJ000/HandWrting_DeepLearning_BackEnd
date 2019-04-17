@@ -119,12 +119,12 @@ void matrix_mul_normal(const int M,
     {
       for(j=0;j<N;j++)
       {
-        double sum=0;
+        double sum=0.0f;
         for(k=0;k<K;k++)
         {
-          sum+=A[i*K+k]*B[k*K+j]*alpha;    
+          sum+=A[i*K+k]*B[k*K+j];    
         }
-        C[i*N+j]=C[i*N+j]*beta+sum;
+        C[i*N+j]=C[i*N+j]*beta+sum*alpha;
       }
     }
 }
