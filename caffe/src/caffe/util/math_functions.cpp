@@ -119,7 +119,7 @@ void matrix_mul_normal(const int M,
     {
       for(j=0;j<N;j++)
       {
-        double sum=0.0f;
+        float sum=0.0f;
         for(k=0;k<K;k++)
         {
           sum+=A[i*K+k]*B[k*K+j];    
