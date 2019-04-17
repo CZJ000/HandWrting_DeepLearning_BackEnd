@@ -142,29 +142,29 @@ int i=0,j=0;
 //        cout<<endl;
 //     }  
  
-// cout<<"before B"<<endl;
+cout<<"before B"<<endl;
 
-//  for( i=0;i<K;i++)
-//     {
-//        for( j=0;j<N;j++)
-//        {
-//            cout<<matrix_B_data[i*N+j]<<" ";
-//        }   
-//        cout<<endl;
-//     }  
+ for( i=0;i<K;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<matrix_B_data[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
 
 
      
-// cout<<"before C"<<endl;
+cout<<"before C"<<endl;
 
-//  for( i=0;i<K;i++)
-//     {
-//        for( j=0;j<N;j++)
-//        {
-//            cout<<c[i*N+j]<<" ";
-//        }   
-//        cout<<endl;
-//     }  
+ for( i=0;i<K;i++)
+    {
+       for( j=0;j<N;j++)
+       {
+           cout<<c[i*N+j]<<" ";
+       }   
+       cout<<endl;
+    }  
 
 
 
