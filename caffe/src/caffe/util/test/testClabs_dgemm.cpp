@@ -180,27 +180,49 @@ cout<<"before B"<<endl;
   cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 0.1f, matrix_A_data, K, matrix_B_data, N,0.5f, c1, N);
 
 
- for( i=0;i<M;i++)
+
+int re=1;
+
+     for(i=0;i<M;i++)
     {
-       for( j=0;j<N;j++)
-       {
-           cout<<c[i*N+j]<<" ";
-       }   
-       cout<<endl;
-    }  
- cout<<endl;
-  cout<<endl;
-   cout<<endl;
+      for(j=0;j<N;j++)
+      {
+        if(abs(c[i*N+j]-c1[i*N+j]) > 1e-6)
+        {
+          re=0;
+          break;
+        }
+      }
+      if(!re)
+      {
+        cout<<"false posi"<<": i:"<<i<<" j:"<<j<<endl;
+        cout<<"c:"<<c[i*N+j]<<endl;
+        cout<<"mc:"<<c1[i*N+j]<<endl;
+        break;
+      }
+    }
+
+//  for( i=0;i<M;i++)
+//     {
+//        for( j=0;j<N;j++)
+//        {
+//            cout<<c[i*N+j]<<" ";
+//        }   
+//        cout<<endl;
+//     }  
+//  cout<<endl;
+//   cout<<endl;
+//    cout<<endl;
 
 
-     for( i=0;i<M;i++)
-    {
-       for( j=0;j<N;j++)
-       {
-           cout<<c1[i*N+j]<<" ";
-       }   
-       cout<<endl;
-    }  
+//      for( i=0;i<M;i++)
+//     {
+//        for( j=0;j<N;j++)
+//        {
+//            cout<<c1[i*N+j]<<" ";
+//        }   
+//        cout<<endl;
+//     }  
 
 
 /*
