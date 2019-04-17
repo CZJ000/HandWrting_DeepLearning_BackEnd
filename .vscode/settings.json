@@ -19,6 +19,7 @@
         "xfunctional": "cpp",
         "xlocmon": "cpp",
         "xstddef": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "map": "cpp"
     }
 }
