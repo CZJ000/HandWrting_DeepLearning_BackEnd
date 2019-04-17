@@ -164,7 +164,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
  // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,C);
  // _TIMING_STOP_(1)  
  
-    if(TransA==CblasNoTrans)
+    if(TransA==CblasNoTrans&&TransB == CblasNoTrans)
     {
             int i=0,j=0;
         float* mc=(float*)malloc(M * N * sizeof(float));
