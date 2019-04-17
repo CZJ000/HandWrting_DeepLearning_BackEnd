@@ -117,12 +117,8 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
   //  LOG_IF(INFO, Caffe::root_solver())<< "M:"<<M<<"  N:"<<N<<"  K:"<<K;
   //  LOG_IF(INFO, Caffe::root_solver())<<(TransA == CblasNoTrans);
  // _TIMING_START_   
-   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
-            ldb, beta, C, N);
-
+  int i=0,j=0;
     float* mc=(float*)malloc(M * N * sizeof(float));
-
-    int i=0,j=0;
     for(i=0;i<M;i++)
     {
       for(j=0;j<N;j++)
@@ -130,8 +126,9 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         mc[i*N+j]=C[i*N+j];
       }
     }
+   cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
+            ldb, beta, C, N);
     matrix_mul_vector_neon(M, N, K,1.0f, A,B,0.0f,mc);
-
     int re=1;
 
      for(i=0;i<M;i++)
