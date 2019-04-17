@@ -117,7 +117,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
       }
       if(!re)
       {
-        LOG_IF(INFO, Caffe::root_solver())<<"false";
+        LOG_IF(INFO, Caffe::root_solver())<<"false posi"<<": i:"<<i<<" j:"<<j;
         break;
       }
     }
