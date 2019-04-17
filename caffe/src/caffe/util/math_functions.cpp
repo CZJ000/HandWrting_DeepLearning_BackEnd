@@ -61,15 +61,11 @@ void matrix_mul_vector_neon(
       float32x4_t c1_r= vaddq_f32(vmulq_f32(vc1, valpha),c1_b);
       float32x4_t c2_r= vaddq_f32(vmulq_f32(vc2, valpha),c2_b);
       float32x4_t c3_r= vaddq_f32(vmulq_f32(vc3, valpha),c3_b);
-
-
-
         // vst1q_f32(C+i*N+e,vc0);
         // vst1q_f32(C+(i+1)*N+e,vc1);
         // vst1q_f32(C+(i+2)*N+e,vc2);
         // vst1q_f32(C+(i+3)*N+e,vc3);
-
-         vst1q_f32(C+i*N+e,c0_r);
+        vst1q_f32(C+i*N+e,c0_r);
         vst1q_f32(C+(i+1)*N+e,c1_r);
         vst1q_f32(C+(i+2)*N+e,c2_r);
         vst1q_f32(C+(i+3)*N+e,c3_r);
@@ -107,6 +103,32 @@ void matrix_mul_vector_neon(
     }
   }
 }
+
+
+matrix_mul_normal(const int M, 
+     const int N,
+     const int K,   
+     const float alpha, 
+     const float *A, 
+     const float *B, 
+     const float beta,    
+      float *C) 
+{
+    int i=0,j=0,k=0;
+    for(i=0;i<M;i++)
+    {
+      for(j=0;j<N;j++)
+      {
+        float sum=0;
+        for(k=0;k<K;k++)
+        {
+          sum+=A[i*K+k]*B[k*K+j];    
+        }
+        C[i*N+j]=C[i*N+j]*beta+sum*alpha;
+      }
+    }
+}
+
 template<>
 void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
     const CBLAS_TRANSPOSE TransB, const int M, const int N, const int K,
@@ -133,7 +155,8 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
 
     cblas_sgemm(CblasRowMajor, TransA, TransB, M, N, K, alpha, A, lda, B,
              ldb, beta, C, N);
-     matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
+    // matrix_mul_vector_neon(M, N, K,alpha, A,B,beta,mc);
+    matrix_mul_normal(M, N, K,alpha, A,B,beta,mc);
     int re=1;
 
      for(i=0;i<M;i++)
