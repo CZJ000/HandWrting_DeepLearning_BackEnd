@@ -121,7 +121,7 @@ void caffe_cpu_gemm<float>(const CBLAS_TRANSPOSE TransA,
         break;
       }
     }
-    if(re) LOG_IF(INFO, Caffe::root_solver())<<"true";
+   // if(re) LOG_IF(INFO, Caffe::root_solver())<<"true";
 
       // if(TransA == CblasNoTrans)
       // {
