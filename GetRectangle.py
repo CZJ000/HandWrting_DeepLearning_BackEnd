@@ -5,7 +5,7 @@ import cmath as math
 from enum import Enum
 import glob
 
-root="./cutpic/"
+root="./cutpic"
 class MergeType(Enum):
     left=0
     right=1
