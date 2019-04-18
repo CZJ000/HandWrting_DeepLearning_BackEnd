@@ -929,10 +929,11 @@ caffe_model=root + '/lenet_solver_iter_10000.caffemodel'   #训练好的 caffemo
 
 img_list_paths=glob.glob(r""+root+"/*.png")
 
+print(img_list_paths)
 
-img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"\\", '').replace(".png", '').split("__")))
+img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"/", '').replace(".png", '').split("__")))
 
-#print(img_list_paths)
+
 #img=root+'/2__7.png'    #随机找的一张待测图片
 labels_filename = root + '/labels.txt'  #类别名称文件，将数字标签转换回类别名称
 
