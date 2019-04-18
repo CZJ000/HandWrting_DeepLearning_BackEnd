@@ -925,7 +925,7 @@ vertical(erosion)
 
 #识别
 deploy=root + '/lenet_deploy.prototxt'    #deploy文件
-caffe_model=root + '/_iter_10000.caffemodel'   #训练好的 caffemodel
+caffe_model=root + '/lenet_solver_iter_10000.caffemodel'   #训练好的 caffemodel
 
 img_list_paths=glob.glob(r""+root+"/*.png")
 
