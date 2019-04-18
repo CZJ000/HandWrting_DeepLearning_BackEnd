@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import cmath as math
 from enum import Enum
-
+import glob
 
 root="./cutpic/"
 class MergeType(Enum):
