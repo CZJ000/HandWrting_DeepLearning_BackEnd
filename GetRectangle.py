@@ -8,7 +8,7 @@ import caffe
 import matplotlib.pyplot as plt
 
 
-root="./cutpic"
+root="./cutpic/"
 class MergeType(Enum):
     left=0
     right=1
@@ -927,18 +927,18 @@ vertical(erosion)
 
 
 #识别
-deploy=root + '/lenet_deploy.prototxt'    #deploy文件
-caffe_model=root + '/lenet_solver_iter_10000.caffemodel'   #训练好的 caffemodel
+deploy=root + 'lenet_deploy.prototxt'    #deploy文件
+caffe_model=root + 'lenet_solver_iter_10000.caffemodel'   #训练好的 caffemodel
 
-img_list_paths=glob.glob(r""+root+"/*.png")
+img_list_paths=glob.glob(r""+root+"*.png")
 
 print(img_list_paths)
 
-img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"/", '').replace(".png", '').split(".")))
+img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root, '').replace(".png", '').split(".")))
 
 
 #img=root+'/2__7.png'    #随机找的一张待测图片
-labels_filename = root + '/labels.txt'  #类别名称文件，将数字标签转换回类别名称
+labels_filename = root + 'labels.txt'  #类别名称文件，将数字标签转换回类别名称
 
 net = caffe.Net(deploy,caffe_model,caffe.TEST)   #加载model和network
 #图片预处理设置
