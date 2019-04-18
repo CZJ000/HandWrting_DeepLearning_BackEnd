@@ -458,7 +458,7 @@ def CCLCut(img,img_num):        #255白
         #                               cv2.BORDER_CONSTANT, value=[255, 255, 255])
         # cv2.imshow("constant", constant)
 
-        AdhereCut(result_pic,str(img_num)+"__"+str(count))
+        AdhereCut(result_pic,str(img_num)+"."+str(count))
         #result_pic=cv2.resize(result_pic, (28, 28), interpolation=cv2.INTER_LINEAR)
        # cv2.imshow("pic", result_pic)
         #cv2.imwrite("E:/" + str(count) + ".png", result_pic)
@@ -824,7 +824,7 @@ def  AdhereCut(img,img_num):
         for i in range(28):
             for j in range(28):
                 imgFix[i, j] = 255 - result_pic[i, j]
-        cv2.imwrite(root +img_num+"__"+str(count) +".png", imgFix)
+        cv2.imwrite(root +img_num+"."+str(count) +".png", imgFix)
         # for i in range(w):
         #     gray[i][start_y] = 0 //分界线上色
         count += 1
@@ -890,7 +890,7 @@ def  AdhereCut(img,img_num):
             imgFix[i, j] = 255 - result_pic[i, j]
     #result_pic_gray = cv2.cvtColor(result_pic, cv2.COLOR_BGR2GRAY)
     # cv2.imshow("pic", result_pic)
-    cv2.imwrite(root + img_num+"__"+str(count) + ".png", imgFix)
+    cv2.imwrite(root + img_num+"."+str(count) + ".png", imgFix)
     #cv2.imshow('cut', gray)
 
 
@@ -931,7 +931,7 @@ img_list_paths=glob.glob(r""+root+"/*.png")
 
 print(img_list_paths)
 
-img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"/", '').replace(".png", '').split("__")))
+img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"/", '').replace(".png", '').split(".")))
 
 
 #img=root+'/2__7.png'    #随机找的一张待测图片
