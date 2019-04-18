@@ -5,7 +5,7 @@ import cmath as math
 from enum import Enum
 
 
-root="./"
+root="./cutpic/"
 class MergeType(Enum):
     left=0
     right=1
@@ -902,36 +902,8 @@ img_shape= original_img.shape
 w=img_shape[0]
 h=img_shape[1]
 
-# canny(): 边缘检测
-#img1 = cv2.GaussianBlur(original_img, (3, 3), 0)
-
-
-#canny = cv2.Canny(img1, 50, 150)
-#cv2.imshow("canny", canny)
-
-
-#contours,_ = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
-# cv2.drawContours(original_img, contours, -1, (0,0,255), thickness=2)
-# cv2.imshow("original_img", original_img)
-# print("len(contours)=%d"%(len(contours)))
-#length = len(contours)
 maxArea=-9999
 maxindex=0
-# docCnt = np.array(([h-1,w-1],[0,w-1],[0,0],[h-1,0]))
-# # 确保至少找到一个轮廓
-# if len(contours) > 0:
-#     # 按轮廓大小降序排列
-#     cnts = sorted(contours, key=cv2.contourArea, reverse=True)
-#     for c in cnts:
-#         # 近似轮廓
-#         peri = cv2.arcLength(c, True)
-#         approx = cv2.approxPolyDP(c, 0.02 * peri, True)
-#         # 如果我们的近似轮廓有四个点，则确定找到了纸
-#         if len(approx) == 4:
-#             docCnt = approx
-#             break
-# warped=four_point_transform(original_img,docCnt.reshape(4, 2))
 #灰度图
 gray=cv2.cvtColor(original_img,cv2.COLOR_BGR2GRAY)
 
@@ -943,173 +915,52 @@ gray=cv2.cvtColor(original_img,cv2.COLOR_BGR2GRAY)
 #retval,
 im_fixed=cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_MEAN_C ,cv2.THRESH_BINARY,27,27)
 
-#cv2.imshow("im_fixed", im_fixed)
-
-#kernel = cv2.getStructuringElement(cv2.MARKER_CROSS,(2,2))
-
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(2,2))
 
 #
 erosion = cv2.erode(im_fixed,kernel,iterations = 1)
-#dilation=cv2.dilate(erosion,kernel,iterations = 1)
-
-
-#cv2.imshow("erosion", erosion)
-
-
-# Blur = cv2.GaussianBlur(erosion, (3, 3), 0,0)
-#
-# cv2.imshow("GaussianBlur",Blur)
-#
-#
-# blur = cv2.medianBlur(erosion,5)
-# cv2.imshow("medianBlur",blur)
-#
-# MeansDeno=cv2.fastNlMeansDenoising(erosion,None, 60, 7, 21)
-# cv2.imshow("MeansDeno",MeansDeno)
-
-
-#cv2.waitKey(0)
-
-
-
-
-
-
 vertical(erosion)
-#CCLCut(erosion)
 
 
 
+#识别
+deploy=root + '/lenet_deploy.prototxt'    #deploy文件
+caffe_model=root + '/_iter_10000.caffemodel'   #训练好的 caffemodel
+
+img_list_paths=glob.glob(r""+root+"/*.png")
 
 
-#cv2.waitKey(0)
+img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"\\", '').replace(".png", '').split("__")))
 
+#print(img_list_paths)
+#img=root+'/2__7.png'    #随机找的一张待测图片
+labels_filename = root + '/labels.txt'  #类别名称文件，将数字标签转换回类别名称
 
+net = caffe.Net(deploy,caffe_model,caffe.TEST)   #加载model和network
+#图片预处理设置
+transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})  #设定图片的shape格式(1,3,28,28)
+transformer.set_transpose('data', (2,0,1))    #改变维度的顺序，由原始图片(28,28,3)变为(3,28,28)
+#transformer.set_mean('data', np.load(mean_file).mean(1).mean(1))    #减去均值，前面训练模型时没有减均值，这儿就不用
+transformer.set_raw_scale('data', 255)    # 缩放到【0，255】之间
+#transformer.set_channel_swap('data', (2,1,0))   #交换通道，将图片由RGB变为BGR
 
+#im=caffe.io.load_image(img)                   #加载图片
+result=""
+for i in range(len(img_list_paths)):
+    img=img_list_paths[i]
+    im=caffe.io.load_image(img,False)
+    #cv2.imshow("111",im)
+    net.blobs['data'].data[...] = transformer.preprocess('data',im)      #执行上面设置的图片预处理操作，并将图片载入到blob中
 
-# width, height = im_fixed.shape[:2]  # [0开始:长度]
-#
-# print (width,height)
-# v = [0]*width
-# z = [0]*height
-#
-# a = 0
-# #水平投影
-# #统计并存储每一行的黑点数
-# for x in range(0, width):
-#     for y in range(0, height):
-#         if im_fixed[x,y] == 0:
-#             a = a + 1
-#         else :
-#             continue
-#     if a>5:
-#         v[x] = a;
-#     a = 0
-# l = len(v)
-#
-#
+    #执行测试
+    out = net.forward()
 
+    labels = np.loadtxt(labels_filename, str, delimiter='\t')   #读取类别名称文件
+    prob= net.blobs['prob'].data[0].flatten() #取出最后一层（Softmax）属于某个类别的概率值，并打印
+    #print (prob)
+    order=prob.argsort()[-1]  #将概率值排序，取出最大值所在的序号
+    result+=labels[order]+" "
+    #print ('the class is:',labels[order])  #将该序号转换成对应的类别名称，并打印
 
+print(result)
 
-
-#print width
-#创建空白图片，绘制垂直投影图
-# emptyImage = np.zeros((width, height, 3), np.uint8)
-# for x in range(0,width):
-#     for y in range(0, v[x]):
-#         b = (0,0,255)
-#         emptyImage[x,y] = b
-# cv2.imshow('chuizhi', emptyImage)
-
-
-
-
-
-
-# cv2.imshow("warped", im_fixed)
-# cv2.waitKey(0)
-
-
-
-
-# for i in range(length):
-#      cnt = contours[i]
-#      area = cv2.contourArea(cnt)
-#      #print(area)
-#      if area>maxArea:
-#          maxindex=i
-#          maxArea=area
-
-
-
-
-
-         # cv2.drawContours(original_img, [box], -1, (0, 255, 0), 3)
-         # # 中心坐标
-         # x, y = rct[0]
-         # cv2.circle(original_img, (int(x), int(y)), 3, (0, 255, 0), 5)
-         # # 长宽,总有 width>=height
-         # width, height = rct[1]
-         # # 角度:[-90,0)
-         # angle = rct[2]
-         # cv2.drawContours(original_img, cnt, -1, (255, 255, 0), 3)
-         # print('width=', width, 'height=', height, 'x=', x, 'y=', y, 'angle=', angle)
-
-
-                    #cv2.polylines(original_img, [points], True, (100, 255, 100), 2)
-         #cv2.circle(original_img, (cnt[0][0], cnt[1][1]), 1, (0, 0, 255), 20)
-         #points = cv2.convexHull(cnt);
-# print(maxindex)
-# cnt=contours[maxindex]
-#  #for i in range(points_len):
-# #cv2.circle(original_img, (cnt[i][0][0],cnt[i][0][1]), 1, (0, 0, 255), 1)
-# # 获取最小包围矩
-# points = cv2.convexHull(cnt);
-#
-# rct = cv2.minAreaRect(cnt)
-#
-# box = np.int0(cv2.boxPoints(rct))
-# cv2.drawContours(original_img, [box], -1, (0, 255, 0), 3)
-# warped=four_point_transform(original_img,box)
-# cv2.imshow("warped", warped)
-# cv2.waitKey(0)
-
-
-
-
-
-
-
-#         points_len = len(points)
-#         for i in range(points_len):
-#             cv2.circle(original_img, (points[i][0][0],points[i][0][1]), 1, (0, 0, 255), 20)
-#
-#         #cv2.polylines(original_img, [points], True, (100, 255, 100), 2)
-#
-#
-#   # x, y, w, h = cv2.boundingRect(cnt)
-#   #   cv2.rectangle(original_img, (x, y), (x + w, y + h), (153, 153, 0), 5)
-# #     area = cv2.contourArea(cnt)
-# # if area>50000:
-# #         print(area)
-# #         cv2.polylines(original_img, [cnt], True, (100, 255, 100), 2)
-#     # rect = cv2.minAreaRect(cnt)  # 得到最小外接矩形的（中心(x,y), (宽,高), 旋转角度）
-#     # box = np.int0(cv2.boxPoints(rect))  # 通过box会出矩形框
-#     # area = cv2.contourArea(box)
-#     # if area>50000:
-#     #     print(area)
-#     #     cv2.polylines(original_img, [box], True, (100, 255, 100), 2)
-#
-#
-#     # # area= cv2.contourArea(cnt)
-#     # # print(area)
-#     # # if area>maxArea :
-#     # #     maxArea=area
-#     # #     index=i
-#     # print(len(cnt))
-#     # approx = cv2.approxPolyDP(contours[i], 1, True)
-#     # #print(len(approx))
-#     # area = cv2.contourArea(approx)
-#     # cv2.polylines(original_img, [approx], True, (100, 255, 100), 7)
-#
