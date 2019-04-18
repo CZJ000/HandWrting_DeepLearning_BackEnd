@@ -895,7 +895,7 @@ def  AdhereCut(img,img_num):
 
 
 
-original_img = cv2.imread(root+"IMG4.PNG") #F:/handwriting.png
+original_img = cv2.imread(root+"../"+"IMG4.PNG") #F:/handwriting.png
 #bg=cv2.imread(root+"IMG_BG.png")
 img_shape= original_img.shape
 
