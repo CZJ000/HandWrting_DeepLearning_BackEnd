@@ -6,7 +6,7 @@ from enum import Enum
 import glob
 import caffe
 import matplotlib.pyplot as plt
-
+import os
 
 root="./cutpic/"
 class MergeType(Enum):
@@ -968,3 +968,4 @@ for i in range(len(img_list_paths)):
 
 print(result)
 
+os.system("rm "+root+"*png")
