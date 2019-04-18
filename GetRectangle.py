@@ -4,6 +4,9 @@ import numpy as np
 import cmath as math
 from enum import Enum
 import glob
+import caffe
+import matplotlib.pyplot as plt
+
 
 root="./cutpic"
 class MergeType(Enum):
