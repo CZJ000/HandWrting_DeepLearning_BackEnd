@@ -7,9 +7,7 @@
  <input type="button"onclick="uploadImage();"value="提交"/>
  <br/>
  <textarea rows="10" cols="60" id="text" type="text"  readonly="readonly">text文本框</textarea>
- <script type="text/javascript">
-    $.ajaxSetup({headers: {"X-CSRFToken": '{{ csrf_token }}'}});
-</script>
+
 <script>
     
  var image = '';
@@ -30,7 +28,9 @@ reader.readAsDataURL(file.files[0]);
    $.ajax({
     type:'POST',
     url: 'ajax/uploadimage',
-    data: {image: image},
+    data: {image: image,
+        'csrfmiddlewaretoken': '{{csrf_token}}' 
+    },
     async: false,
     dataType: 'json',
     success: function(data){
