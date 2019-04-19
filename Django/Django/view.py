@@ -13,6 +13,7 @@ def select_pic(request):
 
 @csrf_exempt
 def upload_ajax(request):
+     print(1111111)
         if request.method == 'POST':
             img = request.POST.get('image')
             #print(img)
