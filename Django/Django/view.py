@@ -11,7 +11,7 @@ from . import GetRectangle
 import json
 
 
-@csrf_exempt
+
 def upload_ajax(request):
         if request.method == 'POST':
             img = request.POST.get('image')
