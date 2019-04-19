@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
       url(r'^select/', view.select_pic),
        url(r'^select/ajax/uploadimage', csrf_exempt(view.upload_ajax)),
-   
+
 ]

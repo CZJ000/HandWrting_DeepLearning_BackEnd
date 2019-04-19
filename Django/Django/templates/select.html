@@ -23,6 +23,9 @@ reader.readAsDataURL(file.files[0]);
 }
 
  function uploadImage(){
+    $.ajaxSetup({
+    data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
    $.ajax({
     type:'POST',
     url: 'ajax/uploadimage',
