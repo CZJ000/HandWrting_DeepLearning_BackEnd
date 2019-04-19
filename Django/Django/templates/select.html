@@ -30,7 +30,6 @@ reader.readAsDataURL(file.files[0]);
     url: 'ajax/uploadimage',
     data: {image: image,'csrfmiddlewaretoken': '{{csrf_token}}'},
     async: false,
-    dataType: 'json',
     success: function(data){
        alert('上传失败');
        document.getElementById('text').value=data;

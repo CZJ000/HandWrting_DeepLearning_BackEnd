@@ -6,7 +6,6 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import base64
 from . import GetRectangle
-import json
 
 def select_pic(request):
     return render(request, "select.html")
