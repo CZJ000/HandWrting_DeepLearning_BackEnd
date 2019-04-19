@@ -28,9 +28,7 @@ reader.readAsDataURL(file.files[0]);
    $.ajax({
     type:'POST',
     url: 'ajax/uploadimage',
-    data: {image: image,
-        'csrfmiddlewaretoken': '{{csrf_token}}' 
-    },
+    data: {image: image,'csrfmiddlewaretoken': '{{csrf_token}}'},
     async: false,
     dataType: 'json',
     success: function(data){
@@ -39,10 +37,10 @@ reader.readAsDataURL(file.files[0]);
    },
     error: function(XMLHttpRequest, textStatus, errorThrown){
         document.getElementById('text').value=XMLHttpRequest.responseText;
-        alert(jqXHR.responseText);
-        alert(jqXHR.status);
-        alert(jqXHR.readyState);
-        alert(jqXHR.statusText);
+        alert(XMLHttpRequest.responseText);
+        alert(XMLHttpRequest.status);
+        alert(XMLHttpRequest.readyState);
+        alert(XMLHttpRequest.statusText);
         /*弹出其他两个参数的信息*/
         alert(textStatus);
         alert(errorThrown);
