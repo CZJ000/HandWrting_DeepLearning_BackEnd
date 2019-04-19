@@ -19,7 +19,8 @@ from django.contrib import admin
 from . import  view
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+      url(r'^select/ajax/uploadimage', view.upload_ajax),
       url(r'^select/', view.select_pic),
-       url(r'^select/ajax/uploadimage', view.upload_ajax),
+      
 
 ]

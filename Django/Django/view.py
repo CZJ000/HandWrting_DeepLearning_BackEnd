@@ -7,8 +7,8 @@ from django.views.decorators.csrf import csrf_exempt
 import base64
 from . import GetRectangle
 
-def select_pic(request):
-    return render(request, "select.html")
+
+
 
 @csrf_exempt
 def upload_ajax(request):
@@ -34,3 +34,7 @@ def upload_ajax(request):
             status = 0
             result = str
             return HttpResponse(str)
+
+def select_pic(request):
+    return render(request, "select.html")
+

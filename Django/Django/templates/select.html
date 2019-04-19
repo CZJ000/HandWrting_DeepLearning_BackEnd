@@ -31,7 +31,7 @@ reader.readAsDataURL(file.files[0]);
     data: {image: image,'csrfmiddlewaretoken': '{{csrf_token}}'},
     async: false,
     success: function(data){
-       alert(data);
+       alert('上传失败');
        document.getElementById('text').value=data;
    },
     error: function(XMLHttpRequest, textStatus, errorThrown){
