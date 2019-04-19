@@ -5,6 +5,7 @@ from enum import Enum
 import caffe
 import matplotlib.pyplot as plt
 import glob
+import os
 root="./../cutpic" 
 class MergeType(Enum):
     left=0
@@ -855,7 +856,9 @@ def CutImgAndRecognize(img_path):
         order=prob.argsort()[-1] 
         result+=labels[order]+" "
     #print(result)
+    os.system('rm -f '+root+"/*.png")
     return result
+
 
 
 
