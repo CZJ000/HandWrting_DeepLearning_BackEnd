@@ -17,11 +17,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from . import  view
-
+from django.views.decorators.csrf import csrf_exempt
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
      url(r'^search-post/', view.search_post),
       url(r'^select/', view.select_pic),
-       url(r'^select/ajax/uploadimage', view.upload_ajax),
-    
+       url(r'^select/ajax/uploadimage', csrf_exempt(view.upload_ajax())),
+   
 ]
