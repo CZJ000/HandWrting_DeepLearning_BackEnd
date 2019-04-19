@@ -34,7 +34,6 @@ reader.readAsDataURL(file.files[0]);
        document.getElementById('text').value=data;
    },
     error: function(XMLHttpRequest, textStatus, errorThrown){
-    <!--XMLHttpRequest.readyState + XMLHttpRequest.status + -->
         document.getElementById('text').value=XMLHttpRequest.responseText;
         alert(XMLHttpRequest.responseText);
    }
