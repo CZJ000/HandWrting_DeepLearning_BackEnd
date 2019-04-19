@@ -146,7 +146,7 @@ class LinkList(object):
 
         i = 0
         p = self.head
-        # 遍历找到索引值为 index 的结点
+       
         while p.next:
             pre = p
             p = p.next
@@ -156,7 +156,7 @@ class LinkList(object):
                 p = None
                 return 1
 
-        # p的下一个结点为空说明到了最后一个结点, 删除之即可
+      
         pre.next = None
     def getItemList(self):
         item_list=[]
@@ -228,7 +228,7 @@ def vertical(img):
     for x in range(w):
         b_count = 0
         for y in range(h):
-            if pre2_picture[x, y] == 0: #0黑 有字
+            if pre2_picture[x, y] == 0:
                 b_count += 1
                 break
         if b_count>0:
@@ -631,7 +631,7 @@ def  AdhereCut(img,img_num):
         print("refer_Y" + str(refer_Y))
         while start_x > 0 and start_y > 0 and start_y < h:
 
-            if start_y < refer_Y:  # 右优先
+            if start_y < refer_Y:  
                 if gray[start_x - 1][start_y + 1] == 255:  
                     start_x = start_x - 1
                     start_y = start_y + 1
@@ -814,17 +814,8 @@ def CutImgAndRecognize(img_path):
     img_shape = original_img.shape
     w = img_shape[0]
     h = img_shape[1]
-    # canny(): 边缘检测
-    # img1 = cv2.GaussianBlur(original_img, (3, 3), 0)
-    # canny = cv2.Canny(img1, 50, 150)
-    # cv2.imshow("canny", canny)
-    # contours,_ = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    # 灰度图
+ 
     gray = cv2.cvtColor(original_img, cv2.COLOR_BGR2GRAY)
-    # 二值化处理
-    # cv2.threshold（gray, threshold, if(>threshold)= max）
-    # 返回值： threshold,img
-    # retval,
 
  
 
@@ -842,7 +833,7 @@ def CutImgAndRecognize(img_path):
   
     labels_filename = root + '/labels.txt' 
     net = caffe.Net(deploy,caffe_model,caffe.TEST)   
-    #图片预处理设置
+  
     transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})
     transformer.set_transpose('data', (2,0,1))  
     transformer.set_raw_scale('data', 255)   
