@@ -22,7 +22,7 @@ def upload_ajax(request):
             img = img[len(header):]
             imagedata = base64.b64decode(img)
             #print(imagedata)
-            path='E:/1.png'
+            path='./1.png'
             file = open(path, "wb")
             file.write(imagedata)
             file.close()
