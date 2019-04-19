@@ -11,7 +11,6 @@ class MergeType(Enum):
     right=1
     none=2
 class Wave:
-    '所有员工的基类'
     wave_start = [0,0]
     wave_top = [0,0]
     wave_end = [0,0]
@@ -31,10 +30,6 @@ class Node(object):
         self.data = val
         self.next = p
     def __repr__(self):
-        '''
-        用来定义Node的字符输出，
-        print为输出data
-        '''
         return str(self.data)
 class LinkList(object):
     def __init__(self):
@@ -216,13 +211,6 @@ def setTreeTagImage(head,tag_img,val):
         tag_img[p.data[0]][p.data[1]]=val
         p=p.next
 def vertical(img):
-    '''
-    :param img:
-    :param threashold: 阀值
-    :param outDir: 保存位置
-    :return:
-    '''
-
     w, h = img.shape[:2]
     pixdata = img
     outDir="E:/"
@@ -234,69 +222,9 @@ def vertical(img):
     endY = 0
     sum=8
 
-#边界提取
-    # edges_row = []
-    # edges_column = []
-    #
-    #
-    # row_sum=0
-    # col_sum=0
-    #
-    # #边界去黑
-    # for i in range(w):  # 逐个判断
-    #     for j in range(h):
-    #         if pixdata[i][j] == 0:  # 255表示白色
-    #             row_sum+=1
-    #             # print("纵坐标",j)
-    #     if row_sum<(w/2):
-    #         edges_row.append(i)
-    #         row_sum = 0
-    #         break;
-    #     row_sum = 0
-    # for i in reversed(range(w)):  # 逐个判断
-    #     for j in range(h):
-    #         if pixdata[i][j] == 0:  # 255表示白色
-    #             row_sum+=1
-    #     if row_sum<(w/2):
-    #         edges_row.append(i)
-    #         break;
-    #     row_sum=0
-    # for j in range(h):  # 逐个判断
-    #     for i in range(w):
-    #         if pixdata[i][j] == 0:  # 255表示白色
-    #             col_sum += 1
-    #             # print("横坐标",i)
-    #             # print("纵坐标",j)
-    #     if col_sum < (h / 2):
-    #         edges_column.append(j)
-    #         col_sum = 0
-    #         break;
-    #     col_sum=0
-    # for j in reversed(range(h)):  # 逐个判断
-    #     for i in range(w):
-    #         if pixdata[i][j] == 0:  # 255表示白色
-    #             col_sum += 1
-    #             # print("横坐标",i)
-    #             # print("纵坐标",j)
-    #     if col_sum < (h / 2):
-    #         edges_column.append(j)
-    #         break;
-    #     col_sum = 0
-    # # 边界去黑
-    #
-    # #边界提取
-    # bottom = min(edges_row)  # 底部
-    # print(bottom)
-    # top = max(edges_row)  # 顶部
-    # print(top)
-    # left = min(edges_column)
-    # print(left)         #左边界
-    # right = max(edges_column)
-    # print(right)                #右边界
-    # pre2_picture = pixdata[bottom:top,left:right]
-    pre2_picture = pixdata;
-    #cv2.imwrite("F:/emily_65004.png", pre2_picture)
-    #w,h=pre2_picture.shape[:2]
+
+    pre2_picture = pixdata
+
     for x in range(w):
         b_count = 0
         for y in range(h):
@@ -317,29 +245,8 @@ def vertical(img):
         GrayImage =pre2_picture[item['startX']:item['endX'],0:h]
         CCLCut(GrayImage,i)
         y_array = []
-        #print(1111)
-        #cv2.imwrite("E:/" + str(i) + ".png", GrayImage)
-
-        # gh=h
-        # gw=item['endX']-item['startX']
-        # for y in range(gh):
-        #     b_count = 0
-        #     for x in range(gw):
-        #         if GrayImage[x, y] == 255:   #有字
-        #             b_count += 1
-        #     if b_count > 0:
-        #         if startY == 0:
-        #            startY = y
-        #            continue
-        #     if startY != 0 and b_count<=2:
-        #             endY = y
-        #             y_array.append({'startY': startY, 'endY': endY})
-        #             startY = 0
-        # for j,y_item in enumerate(y_array):
-        #     cutImage = GrayImage[0:gw, y_item['startY']:y_item['endY']]
-        #     sum+=1
-        #     cv2.imwrite(outDir + str(i)+"__"+str(j) + ".png",cutImage)
-def CCLCut(img,img_num):        #255白
+        
+def CCLCut(img,img_num):       
     ls = []
     gray=img
     padding_rate=0.1
@@ -364,7 +271,7 @@ def CCLCut(img,img_num):        #255白
 
 
     for i in range(w):
-        if gray[i][0] == 0:  # 0黑有字
+        if gray[i][0] == 0:  
             link_list = LinkList()
             tag_img[i][0] = type_num
             # label_set[i][0]=label_set_count
@@ -373,7 +280,7 @@ def CCLCut(img,img_num):        #255白
             type_num += 1
             # label_set_count+=1
     for j in range(1, h):
-        if gray[0][j] == 0:  # 0有字
+        if gray[0][j] == 0: 
             link_list = LinkList()
             tag_img[0][j] = type_num
             # label_set[0][j] = label_set_count
@@ -391,28 +298,28 @@ def CCLCut(img,img_num):        #255白
             min_index = -1
             if gray[i][j] == 0:
                 if gray[i - 1][j] == 0:
-                    type_list.append(tag_img[i - 1][j])  # 正上
+                    type_list.append(tag_img[i - 1][j])  
                     posi_list.append([i - 1, j])
                 if gray[i - 1][j - 1] == 0:
-                    type_list.append(tag_img[i - 1][j - 1])  # 左上
+                    type_list.append(tag_img[i - 1][j - 1])  
                     posi_list.append([i - 1, j - 1])
                 if gray[i][j - 1] == 0:
-                    type_list.append(tag_img[i][j - 1])  # 左前
+                    type_list.append(tag_img[i][j - 1]) 
                     posi_list.append([i, j - 1])
                 if i < w - 1:
                     if gray[i + 1][j - 1] == 0:
-                        type_list.append(tag_img[i + 1][j - 1])  # 左下
+                        type_list.append(tag_img[i + 1][j - 1]) 
                         posi_list.append([i + 1, j - 1])
                 if len(type_list) > 0:
                     min_index = type_list.index(min(type_list))
                     for c in range(len(type_list)):
                         if c != min_index:
                             # print(type_list[min_index])
-                            if type_list[min_index] != type_list[c] and list_lslink[type_list[c]] != None:  ##当领域相同时 None一次之后其余变空
+                            if type_list[min_index] != type_list[c] and list_lslink[type_list[c]] != None: 
                                 setTreeTagImage(list_lslink[type_list[c]].head, tag_img, type_list[min_index])
                                 list_lslink[type_list[min_index]].appendTree(list_lslink[type_list[c]].head)
                                 list_lslink[type_list[c]] = None
-                    # 对前链表所有minlabel进行设置
+                    
                     tag_img[i][j] = type_list[min_index]
                     list_lslink[type_list[min_index]].append(([i, j]))
                 else:
@@ -500,15 +407,15 @@ def  AdhereCut(img,img_num):
 
     #cv2.waitKey(0)
 
-    # 二值化处理
+
     #_, gray = cv2.threshold(img, 120, 255, cv2.THRESH_BINARY_INV)
     pic = np.zeros((w, h, 3), np.uint8)
-    # 画出下轮廓
+  
     for y in range(0, h):
         lowPoint = [0, 0]
         exist = 0
         for x in range(0, w):
-            if gray[x, y] == 0:  # 0黑色
+            if gray[x, y] == 0:  # 
                 if x > lowPoint[0]:
                     exist = 1
                     pic[lowPoint[0], lowPoint[1]] = (255, 255, 255)
@@ -531,15 +438,14 @@ def  AdhereCut(img,img_num):
 
 
 
-    # 得到下轮廓波峰和波谷
     wave_list = []
     num = 0
     wave_start = ls[0]
-    wave_start_h = ls[0][0]    #//x 坐标值
+    wave_start_h = ls[0][0]    
     wave_top_h = wave_start_h
-    wave_top = []   #top坐标值
+    wave_top = []   
     wave_end_h = 0
-    wave_end = []   #end坐标值
+    wave_end = []  
     top_find = 0
     for i in range(0, len(ls)):
         if top_find == 1:
@@ -564,7 +470,7 @@ def  AdhereCut(img,img_num):
                 wave_top_h = ls[i][0]
                 if i == len(ls) - 1:
                     num += 1
-                    wave_list.append(Wave(wave_start, wave_top, wave_top))  #一条直线时
+                    wave_list.append(Wave(wave_start, wave_top, wave_top))  
             else:
                 top_find = 1
                 wave_end_h = ls[i][0]
@@ -576,7 +482,7 @@ def  AdhereCut(img,img_num):
     avg_w = 0
 
     if num==0:
-        return;
+        return
 
     for i in wave_list:
         avg_h += i.WaveH()
@@ -653,7 +559,7 @@ def  AdhereCut(img,img_num):
 
     wave_list_result.append(merge_wave)
 
-#合并后的波如果只有1 直接存退出
+
     if len(wave_list_result)<=1:
 
         padding_rate=0.2
@@ -716,7 +622,7 @@ def  AdhereCut(img,img_num):
             while y <= h:
                 if (gray[start_posi[0]][y]) == 0:  # 0
                     start_posi = [start_posi[0], y]
-                    break;
+                    break
                 y += 1
         refer_Y = wave_list_result[count + 1].wave_start[1]
         start_x = start_posi[0]
@@ -726,32 +632,32 @@ def  AdhereCut(img,img_num):
         while start_x > 0 and start_y > 0 and start_y < h:
 
             if start_y < refer_Y:  # 右优先
-                if gray[start_x - 1][start_y + 1] == 255:  # 255 右上
+                if gray[start_x - 1][start_y + 1] == 255:  
                     start_x = start_x - 1
                     start_y = start_y + 1
-                elif gray[start_x - 1][start_y] == 255:  # 255 上
+                elif gray[start_x - 1][start_y] == 255: 
                     start_x = start_x - 1
-                elif gray[start_x - 1][start_y - 1] == 255:  # 255 左上
+                elif gray[start_x - 1][start_y - 1] == 255:  
                     start_x = start_x - 1
                     start_y = start_y - 1
-                elif gray[start_x][start_y + 1] == 255:  # 255 右
+                elif gray[start_x][start_y + 1] == 255:  
                     start_y = start_y + 1
-                elif gray[start_x][start_y - 1] == 255:  # 255 左
+                elif gray[start_x][start_y - 1] == 255:  
                     start_y = start_y + 1
                 else:
                     start_x = start_x - 1
-            elif  start_y> refer_Y:  # 左优先
-                if gray[start_x - 1][start_y - 1] == 255:  # 255 左上
+            elif  start_y> refer_Y:  
+                if gray[start_x - 1][start_y - 1] == 255:  
                     start_x = start_x - 1
                     start_y = start_y - 1
-                elif gray[start_x - 1][start_y] == 255:  # 255 下
+                elif gray[start_x - 1][start_y] == 255:  
                     start_x = start_x - 1
-                elif gray[start_x - 1][start_y + 1] == 255:  # 255 右上
+                elif gray[start_x - 1][start_y + 1] == 255:  
                     start_x = start_x - 1
                     start_y = start_y + 1
-                elif gray[start_x][start_y - 1] == 255:  # 255 左
+                elif gray[start_x][start_y - 1] == 255:  
                     start_y = start_y - 1
-                elif gray[start_x][start_y + 1] == 255:  # 255 右
+                elif gray[start_x][start_y + 1] == 255:  
                     # if start_y-1==refer_Y:
                     #     start_y=refer_Y
                     #     break
@@ -835,7 +741,7 @@ def  AdhereCut(img,img_num):
                 imgFix[i, j] = 255 - result_pic[i, j]
         cv2.imwrite(root+"/" +img_num+"."+str(count) +".png", imgFix)
         # for i in range(w):
-        #     gray[i][start_y] = 0 //分界线上色
+        #     gray[i][start_y] = 0 
         count += 1
     cut = gray[0:w, cut_right:wave_list_result[count].wave_end[1]]
     gr_w = cut.shape[0]
@@ -901,45 +807,7 @@ def  AdhereCut(img,img_num):
     # cv2.imshow("pic", result_pic)
     cv2.imwrite(root+"/" + img_num+"."+str(count) + ".png", imgFix)
 
-# original_img = cv2.imread("E:/IMG6.png") #F:/handwriting.png
-# bg=cv2.imread("E:/IMG_BG.png")
-# img_shape= original_img.shape
-#
-# w=img_shape[0]
-# h=img_shape[1]
-# # canny(): 边缘检测
-# #img1 = cv2.GaussianBlur(original_img, (3, 3), 0)
-# #canny = cv2.Canny(img1, 50, 150)
-# #cv2.imshow("canny", canny)
-# #contours,_ = cv2.findContours(canny, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-# maxArea=-9999
-# maxindex=0
-#
-# #灰度图
-# gray=cv2.cvtColor(original_img,cv2.COLOR_BGR2GRAY)
-#
-#
-# #二值化处理
-# #cv2.threshold（gray, threshold, if(>threshold)= max）
-# #返回值： threshold,img
-#
-# #retval,
-#
-#
-# cv2.imshow("gray", gray)
-#
-# im_fixed=cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_MEAN_C ,cv2.THRESH_BINARY,27,27)
-#
-# cv2.imshow("im_fixed", im_fixed)
-#
-# kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(2,2))
-# erosion = cv2.erode(im_fixed,kernel,iterations = 1)
-#
-# cv2.imshow("erosion", erosion)
-# cv2.waitKey(0)
-# vertical(erosion)
-# cv2.waitKey(0)
-#
+
 def CutImgAndRecognize(img_path):
     original_img = cv2.imread(img_path)  # F:/handwriting.png
     #bg = cv2.imread("E:/IMG_BG.png")
@@ -967,21 +835,17 @@ def CutImgAndRecognize(img_path):
     erosion = cv2.erode(im_fixed, kernel, iterations=1)
 
     vertical(erosion)
-    deploy=root + '/lenet_deploy.prototxt'    #deploy文件
-    caffe_model=root + '/lenet_solver_iter_10000.caffemodel'   #训练好的 caffemodel
+    deploy=root + '/lenet_deploy.prototxt'   
+    caffe_model=root + '/lenet_solver_iter_10000.caffemodel'   
     img_list_paths=glob.glob(r""+root+"/*.png")
     img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"\\", '').replace(".png", '').split(".")))
-    #print(img_list_paths)
-    #img=root+'/2__7.png'    #随机找的一张待测图片
-    labels_filename = root + '/labels.txt'  #类别名称文件，将数字标签转换回类别名称
-    net = caffe.Net(deploy,caffe_model,caffe.TEST)   #加载model和network
+  
+    labels_filename = root + '/labels.txt' 
+    net = caffe.Net(deploy,caffe_model,caffe.TEST)   
     #图片预处理设置
-    transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})  #设定图片的shape格式(1,3,28,28)
-    transformer.set_transpose('data', (2,0,1))    #改变维度的顺序，由原始图片(28,28,3)变为(3,28,28)
-    #transformer.set_mean('data', np.load(mean_file).mean(1).mean(1))    #减去均值，前面训练模型时没有减均值，这儿就不用
-    transformer.set_raw_scale('data', 255)    # 缩放到【0，255】之间
-    #transformer.set_channel_swap('data', (2,1,0))   #交换通道，将图片由RGB变为BGR
-    #im=caffe.io.load_image(img)                   #加载图片
+    transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})
+    transformer.set_transpose('data', (2,0,1))  
+    transformer.set_raw_scale('data', 255)   
     result=""
     row=0
     for i in range(len(img_list_paths)):
@@ -992,15 +856,12 @@ def CutImgAndRecognize(img_path):
              row+=1
         im=caffe.io.load_image(img,False)
         #cv2.imshow("111",im)
-        net.blobs['data'].data[...] = transformer.preprocess('data',im)      #执行上面设置的图片预处理操作，并将图片载入到blob中
-        #执行测试
+        net.blobs['data'].data[...] = transformer.preprocess('data',im)      
         out = net.forward()
-        labels = np.loadtxt(labels_filename, str, delimiter='\t')   #读取类别名称文件
-        prob= net.blobs['prob'].data[0].flatten() #取出最后一层（Softmax）属于某个类别的概率值，并打印
-        #print (prob)
-        order=prob.argsort()[-1]  #将概率值排序，取出最大值所在的序号
+        labels = np.loadtxt(labels_filename, str, delimiter='\t')  
+        prob= net.blobs['prob'].data[0].flatten()
+        order=prob.argsort()[-1] 
         result+=labels[order]+" "
-        #print ('the class is:',labels[order])  #将该序号转换成对应的类别名称，并打印
     #print(result)
     return result
 
