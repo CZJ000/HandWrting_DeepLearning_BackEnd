@@ -8,14 +8,6 @@ import base64
 from . import GetRectangle
 import json
 
-# 接收POST请求数据
-def search_post(request):
-    ctx = {}
-    if request.POST:
-        ctx['rlt'] = request.POST['q']
-    return render(request, "post.html", ctx)
-
-
 def select_pic(request):
     return render(request, "select.html")
 
@@ -39,5 +31,5 @@ def upload_ajax(request):
             #     f.write(chunk)
             # f.close()
             status = 0
-            result = "Error!"
+            result = str
             return HttpResponse(str)
