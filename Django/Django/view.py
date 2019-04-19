@@ -10,7 +10,6 @@ import base64
 from . import GetRectangle
 import json
 
-# 接收POST请求数据
 def search_post(request):
     ctx = {}
     if request.POST:
