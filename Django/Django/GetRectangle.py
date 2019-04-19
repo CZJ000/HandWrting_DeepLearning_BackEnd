@@ -495,7 +495,7 @@ def  AdhereCut(img,img_num):
 
     list_length = len(wave_list)
 
-    # 波峰筛选
+    
     wave_list_result = []
     count = 1
     mergeType = MergeType.none
