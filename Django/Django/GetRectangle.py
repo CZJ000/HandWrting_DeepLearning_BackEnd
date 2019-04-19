@@ -829,7 +829,8 @@ def CutImgAndRecognize(img_path):
     deploy=root + '/lenet_deploy.prototxt'   
     caffe_model=root + '/lenet_solver_iter_10000.caffemodel'   
     img_list_paths=glob.glob(r""+root+"/*.png")
-    img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"\\", '').replace(".png", '').split(".")))
+    print(img_list_paths)
+    img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"/", '').replace(".png", '').split(".")))
   
     labels_filename = root + '/labels.txt' 
     net = caffe.Net(deploy,caffe_model,caffe.TEST)   
@@ -841,7 +842,7 @@ def CutImgAndRecognize(img_path):
     row=0
     for i in range(len(img_list_paths)):
         img=img_list_paths[i]
-        pic_name=img.replace(root + "\\", '')
+        pic_name=img.replace(root + "/", '')
         if pic_name[0]!=str(row):
              result+="\n"
              row+=1
