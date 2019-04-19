@@ -15,6 +15,7 @@ def select_pic(request):
 def upload_ajax(request):
      print(1111111)
         if request.method == 'POST':
+             print(22222)
             img = request.POST.get('image')
             #print(img)
             header = "data:image/png;base64,"
