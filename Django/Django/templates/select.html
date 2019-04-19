@@ -25,6 +25,7 @@ reader.readAsDataURL(file.files[0]);
    $.ajax({
     type:'POST',
     url: 'ajax/uploadimage',
+    timeout: 15000,
     data: {image: image},
     async: false,
     dataType: 'json',
