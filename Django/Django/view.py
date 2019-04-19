@@ -10,6 +10,7 @@ import base64
 from . import GetRectangle
 import json
 
+
 def search_post(request):
     ctx = {}
     if request.POST:
@@ -20,7 +21,7 @@ def search_post(request):
 def select_pic(request):
     return render(request, "select.html")
 
-@csrf_protect
+@csrf_exempt
 def upload_ajax(request):
         if request.method == 'POST':
             img = request.POST.get('image')
