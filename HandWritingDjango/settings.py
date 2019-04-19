@@ -25,7 +25,7 @@ SECRET_KEY = 'lb_jgm#&jal-h_zq-$(m-1sjy$94p)&-nk=+)tdto-^h1*#0#p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'HandWritingDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR+"/HandWritingDjango/templates",],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

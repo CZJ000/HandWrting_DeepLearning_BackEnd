@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from . import  view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('search-post/', view.search_post),
+    path('select/', view.select_pic),
+    path('select/ajax/uploadimage', view.upload_ajax),
+    #url(r'^search-post$', view.search_post),
 ]

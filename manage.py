@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+#python manage.py runserver 172.29.32.177:8000
 
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'HandWritingDjango.settings')

@@ -896,76 +896,57 @@ def  AdhereCut(img,img_num):
     cv2.imwrite(root + img_num+"."+str(count) + ".png", imgFix)
     #cv2.imshow('cut', gray)
 
+def CutImgAndRecognize(img_path):
+    # cv2.imread(root+"/../"+"IMG6.PNG")
+    original_img = cv2.imread(img_path)  # F:/handwriting.png
+    #bg = cv2.imread("E:/IMG_BG.png")
+    img_shape = original_img.shape
+    w = img_shape[0]
+    h = img_shape[1]
+    gray = cv2.cvtColor(original_img, cv2.COLOR_BGR2GRAY)
+    cv2.imshow("gray", gray)
+    im_fixed = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 27, 27)
+    cv2.imshow("im_fixed", im_fixed)
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
+    erosion = cv2.erode(im_fixed, kernel, iterations=1)
+    cv2.imshow("erosion", erosion)
+    vertical(erosion)
+    deploy=root + '/lenet_deploy.prototxt'    #deploy文件
+    caffe_model=root + '/_iter_10000.caffemodel'   #训练好的 caffemodel
+    img_list_paths=glob.glob(r""+root+"/*.png")
+    img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root+"\\", '').replace(".png", '').split(".")))
+    #print(img_list_paths)
+    #img=root+'/2__7.png'    #随机找的一张待测图片
+    labels_filename = root + '/labels.txt'  #类别名称文件，将数字标签转换回类别名称
+
+    net = caffe.Net(deploy,caffe_model,caffe.TEST)   #加载model和network
+    #图片预处理设置
+    transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})  #设定图片的shape格式(1,3,28,28)
+    transformer.set_transpose('data', (2,0,1))    #改变维度的顺序，由原始图片(28,28,3)变为(3,28,28)
+    #transformer.set_mean('data', np.load(mean_file).mean(1).mean(1))    #减去均值，前面训练模型时没有减均值，这儿就不用
+    transformer.set_raw_scale('data', 255)    # 缩放到【0，255】之间
+    #transformer.set_channel_swap('data', (2,1,0))   #交换通道，将图片由RGB变为BGR
+    #im=caffe.io.load_image(img)                   #加载图片
+    result=""
+    row=0
+    for i in range(len(img_list_paths)):
+        img=img_list_paths[i]
+        pic_name=img.replace(root + "\\", '')
+        if pic_name[0]!=str(row):
+             result+="\n"
+             row+=1
+        im=caffe.io.load_image(img,False)
+        net.blobs['data'].data[...] = transformer.preprocess('data',im)      #执行上面设置的图片预处理操作，并将图片载入到blob中
+        #执行测试
+        out = net.forward()
+        labels = np.loadtxt(labels_filename, str, delimiter='\t')   #读取类别名称文件
+        prob= net.blobs['prob'].data[0].flatten() #取出最后一层（Softmax）属于某个类别的概率值，并打印
+        #print (prob)
+        order=prob.argsort()[-1]  #将概率值排序，取出最大值所在的序号
+        result+=labels[order]+" "
+        #print ('the class is:',labels[order])  #将该序号转换成对应的类别名称，并打印
+    #print(result)
+    os.system("rm "+root+"*png")
+    return result
 
 
-original_img = cv2.imread(root+"/../"+"IMG6.PNG") #F:/handwriting.png
-#bg=cv2.imread(root+"IMG_BG.png")
-img_shape= original_img.shape
-
-w=img_shape[0]
-h=img_shape[1]
-
-maxArea=-9999
-maxindex=0
-#灰度图
-gray=cv2.cvtColor(original_img,cv2.COLOR_BGR2GRAY)
-
-
-#二值化处理
-#cv2.threshold（gray, threshold, if(>threshold)= max）
-#返回值： threshold,img
-
-#retval,
-im_fixed=cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_MEAN_C ,cv2.THRESH_BINARY,27,27)
-
-kernel = cv2.getStructuringElement(cv2.MORPH_RECT,(2,2))
-
-#
-erosion = cv2.erode(im_fixed,kernel,iterations = 1)
-vertical(erosion)
-
-
-
-#识别
-deploy=root + 'lenet_deploy.prototxt'    #deploy文件
-caffe_model=root + 'lenet_solver_iter_10000.caffemodel'   #训练好的 caffemodel
-
-img_list_paths=glob.glob(r""+root+"*.png")
-
-print(img_list_paths)
-
-img_list_paths.sort(key=lambda x:tuple(int(v) for v in x.replace(root, '').replace(".png", '').split(".")))
-
-
-#img=root+'/2__7.png'    #随机找的一张待测图片
-labels_filename = root + 'labels.txt'  #类别名称文件，将数字标签转换回类别名称
-
-net = caffe.Net(deploy,caffe_model,caffe.TEST)   #加载model和network
-#图片预处理设置
-transformer = caffe.io.Transformer({'data': net.blobs['data'].data.shape})  #设定图片的shape格式(1,3,28,28)
-transformer.set_transpose('data', (2,0,1))    #改变维度的顺序，由原始图片(28,28,3)变为(3,28,28)
-#transformer.set_mean('data', np.load(mean_file).mean(1).mean(1))    #减去均值，前面训练模型时没有减均值，这儿就不用
-transformer.set_raw_scale('data', 255)    # 缩放到【0，255】之间
-#transformer.set_channel_swap('data', (2,1,0))   #交换通道，将图片由RGB变为BGR
-
-#im=caffe.io.load_image(img)                   #加载图片
-result=""
-for i in range(len(img_list_paths)):
-    img=img_list_paths[i]
-    im=caffe.io.load_image(img,False)
-    #cv2.imshow("111",im)
-    net.blobs['data'].data[...] = transformer.preprocess('data',im)      #执行上面设置的图片预处理操作，并将图片载入到blob中
-
-    #执行测试
-    out = net.forward()
-
-    labels = np.loadtxt(labels_filename, str, delimiter='\t')   #读取类别名称文件
-    prob= net.blobs['prob'].data[0].flatten() #取出最后一层（Softmax）属于某个类别的概率值，并打印
-    #print (prob)
-    order=prob.argsort()[-1]  #将概率值排序，取出最大值所在的序号
-    result+=labels[order]+" "
-    #print ('the class is:',labels[order])  #将该序号转换成对应的类别名称，并打印
-
-print(result)
-
-os.system("rm "+root+"*png")

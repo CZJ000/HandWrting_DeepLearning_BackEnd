@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+</head>
+<body>
+    // 注意form上传文件时,需要配置enctype
+<form action="/upload_ajax/" enctype="multipart/form-data" method="POST">
+    <input type="text" name="user" id="user"/>
+    <input type="file" name="img" id="img"/>
+
+</form>
+    <a style="cursor: pointer;display: inline-block;background-color: black;color: white" onclick="UploadFile2();">jQuery上传</a>
+    <script src="/static/jquery-1.12.4.js"></script>
+<script>
+    // ajax + jQuery上传
+    function UploadFile2() {
+        var fileobj = $("#img")[0].files[0];
+        console.log(fileobj);
+        var form = new FormData();
+        form.append('img',fileobj);
+        form.append('user','alex');
+        $.ajax({
+            type:'POST',
+            url:'/upload_ajax/',
+            data:form,
+            processData:false,  // 告诉jquery不转换数据
+            contentType:false,  // 告诉jquery不设置内容格式
+            success:function (arg) {
+                console.log(arg);
+            }
+        })
+    }
+</script>
+
+</body>
+</html>
