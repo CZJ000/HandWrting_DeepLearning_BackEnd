@@ -11,16 +11,6 @@ from . import GetRectangle
 import json
 
 
-def search_post(request):
-    ctx = {}
-    if request.POST:
-        ctx['rlt'] = request.POST['q']
-    return render(request, "post.html", ctx)
-
-
-def select_pic(request):
-    return render(request, "select.html")
-
 @csrf_exempt
 def upload_ajax(request):
         if request.method == 'POST':
@@ -43,3 +33,15 @@ def upload_ajax(request):
             status = 0
             result = "Error!"
             return HttpResponse(str)
+
+
+def search_post(request):
+    ctx = {}
+    if request.POST:
+        ctx['rlt'] = request.POST['q']
+    return render(request, "post.html", ctx)
+
+
+def select_pic(request):
+    return render(request, "select.html")
+
