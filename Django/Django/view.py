@@ -10,14 +10,14 @@ import base64
 from . import GetRectangle
 import json
 
-@csrf_exempt
+
 def search_post(request):
     ctx = {}
     if request.POST:
         ctx['rlt'] = request.POST['q']
     return render(request, "post.html", ctx)
 
-@csrf_exempt
+
 def select_pic(request):
     return render(request, "select.html")
 
