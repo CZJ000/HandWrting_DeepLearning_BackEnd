@@ -9,6 +9,9 @@
  <textarea rows="10" cols="60" id="text" type="text"  readonly="readonly">text文本框</textarea>
 
 <script>
+     $.ajaxSetup({
+    data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
  var image = '';
  function selectImage(file){
   if(!file.files || !file.files[0]){
@@ -23,9 +26,7 @@ reader.readAsDataURL(file.files[0]);
 }
 
  function uploadImage(){
-    $.ajaxSetup({
-    data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-    });
+   
    $.ajax({
     type:'POST',
     url: 'ajax/uploadimage',
