@@ -5,7 +5,7 @@ from enum import Enum
 import caffe
 import matplotlib.pyplot as plt
 import glob
-root='./cutpic/'   #根目录
+root="./cutpic/" 
 class MergeType(Enum):
     left=0
     right=1
