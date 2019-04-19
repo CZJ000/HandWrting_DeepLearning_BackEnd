@@ -39,7 +39,8 @@ reader.readAsDataURL(file.files[0]);
    },
     error: function(XMLHttpRequest, textStatus, errorThrown){
         document.getElementById('text').value=XMLHttpRequest.responseText;
-        alert(XMLHttpRequest.responseText);
+        alert('成功');
+        //alert(XMLHttpRequest.responseText);
    }
    });
 }
