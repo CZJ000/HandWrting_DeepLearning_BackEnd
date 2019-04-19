@@ -7,11 +7,11 @@
  <input type="button"onclick="uploadImage();"value="提交"/>
  <br/>
  <textarea rows="10" cols="60" id="text" type="text"  readonly="readonly">text文本框</textarea>
-
+ <script type="text/javascript">
+    $.ajaxSetup({headers: {"X-CSRFToken": '{{ csrf_token }}'}});
+</script>
 <script>
-     $.ajaxSetup({
-    data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-    });
+    
  var image = '';
  function selectImage(file){
   if(!file.files || !file.files[0]){
