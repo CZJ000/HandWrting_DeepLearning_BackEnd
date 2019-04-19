@@ -20,7 +20,6 @@ from . import  view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-     url(r'^search-post/', view.search_post),
       url(r'^select/', view.select_pic),
        url(r'^select/ajax/uploadimage', view.upload_ajax),
    
