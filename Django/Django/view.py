@@ -21,7 +21,7 @@ def search_post(request):
 def select_pic(request):
     return render(request, "select.html")
 
-@csrf_exempt
+@csrf_protect
 def upload_ajax(request):
         if request.method == 'POST':
             img = request.POST.get('image')
